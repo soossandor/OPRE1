@@ -1,0 +1,160 @@
+\frametitle{Bankár-algoritmus,}
+
+\begin{itemize}
+\item Dijkstra, 1965
+\item Az elnevezés oka az, hogy a bankok is hasonló elvek alapján helyezik ki az erõforrásaikat (hitel)
+\item A hitelkérõ megmondja, hogy mennyi hitelre van szüksége
+\item A bank a megvalósítás ütemében folyósítja a hitelt
+\item Az a hitelfelvevõ tudja visszafizetni a hitelt, aki be tudja fejezni a beruházását, ehhez meg kell kapnia a teljes összeget
+\item Ha a bank túl sok hitelt kezd el folyósítani, akkor elõfordulhat,  hogy elfogy a pénze mielõtt elkészülnének a beruházások, és a hitelfelvevõk még nem tudják visszafizetni a megkapott pénzt
+\item Hogyan viselkedjen a bank, hogy elkerülje ezt a helyzetet?
+\end{itemize}
+
+\framebreak
+
+\begin{itemize}
+\item Változók:
+
+\begin{itemize}
+\item $N$: folyamatok száma
+\item $M$: erõforrástípusok száma
+\item $MAX$, $N\times M$ elemû mátrix: a folyamat maximális igénye az egyes erõforrástípusokból
+\item $SZABAD$, $M$ elemû vektor: a szabad erõforrások száma
+\item $FOGLAL$, $N\times M$ elemû mátrix: az egyes folyamatok által lefoglalt erõforrások száma
+\item $MEG$, $N\times M$ elemû mátrix: még ennyit kérhet a folyamat az egyes erõforrásokból ($MAX-FOGLAL$)
+\item $KER$, $N\times M$ elemû mátrix: a kérések száma
+\item $FOGLAL[i]$ a $FOGLAL$ mátrix $i$-edik sora: az $F_i$ által lefoglalt erõforrások száma
+\item $KER[i]$ a $KER$ mátrix $i$-edik sora: az $F_i$  folyamat kérései az egyes erõforrástípusokból
+\item $MEG[i]$ a $MEG$ mátrix $i$-edik sora: az $F_i$  folyamat maximális kérései az egyes erõforrástípusokból
+\end{itemize}
+
+\end{itemize}
+
+\framebreak
+
+Bankár-algoritmus:
+
+\begin{enumerate}
+\item A kérés ellenõrzése:
+
+\begin{verbatim}
+Ha KER[i] > MEG[i] akkor STOP  // nem kérhet ennyit
+Ha KER[i] > SZABAD akkor VÉGE  // nincs elég erõforrás
+\end{verbatim}
+
+\item A nyilvántartás átállítása az új állapotra:
+
+\begin{verbatim}
+SZABAD := SZABAD - KER[i]
+FOGLAL[i] := FOGLAL[i] + KER[i]
+\end{verbatim}
+
+\item Biztonságosság vizsgálata külön algoritmussal
+
+\item Döntés:
+
+\begin{verbatim}
+Ha nem BIZTONSAGOS akkor
+  az állapot visszaállítása:
+    SZABAD := SZABAD + KER[i]
+    FOGLAL[i] := FOGLAL[i] - KER[i]
+    VÉGE  // várni kell
+egyébként
+  a kérés teljesítése
+  VÉGE
+\end{verbatim}
+
+\end{enumerate}
+
+\framebreak
+
+A biztonságosság vizsgálata:
+
+\begin{itemize}
+\item Változók:
+
+\begin{itemize}
+\item $GYUJTO$, $M$ elemû vektor: a visszakapott erõforrások
+\item $LEFUT$, $N$ elemû logikai vektor: a továbbléptethetõnek talált folyamatok jelzésére
+\end{itemize}
+
+\item Alapötlet:
+
+\begin{itemize}
+\item Sorban keressük meg azokat a folyamatokat, amelyek a legrosszabb esetben is le tudnak futni
+\item A legrosszabb eset az, amikor minden folyamat igényli a maximálisan igényelhetõ mennyiségû erõforrást
+\item Amelyik folyamat ilyen, azt ,,futtassuk le'', adja vissza az erõforrásokat
+\item A keresést most már a bõvebb erõforráskészlettel folytathatjuk
+\item Az algoritmus akkor áll le, ha elfogytak a megfelelõ folyamatok
+\item Ha minden folyamat lefuttathatónak bizonyult, akkor az állapot biztonságos, ha nem, akkor a megmaradt folyamatok holtpontra juthatnak a legrosszabb esetben, ezért az állapot nem biztonságos
+\end{itemize}
+
+\end{itemize}
+
+\framebreak
+
+A biztonságosság ellenõrzése:
+
+\begin{enumerate}
+\item Kezdõértékek beállítása:
+
+\begin{verbatim}
+GYUJTO := SZABAD
+LEFUT[i] := hamis, minden i=1, 2, ..., N-re
+\end{verbatim}
+
+\item Továbblépésre esélyes folyamatok keresése:
+
+\begin{verbatim}
+Keress i-t, amire (LEFUT[i]=hamis és MEG[i]<=GYUJTO)
+Ha van ilyen i, akkor
+  GYUJTO := GYUJTO + FOGLAL[i]
+  LEFUT[i] := igaz
+  ismételd a 2. lépést
+egyébként folytasd a 3. lépéssel
+\end{verbatim}
+
+\framebreak
+
+\item Kiértékelés:
+
+\begin{verbatim}
+Ha LEFUT[i] = igaz, minden i=1, 2, ..., N-re
+  akkor BIZTONSÁGOS
+egyébként NEM BIZTONSÁGOS
+\end{verbatim}
+
+(Azok a $P_i$ folyamatok, amelyekre LEFUT[i] = hamis, holtpontra juthatnak)
+\end{enumerate}
+
+\framebreak
+
+Megjegyzések:
+
+\begin{itemize}
+\item Az algoritmus emlékeztet a Coffman-féle holtpontdetektáló algoritmusra, de ez idõben korábban született
+\item Egypéldányos erõforrások esetén itt is érdemes az erõforrásfoglalási gráfot használni.
+
+\begin{itemize}
+\item Vezessünk be egy új éltípust a lehetséges kérések jelzésére
+\item Ez egy folyamattól vezet egy erõforráshoz, ha a folyamat a jövõben kérheti az erõforrást
+\item Ezzel a jelöléssel a legrosszabb eset azt jelenti, hogy az összes lehetséges kérés él valóságos kéréssé alakul
+\item A biztonságosság mérlegelésekor ezt az élet megfordítjuk (teljesítjük a kérést) és az így kialakult gráfban ellenõrizzük kör meglétét
+\end{itemize}
+
+\item Ezt illusztrálja a következõ ábra
+
+\end{itemize}
+
+\framebreak
+
+\begin{figure}[htbp]
+\centering
+\only<beamer>{\includegraphics[width=0.80\textwidth]{images/potencialis_keresek.jpg}}
+\only<article>{
+\includegraphics[width=1.00\textwidth]{images/potencialis_keresek.jpg}
+\caption{Potenciális kérések az erõforrásfoglalási gráfban}
+}
+\label{fig:potencialis_keresek}
+\end{figure}
+

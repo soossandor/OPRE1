@@ -1,0 +1,1036 @@
+% $Header: /cvsroot/latex-beamer/latex-beamer/solutions/conference-talks/conference-ornate-20min.en.tex,v 1.7 2007/01/28 20:48:23 tantau Exp $
+
+% Version for PROJECTOR (Vetíthetõ változat)
+% Uncomment the next line (A vetíthetõ változathoz vedd ki a % jelet a következõ sor elejérõl)
+%\documentclass{beamer}
+% End of version for PROJECTOR (A vetíthetõ változat vége)
+
+% PRINTABLE version (Nyomtatható változat):
+% Uncomment the next two lines (vedd ki a % jelet a következõ 2 sor elejérõl)
+%\documentclass{article}
+%\usepackage{beamerarticle}
+% End of PRINTABLE version (A nyomtatott változat beállításának vége)
+
+
+% This file is a solution template for:
+
+% - Talk at a conference/colloquium.
+% - Talk length is about 20min.
+% - Style is ornate.
+
+
+
+% Copyright 2004 by Till Tantau <tantau@users.sourceforge.net>.
+%
+% In principle, this file can be redistributed and/or modified under
+% the terms of the GNU Public License, version 2.
+%
+% However, this file is supposed to be a template to be modified
+% for your own needs. For this reason, if you use this file as a
+% template and not specifically distribute it as part of a another
+% package/program, I grant the extra permission to freely copy and
+% modify this file as you see fit and even to delete this copyright
+% notice. 
+
+
+\mode<presentation>
+{
+	\usetheme{Warsaw}
+	% or ...
+	
+	\setbeamercovered{transparent}
+	% or whatever (possibly just delete it)
+}
+
+% Magyar szöveg
+\usepackage[magyar]{babel}		% a Babel csomagot a magyar nyelvvel használjuk
+\usepackage[latin2]{inputenc}		% Latin-2-es kódolású ez a forrás
+\usepackage{t1enc}			% a belsõ ábrázolás és a kimeneti font-kódolás
+% a T1 kódolás
+\usepackage{indentfirst}		% az elsõ bekezdés is behúzott legyen, ne csak a 2-tól
+\frenchspacing				% a mondatköz ugyanakkora nagy, mint a szóköz
+\setlength{\parskip}{\smallskipamount}	% bekezdések közötti távolság beállítása
+% (gumi-méret: 3pt plus 1pt minus 1 pt)
+% Magyar szöveg vége
+
+
+% Angol szöveg
+%\usepackage[english]{babel}
+%\usepackage[latin1]{inputenc}
+%\usepackage{times}
+%\usepackage[T1]{fontenc}
+% Angol szöveg vége
+
+
+% Or whatever. Note that the encoding and the font should match. If T1
+% does not look nice, try deleting the line with the fontenc.
+
+\def\screenshotsize{0.70}
+\def\screenshotsizeB{0.50}
+\def\maintitle{Operációs rendszerek 1. -- Bevezetés}
+\def\shorttitle{OPRE1 -- Bevezetés}
+\def\longdate{2014. õsz}
+\def\shortdate{2014. õsz}
+
+
+\usepackage{graphicx}
+\usepackage{amsfonts}
+
+\only<beamer>{
+	%Insert frame number to footline
+	%Tested with the next themes: Warsaw, Berlin, Szeged, ...
+	\newcommand*\oldmacro{}%
+	\let\oldmacro\insertshorttitle%
+	\renewcommand*\insertshorttitle{%
+		\oldmacro\hfill%
+		\insertframenumber\,/\,\inserttotalframenumber}
+	%End of frame number to footline
+}
+
+\title[\shorttitle] % (optional, use only with long paper titles)
+{\maintitle}
+
+\author[Soós Sándor] % (optional, use only with lots of authors)
+{Soós Sándor}
+% - Give the names in the same order as the appear in the paper.
+% - Use the \inst{?} command only if the authors have different
+%   affiliation.
+
+\institute[NYME SKK INGA] % (optional, but mostly needed)
+{
+	%  \inst{1}%
+	Nyugat-magyarországi Egyetem\\
+	Simonyi Károly Mûszaki, Faanyagtudományi és Mûvészeti Kar\\
+	Informatikai és Gazdasági Intézet\\
+	\vspace{0.3cm}
+	E-mail: soossandor@inf.nyme.hu
+}
+% - Use the \inst command only if there are several affiliations.
+% - Keep it simple, no one is interested in your street address.
+
+\date[\shortdate] % (optional, should be abbreviation of conference name)
+{\longdate}
+% - Either use conference name or its abbreviation.
+% - Not really informative to the audience, more for people (including
+%   yourself) who are reading the slides online
+
+% Delete this, if you do not want the table of contents to pop up at
+% the beginning of each subsection:
+\AtBeginSubsection[]
+{
+	\begin{frame}<beamer>{Hol tartunk?}
+		\tableofcontents[currentsection,currentsubsection]
+	\end{frame}
+}
+
+
+% If you wish to uncover everything in a step-wise fashion, uncomment
+% the following command: 
+
+%\beamerdefaultoverlayspecification{<+->}
+
+\begin{document}
+	
+	
+	\only<article>{
+		\begin{titlepage}
+			
+			\begin{center}
+				
+				%\vspace*{1cm}
+				\Large
+				\textsc{\maintitle}\\
+				
+				\vspace{5cm}
+				
+				%\LARGE
+				\textsc{Soós Sándor}\\
+				
+				\vspace{3cm}
+				
+				Nyugat-magyarországi Egyetem\\
+				Simonyi Károly Mûszaki, Faanyagtudományi és Mûvészeti Kar\\
+				Informatikai és Gazdasági Intézet\\
+				\vspace{0.3cm}
+				E-mail: soossandor@inf.nyme.hu\\
+				\vspace{1.0cm}
+				%\textsc{\today}\\ %%Date - better you write it yourself.
+				\textsc{\longdate}\\
+				
+			\end{center}
+			
+		\end{titlepage}
+	}
+	
+	% If you have a file called "university-logo-filename.xxx", where xxx
+	% is a graphic format that can be processed by latex or pdflatex,
+	% resp., then you can add a logo as follows:
+	
+	\only<beamer>{
+		\pgfdeclareimage[height=1cm]{university-logo}{images/nyme_skk}
+		\logo{\pgfuseimage{university-logo}}
+	}
+	
+	%\only<beamer>{\subject{Practical Computer Science}}
+	% This is only inserted into the PDF information catalog. Can be left
+	% out. 
+	
+	
+	\only<beamer>{
+		\begin{frame}{}
+			\titlepage
+		\end{frame}
+	}
+	
+	\begin{frame}{Tartalomjegyzék}
+		\tableofcontents
+		% You might wish to add the option [pausesections]
+	\end{frame}
+	
+	
+
+% Structuring a talk is a difficult task and the following structure
+% may not be suitable. Here are some rules that apply for this
+% solution: 
+
+% - Exactly two or three sections (other than the summary).
+% - At *most* three subsections per section.
+% - Talk about 30s to 2min per frame. So there should be between about
+%   15 and 30 frames, all told.
+
+% - A conference audience is likely to know very little of what you
+%   are going to talk about. So *simplify*!
+% - In a 20min talk, getting the main ideas across is hard
+%   enough. Leave out details, even if it means being less precise than
+%   you think necessary.
+% - If you omit details that are vital to the proof/implementation,
+%   just say so once. Everybody will be happy with that.
+
+
+\section*{Bevezetés}
+\label{sec:Bevezetés}
+
+\subsection*{A félév rendje}
+\label{sec:AFelevRendje}
+
+\begin{frame}{Bevezetés}
+
+\begin{itemize} %[<+->]
+	\item A tárgy célja:
+	
+	\begin{enumerate}
+		\item Ebben a félévben csak elõadás -- Operációs rendszerek 1. (OPRE1)
+		
+		\begin{itemize}
+			\item Az operációs rendszer fogalma
+			\item Az operációs rendszerek kialakulása, fejlõdéstörténete
+			\item A multiprogramozott operációs rendszerek jellemzõi
+			\item Biztonsági kérdések
+			\item A rendszermag (kernel) legfontosabb feladatai
+			\item Hálózati elosztott rendszerek
+		\end{itemize}
+		
+		\item Jövõ félévben csak gyakorlat -- Operációs rendszerek 2. (OPRE2)
+		\begin{itemize}
+			\item Windows és Linux operációs rendszerek használata, üzemeltetése
+		\end{itemize}
+	\end{enumerate}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[allowframebreaks]{A félév rendje}
+
+\begin{itemize} %[<+->]
+	\item Elõadás
+		\begin{itemize}
+			\item Minden héten szerdán 10:00-12:30, GT021
+			\item Az elõadásokon való részvétel kötelezõ, katalógus
+			\item Legfeljebb 2 hiányzás lehetséges orvosi igazolással
+			\item 1 zárthelyi dolgozat
+			\item Szóbeli vizsga
+		\end{itemize}
+
+	\framebreak
+	
+	\item Az aláírás feltétele: 
+		\begin{itemize}
+			\item Részvétel az elõadásokon, legfeljebb 2 kivétellel
+			\item A zárthelyi megírása legalább elégséges eredménnyel
+		\end{itemize}
+			
+	\item A félévi jegy:
+		\begin{itemize}
+			\item Zárthelyi: $50\%$
+			\item Szóbeli vizsga: $50\%$
+		\end{itemize}
+	
+	\item Mit kell tudni a vizsgán és a zárthelyin?
+		
+		\begin{itemize}
+			\item Ami az elõadáson elhangzott
+			\item Ami a kiadott elõadásvázlatokban szerepel
+		\end{itemize}
+		
+	\item Javasolt módszer: 
+		
+		\begin{itemize}
+			\item Elõadásvázlat kinyomtatva + saját jegyzetelés
+			\item Az elõadáson notebook nem használható
+		\end{itemize}
+		
+			
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Mit adunk ezért?}
+
+\begin{itemize} %[<+->]
+	\item A két félév alatt 3-3 kredit!
+	\item Elméleti tudás, gyakorlati tapasztalat
+	\item Jobban értjük, mi történik a számítógépben
+\end{itemize}
+
+\end{frame}
+
+
+\subsection*{Információ források}
+\label{sec:InformacioForrasok}
+
+\begin{frame}{Információ források}
+
+\begin{itemize}
+	\item Könyvek: 
+	
+		\begin{itemize}
+			\item Kóczy Annamária-Kondorosi Károly: \textbf{Operációs rendszerek mérnöki megközelítésben} (Panem, Budapest, 2000.)
+			\item A. S. Tanenbaum, A. S. Woodhull: \textbf{Operációs rendszerek, Tervezés és implementáció, 2. kiadás} (Panem - Pearson-Prentice-Hall, Budapest, 2007.)
+		\end{itemize}
+	
+	\item Elõadásjegyzetek: 
+	
+		\begin{itemize}
+			\item a tárgy honlapján: http://inf.nyme.hu/  
+			\item classroom.google.com
+		\end{itemize}
+	
+	\item Internet: 
+	
+		\begin{itemize}
+			\item \textit{,,Google a barátunk''}, sok link fog szerepelni az elõadásokon
+			\item Az elsõ könyv elektronikus formában: http://www.tankonyvtar.hu/hu/tartalom/tkt/operacios-rendszerek
+		\end{itemize}
+	
+\end{itemize}
+	
+\end{frame}
+
+\section{Alapfogalmak}
+\label{sec:Alapfogalmak}
+
+\subsection{Az operációs rendszer fogalma}
+\label{sec:AzOperaciosRendszerFogalma}
+
+\begin{frame}{Az operációs rendszer fogalma}
+	
+	\begin{itemize}
+		\item Mit nevezünk operációs rendszernek? \pause
+		\item Miért van szükség operációs rendszerre? \pause
+		\item Milyen a jó operációs rendszer? \pause
+		\item Milyen operációs rendszereket ismerünk? \pause
+		\item Mit csinál az operációs rendszer? \pause
+		\item Létezik számítógép operációs rendszer nélkül? \pause
+	\end{itemize}
+
+	%\pause
+	
+	\begin{block}{}
+	  
+		\begin{center}
+		  Ezekrõl a kérdésekrõl fog szólni ez a tantárgy!
+		\end{center}
+		
+	\end{block}
+	
+\end{frame}
+
+\begin{frame}{Hogyan mûködik egy mai számítógép?}
+	
+	\begin{itemize}
+		\item Mit kapunk, ha veszünk egy számítógépet?
+		\item Hogyan vesszük használatba?
+    
+		\begin{itemize}
+			\item Kibontjuk a dobozt
+			\item Mi történik, ha most bekapcsoljuk a gépet?
+			\item Mûködik most a számítógép?
+			\item Tudjuk használni valamire?
+			\item Mi kell ahhoz, hogy használni tudjuk?
+		\end{itemize}
+
+		\item Hardver -- Szoftver
+		\item Milyen szoftverekre van szükségünk?
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}[allowframebreaks]{Miért van szükség az operációs rendszerre?}
+	
+Két nézõpont: felhasználó -- programozó
+		
+		\begin{enumerate}
+			\item A felhasználó szempontjából
+			
+			\begin{itemize}
+				\item a hardver kezelése nagyon bonyolult:
+				\begin{itemize}
+					\item csak egyszerû parancsokat ért meg: pörgesd fel a lemezt, vidd az olvasófejet egy adott szektor fölé, olvass be x bájtot stb.
+					\item mit szeretne a felhasználó: játszd le a behelyezett lemezen lévõ filmet
+					\item ezt teszi lehetõvé az operációs rendszer
+				\end{itemize}
+
+				\item sokféle hardvereszközt kell kezelni:
+				
+				\begin{itemize}
+					\item fájlok tárolására szolgáló eszközök: merevlemez, hajlékonylemez, CD, DVD, pendrive, memóriakártya, hálózati meghajtók
+					\item különbözõ fajta nyomtatók: mátrix, tintasugaras, lézer, 
+					\item mi lenne ha ezeket különbözõképpen kellene kezelni?
+				\end{itemize}
+				
+			\end{itemize}
+			\framebreak
+			\item A programozó szempontjából
+			
+			\begin{itemize}
+				\item ugyanezek a szempontok a programozó szempontjából is felmerülnek
+				\item egyszer mindenképpen meg kell írni ezeket a hardverkezelõ programrészleteket, de nem lenne jó, ha
+				
+				\begin{itemize}
+					\item[\dots] minden programozónak értenie kellene az alacsonyszintû programozáshoz
+					\item[\dots] minden programozónak ismernie kellene a különbözõ gyártók eszközeinek programozását
+					\item[\dots] egy új eszköz megjelenésekor újra kellene írni minden programot
+					\item[\dots] minden programozó hozzáférne a hardvereszközök alacsonyszintû kezeléséhez, nagyon veszélyes lenne!
+					\item[\dots] ha az egyes programozóknak kellene összehangolniuk az eszközök mûködését és osztozkodniuk a hardver erõforrásokon
+				\end{itemize}
+				
+			\end{itemize}
+			
+		\end{enumerate}
+		
+\end{frame}
+
+\begin{frame}[allowframebreaks]{A megoldás}
+
+\begin{itemize}
+	\item Minden részfeladatot ott oldjunk meg, ahol az a legmegfelelõbb:
+	
+	\begin{itemize}
+		\item a hardvereszközök kezelését írja meg az eszköz gyártója, merevlemezgyártó, CD olvasó gyártója, nyomtatógyártó, stb.
+		\item mindenki tartson be bizonyos megállapodásokat, szabványokat
+		\item mindenki felhasználhatja a többi gyártó szabványos megoldásait
+		\item az eszközök együttmûködését biztosító programokat írja meg egyetlen szoftvergyártó (operációs rendszer)
+		\item a többi szoftvergyártó használja az operációs rendszer szolgáltatásait, ne foglalkozzon az alatta lévõ megoldásokkal
+	\end{itemize}
+	
+	\item Ezt nevezzük réteges felépítésnek
+	\item Ezt a megoldást még nagyon sokszor fogjuk látni különbözõ informatika rendszerekben, a legkülönbözõbb tantárgyakban
+	\item Minden rendszer ilyen?
+\end{itemize}
+	
+\end{frame}
+
+\begin{frame}{A számítógép réteges felépítése}
+
+\begin{figure}[htbp]
+	\centering
+		\only<beamer>{\includegraphics[height=0.80\textheight]{images/szg_retegek.jpg}}
+		\only<article>{
+		  \includegraphics[width=1.00\textwidth]{images/szg_retegek.jpg}
+			\caption{A számítógép réteges felépítése}
+		}
+	\label{fig:szg_retegek}
+\end{figure}
+	
+\end{frame}
+
+\begin{frame}[allowframebreaks]{Az operációs rendszer fogalma}
+	
+	\begin{itemize}
+		\item A réteges felépítés középsõ rétegének (RENDSZERPROGRAMOK) egy részét nevezzük operációs rendszernek
+		\item A határok nem pontosan definiáltak
+		\item Az egyértelmû, hogy a rendszermag (kernel) mindig az operációs rendszer része
+		\item A kernel irányítja a számítógép mûködését 
+		\item Innen ered az elnevezés:
+		
+		\begin{itemize}
+			\item \textbf{Operating System}, magyarul \textbf{Mûködtetõ rendszer}
+			\item Az Operációs rendszer egy tükörfordítás, nem igazán szerencsés
+			\item A késõbbiekben röviden \textbf{OS}-nek is fogjuk nevezni az angol elnevezés rövidítéseként
+		\end{itemize}
+		
+		\item Van, aki az operációs rendszer részének tekinti a gép használatát megkönnyítõ segédprogramokat is
+		\item Ebben a tárgyban elsõsorban a kernellel fogunk foglalkozni
+		
+	\end{itemize}
+	
+\end{frame}
+
+\subsection{Az operációs rendszer feladata}
+\label{sec:AzOperaciosRendszerFeladata}
+
+\begin{frame}{Az operációs rendszer feladata}
+	
+Az operációs rendszer alapvetõen két feladatot lát el:
+
+\begin{enumerate}
+	\item A \textit{\textbf{felhasználó}} számára kényelmes és hatékony \textit{\textbf{munkavégzést}} biztosít a számítógépen
+	\item Biztosítja a számítógép \textit{\textbf{erõforrásainak}} hatékony, \textit{\textbf{biztonságos}} és \textit{\textbf{igazságos}} használatát (irányítás, koordinálás)
+\end{enumerate}
+	
+	A \textbf{\textit{dõlt, félkövér}} betûvel írt fogalmak további elemzést igényelnek. Errõl (is) fog szólni ez a félév.
+	
+\end{frame}
+
+\subsection*{Virtualizáció}
+\label{sec:Virtualizacio}
+
+\begin{frame}{A virtuális gép koncepció}
+	
+	\begin{itemize}
+		\item Napjainkban az informatika egyik legdivatosabb fogalma a virtualizáció
+		\item Nagyon sok területen használjuk, sokféle értelemben
+		\item Gyakran fogunk találkozni ezzel a különbözõ órákon és a gyakorlatban is
+		\item \textbf{Most:} Az operációs rendszer is létrehoz egy virtuális gépet
+		
+		\begin{itemize}
+			\item A valódi számítógépen (hardver) fut
+			\item A felhasználó számára egy másik (virtuális) számítógépet mutat
+			
+			\begin{itemize}
+				\item merevlemez, pendrive, CD, DVD eszközök helyett C:, D:, E: meghajtók
+				\item VGA, TFT monitor, projektor helyett különbözõ felbontású kijelzõk
+				\item különbözõ nyomtatók helyett nyomtatásvezérlõ
+				\item stb.
+			\end{itemize}
+			
+		\end{itemize}
+		
+	\end{itemize}
+	
+\end{frame}
+
+
+\section{Az operációs rendszerek története}
+\label{sec:AzOperaciosRendszerekTortenete}
+
+\begin{frame}{Az operációs rendszerek története}
+	
+	\begin{itemize}
+		\item Az operációs rendszerek története szorosan összekapcsolódik az általuk mûködtetett számítógépek történetével
+		\item A fejlõdés vizsgálata segít megérteni az operációs rendszerek lényegét
+		\item Speciális szempontból vizsgáljuk a fejlõdést (részletesebben: Számítógép architektúrák)
+		\item Az operációs rendszerek fejlesztõi minden korban arra törekedtek, hogy az adott kor színvonalán minél jobban ki tudjuk használni a (drága) hardver eszközöket
+		\item Amikor egy adott szinten sikerült hatékony megoldást találni, akkor továbbléptek a következõ célok megoldása felé
+		\item A fõ szempont a hatékonyság növelése
+		\item Mit értünk hatékonyság alatt?
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}{Hatékonyság}
+	
+\begin{block}{}
+	$$hatekonysag = \frac{eredmeny}{raforditas} $$
+\end{block}
+	
+	\begin{itemize}
+		\item Hogyan növelhetõ a hatékonyság?
+		
+		\begin{enumerate}
+			\item Az eredmény javításával: pontosabb, gyorsabb
+			\item A ráfordítás csökkentésével: kevesebb erõforrás használata (emberi munka, gépidõ)
+		\end{enumerate}
+		
+		\item Az operációs rendszerek fejlesztésekor mindkettõn dolgozunk folyamatosan
+		\item A hatékonyság mérése:
+		
+		\begin{itemize}
+			\item Processzor kihasználtság
+			\item Áteresztõképesség: $\frac{munka (job)}{ido (ora)}$
+		\end{itemize}
+		
+	\end{itemize}
+	
+\end{frame}
+
+\subsection{0. generáció}
+\label{sec:0Generacio}
+
+\begin{frame}{Õskor, 0. generáció}
+	
+	\begin{itemize}
+		\item Az elsõ digitális számítógépeket Charles Babbage (1791-1871) tervezte differenciál gép és analitikai gép néven
+		\item Nem sikerült megépítenie mûködõképes állapotban, de meglepõen hasonló elveket használt mint a mai számítógépek
+		\item Az eredeti tervek alapján, korabeli alkatrészekbõl sikerült megépíteni 1989-91-ben
+		\item Õ alkalmazta az elsõ programozót Ada Lovelace személyében (Lord Byron lánya), róla nevezték el az Ada programozási nyelvet
+		\item Bõvebben: http://hu.wikipedia.org/wiki/Babbage
+		\item Ezeknek a gépeknek még nem volt operációs rendszere
+	\end{itemize}
+		
+\end{frame}
+
+\subsection{1. generáció}
+\label{sec:1Generacio}
+
+\begin{frame}{1. generáció (1945-1955): vákuumcsövek és kapcsolótáblák}
+
+\begin{itemize}
+	\item II. világháború, rejtjelezés, kódfejtés
+	\item teljes mérnökcsapat kezelte a számítógépet, mindent ez a csapat csinált
+	\item gyakori meghibásodás
+	\item gépi kód, kapcsolótáblák
+	\item programozási nyelvek nem voltak, még assembly sem
+	\item a programozás is kapcsolótáblákkal történt
+	\item az 1950-es évek elejétõl lyukkártyák
+	\item nem volt operációs rendszer
+\end{itemize}
+	
+\end{frame}
+
+\subsection{2. generáció}
+\label{sec:2Generacio}
+
+\begin{frame}[allowframebreaks]{2. generáció (1955-1965): tranzisztorok és kötegelt rendszerek}
+
+\begin{itemize}
+	\item a tranzisztorok megjelenésével megnõtt a számítógépek megbízhatósága
+	\item a számítógép hasznos munkát tudott végezni
+	\item kezelõszemélyzet: tervezõk, gyártók, kezelõk, programozók, karbantartók
+	\item nagyszámítógépek, mainframe-ek, légkondicionált gépterem
+	\item A munkafolyamat:
+	
+	\begin{itemize}
+		\item programozó megírja a programot papíron, FORTRAN, vagy assembly nyelven
+		\item lyukkártyára lyukasztják
+		\item a kártyacsomagot beviszik a fogadó terembe, átadják a kezelõknek
+		\item a kezelõ lefuttatja a programot, kinyomtatja az eredményt
+		\item a kiviteli teremben a programozó megkapja a kinyomtatott eredményt (hibalistát)
+	\end{itemize}
+	
+	\item Idõveszteség: ha egy feladathoz szükség van valamilyen eszközre, pl. FORTRAN fordító, akkor a kezelõ betölti azt is a gépbe
+	\item Cél: minél jobban használjuk ki a rendelkezésre álló gépidõt
+	
+	\framebreak
+	
+	\item Megoldás: \textbf{kötegelt feldolgozás}, \textbf{batch feldolgozás}
+	
+	\begin{itemize}
+		\item a fogadóteremben összeválogatják a hasonló feladatokat (job), pl. a FORTRAN fordítót igénylõket
+		\item ezeket egymás után futtatják
+		\item csak egyszer kell betölteni a FORTRAN fordítót
+	\end{itemize}
+	
+	\framebreak
+	
+	\item További hatékonyságnövelõ megoldások:
+	
+	\begin{itemize}
+		\item mágnesszalag használata
+		\item beállítunk egy vagy két olcsó számítógépet a periféria mûveletekre
+		\item online helyett offline mûködés
+		\item egyszerû monitor program (resident monitor) (az elsõ operációs rendszer)
+		\item jobvezérlõ program
+		\item memória felosztása: monitor memóriaterület -- felhasználói terület
+	\end{itemize}
+	
+	\framebreak
+	
+	\item Új munkafolyamat:
+	
+	\begin{itemize}
+		\item a fogadó oldalra beállítunk egy kisebb számítógépet, ami beolvassa a lyukkártyákat és mágnesszalagra írja azokat
+		\item a mágnesszalagot az operátorok átviszik a nagy számítógéphez
+		\item a monitor program beolvassa a mágnesszalagot és feldolgozza a rajta lévõ feladatokat a jobvezérlõ programok alapján
+		\item a programok eredményeit felírja egy másik mágnesszalagra
+		\item az operátorok kiviszik a mágnesszalagot a kimeneti teremben lévõ harmadik számítógéphez
+		\item a kimeneti számítógép kinyomtatja a programok eredményeit
+	\end{itemize}
+	
+	\framebreak
+	
+	\item Eredmény:
+	
+	\begin{itemize}
+		\item a drága központi számítógép ideje nagy részében a feladatokkal foglalkozhat
+		\item a lassú periféria mûveleteket olcsóbb számítógépekkel végeztetjük
+		\item az operátorok munkájának egy részét (programok betöltése, elindítása) az állandóan a memóriában lévõ monitor program végzi, ez is gyorsítja a központi számítógép munkáját, mert nem kell várni az operátorra
+	\end{itemize}
+	
+	\item A mai számítógépekben használjuk ezeket a módszereket?
+	
+	\framebreak
+	
+	\item Hol használjuk ezeket a módszereket a mai számítógépekben?
+	
+	\begin{itemize}
+		\item Nyomtatás: 
+		
+		\begin{itemize}
+			\item Fájl menü, Nyomtatás parancs
+			\item Dolgozhatunk tovább
+			\item A program a háttérben elküldi a nyomtatnivalót a nyomtatásvezérlõnek, és az elvégzi a nyomtatást
+			\item A nyomtatóban is van egy processzor, ami elvégzi a nyomtatást
+		\end{itemize}
+		
+		\item Nagyfelbontású 2D/3D grafikus megjelenítés:
+		
+		\begin{itemize}
+			\item a mai korszerû grafikus kártyákon van processzor és memória
+			\item a CPU elküldi a kirajzolandó kép adatait a grafikus kártyának és dolgozik tovább
+			\item a grafikus kártyán lévõ processzor rajzolja ki a képet
+		\end{itemize}
+		
+		\item Batch fájlok DOS és Windows alatt (*.BAT), script fájlok Linux alatt
+		
+		\begin{itemize}
+			\item Egy szöveg fájlban leírjuk azokat a parancsokat, amelyeket egymás után végre akarunk hajtani
+			\item A batch/script fájl elindításakor az operációs rendszer sorban végrehajtja a benne szereplõ parancsokat
+			\item Használhatunk vezérlõszerkezeteket (elágazás, ciklus), lásd Programozási alapok 1.
+		\end{itemize}
+				
+	\end{itemize}
+		
+\end{itemize}
+	
+\end{frame}
+
+\begin{frame}{On-line és off-line perifériás mûveletek}
+
+\begin{figure}[htbp]
+	\centering
+		\only<beamer>{\includegraphics[width=0.90\textwidth]{images/batch_online_offline.jpg}}
+		\only<article>{
+			\includegraphics[width=1.00\textwidth]{images/batch_online_offline.jpg}
+			\caption{On-line és off-line perifériás mûveletek}
+			}
+	\label{fig:batch_online_offline}
+\end{figure}
+
+(a) On-line perifériák \newline
+
+(b) Off-line perifériák
+				
+		%\begin{enumerate}[(a)]
+			%\item  On-line perifériák
+			%\item Off-line perifériák
+		%\end{enumerate}
+		
+\end{frame}
+
+\begin{frame}{Munka vezérlõ program -- OS Job Control}
+	
+	\begin{figure}[htbp]
+		\centering
+			\only<beamer>{\includegraphics[width=0.90\textwidth]{images/batchprogram.jpg}}
+			\only<article>{
+				\includegraphics[width=1.00\textwidth]{images/batchprogram.jpg}
+				\caption{Munka vezérlõ program -- OS Job Control}
+				}
+		\label{fig:batchprogram}
+	\end{figure}
+				
+\end{frame}
+
+\subsection{3. generáció}
+\label{sec:3Generacio}
+
+\begin{frame}[allowframebreaks]{3. generáció (1965-1980): integrált áramkörök}
+	
+	\begin{itemize}
+		\item A 2. generációban alkalmazott módszerek megoldottak egy fontos problémát: megnövelték a drága számítógépek kihasználtságát, ezzel lecsökkentették a fajlagos költségeket
+		\item Viszont szültek egy új problémát: a számítóközpontokban kétféle számítógép típus jelent meg
+		
+		\begin{enumerate}
+			\item nagy teljesítményû tudományos komputerek
+			\item kisebb teljesítményû perifériakezelõ számítógépek
+		\end{enumerate}
+		
+		\item Ezeket eltérõ módon kellett programozni, több, eltérõ tudású programozóra, fejlesztõeszközre volt szükség
+		\item Ez megnövelte a költségeket
+		\item A számítógépgyártók erre a problémára kerestek megoldást
+		\framebreak
+		\item Az IBM válasza: System/360 gépcsalád
+		
+		\begin{itemize}
+			\item a család különbözõ méretû (memória, gyorsaság, perifériák, ár, teljesítmény) számítógépekbõl állt
+			\item de ezek egymással kompatibilisek voltak, azaz bármelyik gépre írt program fut az összes többin is (legalábbis elvileg)
+			\item ez sok elõnnyel járt, de sokkal bonyolultabb operációs rendszerre volt szükség
+			\item Új perifériák: mágnesdob, mágneslemez
+			
+			\begin{itemize}
+				\item nagykapacitású
+				\item gyors
+				\item véletlen hozzáférésû (random access): a mágnesszalaggal ellentétben nem csak sorban egymás után lehet elérni a tárolt adatokat, hanem tetszõlegesen (így mûködnek a mai merevlemezek és a legtöbb háttértár, kivéve a szalagos egység -- streamer)
+			\end{itemize}
+			
+		\end{itemize}
+		
+		\framebreak
+		
+		\item Új technikák
+		
+		\begin{itemize}
+			\item A véletlen elérésû tárolók két új technikai megoldás kidolgozását tették lehetõvé:
+			
+			\begin{itemize}
+				\item spooling technika
+				\item multiprogramozás
+			\end{itemize}
+			
+			\item Ezeket ma is folyamatosan használjuk
+			
+		\end{itemize}
+		
+		\framebreak
+		
+		\item Spooling technika
+		
+		\begin{itemize}
+			\item simultaneous peripherial operation on-line -- on-line szimultán periféria  (háttértárolás)		
+			\item a számítógép háttérben el tudja végezni periféria mûveleteket
+			\item nincsen szükség külön számítógépre a perifériák kezeléséhez
+		\end{itemize}
+		
+		%\framebreak
+		
+		\item Multiprogramozás
+		
+		\begin{itemize}
+			\item A spooling technika segítségével a számítógép képes a háttérben végrehajtani a periféria mûveleteket, eközben a feladatok folyhatnak tovább
+			\item Ha azonban egyetlen feladat fut a gépen, akkor a periféria mûveletek alatt a számítógép várakozni kényszerül, ezzel lecsökken a számítógép kihasználtsága
+			\item A mágneslemezek lehetõvé teszik, hogy a processzor egyszerre több feladat adataihoz férjen hozzá és kiírja azok eredményét
+			\item Amikor egy feladat várakozni kényszerül, akkor a processszor elindít egy másik feladatot
+			\item Ehhez arra is szükség van, hogy a memóriát továbbtagoljuk, a monitor és az egyes feladatok által használt területekre
+			\item Ezek a memóriaterületek egymástól függetlenek, az egyes programok nem férhetnek hozzá a másik program által használt memóriaterülethez
+		\end{itemize}
+		
+		\item Új operációs rendszer (OS/360)
+		
+		\begin{itemize}
+			\item Ezek az új technikák új, a korábbiaknál sokkal nagyobb méretû, összetett operációs rendszert igényeltek
+			\item Az IBM ezt OS/360-nak nevezte el
+			\item A nagy méretû kód nagyon sok hibát eredményezett, a sok javítás pedig a régi hibák kijavítása mellett újabb hibákat okozott, a hibák száma körülbelül állandó volt
+			\item Ennek ellenére ezek a rendszerek elég jól kiszolgálták a felhasználók igényeit
+			\item A programozók azonban elkezdték hiányolni a géppel való közvetlen kapcsolatot, ami utoljára az 1. generációs gépeknél volt meg
+			\item Erre az igényre adott választ az idõosztás (timesharing) technika
+		\end{itemize}
+		
+		%\framebreak
+		
+		\item Idõosztás (timesharing)
+		
+		\begin{itemize}
+			\item Minden felhasználó kap egy on-line terminált (képernyõ + billentyûzet), amivel közvetlenül kapcsolódik a számítógéphez
+			\item Parancsokat tud begépelni a billentyûzeten, a választ a képernyõn látja
+			\item Amikor a processzor felszabadul az éppen ellátott feladat alól, akkor kiválasztja a soron következõt és végrehajtja, az eredményt visszaküldi a felhasználó képernyõjére
+			\item Amikor egy felhasználó gondolkodik, vagy éppen gépeli a parancsot, akkor nem terheli a számítógépet, így egyetlen gép sok felhasználót tud interaktívan kiszolgálni, miközben egy nagy kötegelt feladaton is dolgozik
+			\item Egy felhasználó viszont képes hosszú idõre lefoglalni a teljes gépet egy sokáig futó parancs kiadásával
+			\item Ezek a feladatok tovább bonyolították az operációs rendszert
+			\item A legismertebb ilyen operációs rendszer a MULTICS (MULTiplexed Information and Computing Service)
+			\item Az utolsó nagy MULTICS rendszert 2000. októberében állították le a Kanadai Védelmi Minisztériumban
+		\end{itemize}
+				
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}{Spooling technika}
+	
+	\begin{figure}[htbp]
+		\centering
+			\only<beamer>{\includegraphics[height=0.80\textheight]{images/spooling.jpg}}
+			\only<article>{
+				\includegraphics[width=1.00\textwidth]{images/spooling.jpg}
+				\caption{Spooling technika}
+				}
+		\label{fig:spooling}
+	\end{figure}
+		
+\end{frame}
+
+\begin{frame}{A multiprogramozás alapelve}
+	
+\begin{figure}[htbp]
+	\centering
+		\only<beamer>{\includegraphics[width=1.00\textwidth]{images/multiprogramozas.jpg}}
+		\only<article>{
+			\includegraphics[width=1.00\textwidth]{images/multiprogramozas.jpg}
+			\caption{A multiprogramozás alapelve}
+			}
+	\label{fig:multiprogramozas}
+\end{figure}
+		
+\end{frame}
+
+\subsection{4. generáció}
+\label{sec:4Generacio}
+
+\begin{frame}[allowframebreaks]{4. generáció (1980-napjainkig): személyi számítógépek}
+	
+	\begin{itemize}
+		\item A hardvereszközök árának rohamos csökkenésével alapvetõen új irányt vet a számítástechnika fejlõdése:
+		
+		\begin{enumerate}
+			\item Eddig a felhasználó osztozott a számítógépen sok más felhasználóval
+			\item Ugyanakkor sok szakember állt rendelkezésre a számítógép üzemeltetéséhez
+		\end{enumerate}
+		
+		\item Amikor megjelent a személyi számítógép (Personal Computer, PC), mindkét irányból jelentõs változás következett be:
+		
+		\begin{enumerate}
+			\item A felhasználó egyedül birtokolja a számítógépet, nem osztozik rajta senkivel
+			\item A felhasználónak egyedül kell tudnia kezelni a számítógépet, õ az operátor, a kezelõ, a programozó és a felhasználó egy személyben
+		\end{enumerate}
+		
+		\item Ehhez gyökeresen új megoldásokra, és új operációs rendszerekre volt szükség
+		\item Megjelent egy új, eddig ismeretlen szempont az operációs rendszerek fejlesztésében, a felhasználóbarátság
+		
+		\begin{itemize}
+			\item nem elég jónak lennie az operációs rendszernek
+			\item az egyszerû felhasználónak meg kell értenie, tudnia kell kezelni, sõt meg kell szeretnie az operációs rendszert, különben másikat választ, vagy távoltartja magát a számítógéptõl
+			\item kialakult a piaci verseny fogalma
+			\item A személyi számítógépeken mûködõ operációs rendszerek: CP/M, DOS (DR-DOS, MS-DOS, Apple DOS), Mac OS, Windows, Linux
+		\end{itemize}
+		
+		\item Kezdetben az emberek ,,megelégedtek'' a saját személyi számítógéppel
+		\item Hamarosan megjelent az igény, hogy a személyi számítógéppel kapcsolódni tudjunk más számítógépekhez, miért?
+		
+		\begin{itemize}
+			\item elektronikus kommunikáció
+			\item erõforrások megosztása: saját erõforrások megosztása másokkal, távoli erõforrások elérése
+		\end{itemize}
+		
+		\item Ezen igények kielégítésére megjelentek a számítógépes hálózatok
+		\item A hálózatok megjelenése ismét elõtérbe hozott eddig háttérbe szorított szempontokat: biztonság, felhasználók azonosítása, védelme egymástól, jogosultságok kezelése stb.
+		\item Ezeket az igényeket kétféle operációs rendszer típussal tudjuk kielégíteni:
+		
+		\begin{itemize}
+			\item hálózati operációs rendszerek:
+			
+			\begin{itemize}
+				\item több felhasználó használhatja ugyanazt a számítógépet
+				\item egy felhasználó használhat több különbözõ számítógépet távolról belépve a számítógépre
+				\item ezek az operációs rendszerek nem térnek el gyökeresen a korábbi egyfelhasználós rendszerektõl, csak új funkciókat építettek beléjük az új feladatok kezelésére
+			\end{itemize}
+			
+			\item elosztott operációs rendszerek:
+			
+			\begin{itemize}
+				\item Olyan operációs rendszer, ami a felhasználó felé egy hagyományos egyprocesszoros rendszert mutat, miközben több processzor, vagy több teljes számítógép van a rendszerben
+				\item A felhasználó nem tudja, hogy ténylegesen melyik gépen, vagy melyik processzoron fut a programja, vagy hol tárolódnak az adatai
+				\item Mindezt a rendszer dönti el valamilyen szempontból optimálisan
+			\end{itemize}
+			
+			\item Úgy is megfogalmazhatjuk a különbséget, hogy a hálózati operációs rendszer felhasználója tudja, hogy éppen melyik számítógépen dolgozik, az elosztott rendszer használója nem tudja
+			\item Ezt úgy mondjuk, hogy az elosztott rendszer transzparens (átlátszó)
+			
+		\end{itemize}
+				
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}{Valós idejû rendszerek}
+	
+	\begin{itemize}
+		\item A 4. generációs rendszerek speciális fajtája
+		\item Olyan rendszerek, amelyekkel szemben a környezeti valós idõskálához kötött követelményeket támasztunk
+		\item (A hagyományos rendszerek saját idõskálával dolgoznak, függetlenek a valós idõtõl)
+		\item Például adott idõpontban kell végrehajtani valamit, vagy megadott idõn belül kell válaszolni egy eseményre
+		\item Ilyenek az ipari folyamatfelügyelõ, -irányító, orvosi rendszerek, jármûvek fedélzeti rendszerei
+		\item Ehhez speciális hardver és szoftvermegoldásokra van szükség
+	\end{itemize}
+	
+\end{frame}
+
+\subsection{5. generáció}
+\label{sec:5Generacio}
+
+\begin{frame}[allowframebreaks]{5. generáció (napjainkban): Internet}
+	
+	\begin{itemize}
+		\item Nyílt rendszerek (Open systems)
+		\item Egységesített, szabványosított rendszerek
+		\item Szabványos protokollok, csatlakozási felületek
+		\item ISO (International Standards Organization) -- OSI (Open System Interconnection)
+		\item Az operációs rendszerek is szabványosak
+		\item Minden számítógép képes kommunikálni minden másikkal
+		\item Ez nem volt mindig így
+		\item Egy gépen mûködhet több különbözõ operációs rendszer egyidõben
+		\item Virtualizáció
+	\end{itemize}
+	
+\end{frame}
+
+\section{Befejezés}
+\label{sec:Befejezes}
+
+%\subsection{Összefoglalás}
+%\label{sec:Osszefoglalas}
+
+\subsection{Emlékeztetõ kérdések}
+\label{sec:EmlekeztetoKerdesek}
+
+\begin{frame}[allowframebreaks]{Emlékeztetõ kérdések}
+	
+	\begin{enumerate}
+		\item Hány hiányzás engedélyezett a félév során?
+		\item Mi az aláírás feltétele?
+		\item Hol található meg az elõadás az Interneten?
+		\item Miért van szükség az operációs rendszerre?
+		\item Mit jelent a réteges felépítés (architektúra)?
+		\item Mit jelent az OS rövidítés?
+		\item Mi az operációs rendszer feladata?
+		\item Mit jelent a virtuális gép?
+		\item Mit jelent a hatékonyság? Hogyan mérjük a számítógépek esetében?
+		\item Mi jellemzi az egyes számítógép generációkat?
+		\item Ki volt a világ elsõ programozója? Mirõl híres ezen kívül?
+		\item Mit jelent a kötegelt feldolgozás (batch)?
+		\item Hogyan növelhetjük a processzor kihasználtságát?
+		\item Mi a különbség az on-line és az off-line perifériamûveletek között?
+		\item Hogy néz ki egy job vezérlõ program?
+		\item Mit jelent az, hogy két számítógép kompatibilis egymással?
+		\item Mit jelent az, hogy egy tároló véletlen hozzáférésû? Mi az ellentéte ennek?
+		\item Mit jelent a spooling technika?
+		\item Mit jelent a multiprogramozás?
+		\item Mit jelent a timesharing?
+		\item Mit jelent a PC rövidítés?
+		\item Mit jelent a felhasználóbarátság?
+		\item Mire használjuk a számítógép hálózatokat?
+		\item Mi jellemzi a hálózati operációs rendszereket?
+		\item Mi jellemzi az elosztott operációs rendszereket?
+		\item Mit jelent a transzparencia?
+		\item Mit nevezünk valós idejû rendszernek?
+		\item Mit jelent a nyílt rendszer?
+	\end{enumerate}
+	
+\end{frame}
+
+\begin{frame}{Befejezés}
+
+\begin{block}{}
+	
+	\begin{center}
+	\vspace{1cm}
+	\LARGE{Köszönöm a figyelmet!}
+	\vspace{1cm}
+	\end{center}
+	
+\end{block}
+
+\end{frame}
+
+\end{document}
+
+

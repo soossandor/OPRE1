@@ -1,0 +1,900 @@
+% $Header: /cvsroot/latex-beamer/latex-beamer/solutions/conference-talks/conference-ornate-20min.en.tex,v 1.7 2007/01/28 20:48:23 tantau Exp $
+
+% Version for PROJECTOR (Vetíthetõ változat)
+% Uncomment the next line (A vetíthetõ változathoz vedd ki a % jelet a következõ sor elejérõl)
+%\documentclass{beamer}
+% End of version for PROJECTOR (A vetíthetõ változat vége)
+
+% PRINTABLE version (Nyomtatható változat):
+% Uncomment the next two lines (vedd ki a % jelet a következõ 2 sor elejérõl)
+%\documentclass{article}
+%\usepackage{beamerarticle}
+% End of PRINTABLE version (A nyomtatott változat beállításának vége)
+
+
+% This file is a solution template for:
+
+% - Talk at a conference/colloquium.
+% - Talk length is about 20min.
+% - Style is ornate.
+
+
+
+% Copyright 2004 by Till Tantau <tantau@users.sourceforge.net>.
+%
+% In principle, this file can be redistributed and/or modified under
+% the terms of the GNU Public License, version 2.
+%
+% However, this file is supposed to be a template to be modified
+% for your own needs. For this reason, if you use this file as a
+% template and not specifically distribute it as part of a another
+% package/program, I grant the extra permission to freely copy and
+% modify this file as you see fit and even to delete this copyright
+% notice. 
+
+
+\mode<presentation>
+{
+	\usetheme{Warsaw}
+	% or ...
+	
+	\setbeamercovered{transparent}
+	% or whatever (possibly just delete it)
+}
+
+% Magyar szöveg
+\usepackage[magyar]{babel}		% a Babel csomagot a magyar nyelvvel használjuk
+\usepackage[latin2]{inputenc}		% Latin-2-es kódolású ez a forrás
+\usepackage{t1enc}			% a belsõ ábrázolás és a kimeneti font-kódolás
+% a T1 kódolás
+\usepackage{indentfirst}		% az elsõ bekezdés is behúzott legyen, ne csak a 2-tól
+\frenchspacing				% a mondatköz ugyanakkora nagy, mint a szóköz
+\setlength{\parskip}{\smallskipamount}	% bekezdések közötti távolság beállítása
+% (gumi-méret: 3pt plus 1pt minus 1 pt)
+% Magyar szöveg vége
+
+
+% Angol szöveg
+%\usepackage[english]{babel}
+%\usepackage[latin1]{inputenc}
+%\usepackage{times}
+%\usepackage[T1]{fontenc}
+% Angol szöveg vége
+
+
+% Or whatever. Note that the encoding and the font should match. If T1
+% does not look nice, try deleting the line with the fontenc.
+
+\def\screenshotsize{0.70}
+\def\screenshotsizeB{0.50}
+\def\maintitle{Operációs rendszerek 1. -- 7. elõadás \\ Külsõ készülékek kezelése - Biztonság}
+\def\shorttitle{OPRE1 -- 7 - Készülékek-Biztonság}
+\def\longdate{}
+\def\shortdate{}
+
+
+\usepackage{graphicx}
+\usepackage{amsfonts}
+
+\only<beamer>{
+	%Insert frame number to footline
+	%Tested with the next themes: Warsaw, Berlin, Szeged, ...
+	\newcommand*\oldmacro{}%
+	\let\oldmacro\insertshorttitle%
+	\renewcommand*\insertshorttitle{%
+		\oldmacro\hfill%
+		\insertframenumber\,/\,\inserttotalframenumber}
+	%End of frame number to footline
+}
+
+\title[\shorttitle] % (optional, use only with long paper titles)
+{\maintitle}
+
+\author[Soós Sándor] % (optional, use only with lots of authors)
+{Soós Sándor}
+% - Give the names in the same order as the appear in the paper.
+% - Use the \inst{?} command only if the authors have different
+%   affiliation.
+
+\institute[NYME SKK INGA] % (optional, but mostly needed)
+{
+	%  \inst{1}%
+	Nyugat-magyarországi Egyetem\\
+	Simonyi Károly Mûszaki, Faanyagtudományi és Mûvészeti Kar\\
+	Informatikai és Gazdasági Intézet\\
+	\vspace{0.3cm}
+	E-mail: soossandor@inf.nyme.hu
+}
+% - Use the \inst command only if there are several affiliations.
+% - Keep it simple, no one is interested in your street address.
+
+\date[\shortdate] % (optional, should be abbreviation of conference name)
+{\longdate}
+% - Either use conference name or its abbreviation.
+% - Not really informative to the audience, more for people (including
+%   yourself) who are reading the slides online
+
+% Delete this, if you do not want the table of contents to pop up at
+% the beginning of each subsection:
+\AtBeginSubsection[]
+{
+	\begin{frame}<beamer>{Hol tartunk?}
+		\tableofcontents[currentsection,currentsubsection]
+	\end{frame}
+}
+
+
+% If you wish to uncover everything in a step-wise fashion, uncomment
+% the following command: 
+
+%\beamerdefaultoverlayspecification{<+->}
+
+\begin{document}
+	
+	
+	\only<article>{
+		\begin{titlepage}
+			
+			\begin{center}
+				
+				%\vspace*{1cm}
+				\Large
+				\textsc{\maintitle}\\
+				
+				\vspace{5cm}
+				
+				%\LARGE
+				\textsc{Soós Sándor}\\
+				
+				\vspace{3cm}
+				
+				Nyugat-magyarországi Egyetem\\
+				Simonyi Károly Mûszaki, Faanyagtudományi és Mûvészeti Kar\\
+				Informatikai és Gazdasági Intézet\\
+				\vspace{0.3cm}
+				E-mail: soossandor@inf.nyme.hu
+				%\textsc{\today}\\ %%Date - better you write it yourself.
+				\textsc{\longdate}\\
+				
+			\end{center}
+			
+		\end{titlepage}
+	}
+	
+	% If you have a file called "university-logo-filename.xxx", where xxx
+	% is a graphic format that can be processed by latex or pdflatex,
+	% resp., then you can add a logo as follows:
+	
+	\only<beamer>{
+		\pgfdeclareimage[height=1cm]{university-logo}{images/nyme_skk}
+		\logo{\pgfuseimage{university-logo}}
+	}
+	
+	%\only<beamer>{\subject{Practical Computer Science}}
+	% This is only inserted into the PDF information catalog. Can be left
+	% out. 
+	
+	
+	\only<beamer>{
+		\begin{frame}{}
+			\titlepage
+		\end{frame}
+	}
+	
+	\begin{frame}{Tartalomjegyzék}
+		\tableofcontents
+		% You might wish to add the option [pausesections]
+	\end{frame}
+	
+	
+
+\section{Ismétlés}
+\label{sec:Ismetles}
+
+\subsection{Emlékeztetõ az elõzõ órákról}
+\label{sec:EmlekeztetoAzElozoOrakrol}
+
+\begin{frame}[allowframebreaks]{Tárak, tárhierarchia,} 
+	
+	\begin{itemize}
+		\item A tárak hierarchikus rendbe szervezettek:
+		
+	\begin{table}[htbp]
+		\centering
+			\begin{tabular}{|c|}
+				\hline
+				külsõ tárak, harmadlagos tárolók \\ \hline
+				háttértárak, másodlagos tárolók \\ \hline
+				operatív tár, memória \\ \hline
+				a processzor regiszterei \\ \hline
+			\end{tabular}
+	\end{table}
+
+		\item A tárak jellemzõi hierarchia szintek szerint:
+		
+			\begin{itemize}
+				\item Minél magasabb szinten van egy tároló:
+				
+					\begin{itemize}
+						\item annál nagyobb méretû
+						\item annál lassabb mûködésû
+						\item annál nagyobb egységekben címezhetõ
+						\item annál hosszabb a tárolási idõ
+					\end{itemize}
+					
+			\end{itemize}
+
+		\framebreak
+		
+		\item Alapvetõ ellentmondás:
+			
+			\begin{itemize}
+				\item A különbözõ tárolási szintek hatékony kezelése a rendszer teljesítményének egyik kulcsa
+				\item A mûveletek elvégzéséhez az adatoknak a processzor regisztereiben kell lenniük. (Miért?)
+				\item Az összes szükséges adat szinte soha nem fér el a regiszterekben, sokszor a memóriában sem, néha még a háttértárakon sem
+				\item \textbf{A megoldás}: az adatokat rendszeresen mozgatni kell a tárolási szintek között
+				\item Hogyan?
+					
+					\begin{itemize}
+						\item regiszterek $\leftrightarrow$ memória: processzor
+						\item memória $\leftrightarrow$ háttértár: fájlmûveletek
+						\item háttértár $\leftrightarrow$ külsõ tárak: felhasználói beavatkozás
+					\end{itemize}
+					
+			\end{itemize}
+			
+		\framebreak
+		
+		\item Adatok elérése, címzés a különbözõ tárolószinteken:
+			
+			\begin{itemize}
+				\item \textbf{regiszterek}: minden regiszternek külön neve van, bizonyos mûveletek csak bizonyos regiszterekkel végezhetõk el
+				\item \textbf{memória}: minden memóriarekesz külön-külön címezhetõ
+				\item \textbf{háttértár}: fájlonként, azon belül rekordonként, blokkonként címezhetõ
+				\item \textbf{külsõ tár}: médiánként címezhetõ, melyik CD/DVD lemezen, szalagon található a keresett adat
+			\end{itemize}
+	
+		\item Az adatok mozgatása kétféleképpen történhet:
+			
+			\begin{enumerate}
+				\item \textbf{Explicit}: (világosan kifejezett) pl. egy utasítással betöltünk egy fájlt a memóriába
+				\item \textbf{Implicit}: (rejtett, közvetett) a rendszer végzi a háttérben a kényelem fokozása, vagy a hatékonyság növelése érdekében
+			\end{enumerate}
+			
+		\framebreak
+		
+		\item A rejtett adatmozgatás tipikus fajtái:
+			
+			\begin{enumerate}
+				\item \textbf{Virtualizálás}
+					
+					\begin{itemize}
+						\item Az alacsonyabb szinten lévõ tár címzési módját kiterjesztjük a magasabb szintre
+						\item Ezzel megnöveljük az alacsonyabb szintû tár méretét (látszólag), de lassabban mûködik
+						\item Példa: virtuális memória, lemezen tárolódik, de memória módjára kezeljük, nem fájlként
+					\end{itemize}
+					
+				\item \textbf{Gyorsítótár (cache)}
+					
+					\begin{itemize}
+						\item Magasabb szintû elérési módon kezelünk egy alacsonyabb szintû tárat
+						\item Sokkal gyorsabb 
+						\item De a mérete sokkal kisebb, mint a szimulált tár szokásos mérete
+						\item Kulcsfontosságú az adatmozgatás szervezése
+						\item \textbf{Lokalitási elv}: ha egy adatra szükség van, akkor nagy valószínûséggel a környezetében lévõ adatokra is szükség lesz
+						\item Ezt használjuk ki a gyorsítótárak adatokkal való feltöltésekor
+						\item Megfelelõ adatcserélési algoritmusokkal és a gyorsítótárak megfelelõ méretezésével $80-99\%$-os találati arány is elérhetõ
+					\end{itemize}
+					
+			\end{enumerate}
+
+		\item Jellegzetes gyorsítótárak:
+			
+			\begin{itemize}
+				\item Processzorba épített hardver-gyorsítótárak (utasítás- és adatcache), a memóriában lévõ adatok aktuális részét teszik gyorsabban elérhetõvé a processzor számára
+				\item A memóriában kialakított átmeneti tárterületek (buffer-cache) az éppen használatban lévõ fájlok adatai egy részének tárolására
+				\item Memóriában kialakított virtuális diszk (RAM-diszk, elektronikus diszk)
+				\item A harmadlagos tárak fájlrendszereit tároló mágneslemez területek
+			\end{itemize}
+			
+		\item Mire kell vigyázni a virtuális tárakkal kapcsolatban?
+			
+			\begin{itemize}
+				\item Mi történik, ha szabálytalanul állítjuk le az operációs rendszert?
+				\item A memóriában lévõ adatok váratlanul elvesznek
+				\item A rejtett adatmozgatások félbeszakadnak
+				\item A háttértárakon lévõ adatok inkonzisztens állapotban maradnak
+				\item A mágneslemezeken lévõ adatokat nem tudjuk elérni a hagyományos eszközökkel, ha azok adminisztrációja nem hibátlan
+			\end{itemize}
+
+		\framebreak
+		
+		\item Hogyan tudunk védekezni az ilyen hibák ellen?
+			
+			\begin{itemize}
+				\item Szünetmentes tápegység, akkumulátoros táplálás, notebook
+				\item \textbf{Vigyázat!} Nem csak áramszünet miatt állhat le szabálytalanul az operációs rendszer!
+				\item Biztonságos szoftvermegoldások (pl. naplózó fájlrendszer, minden végrehajtott mûveletet naplóz a rendszer, így rendszerhiba esetén visszaállítható a korábbi állapot
+			\end{itemize}
+		
+	\end{itemize}
+	
+\end{frame}
+
+
+\begin{frame}{Háttértárak kezelése}
+	
+	\begin{itemize}
+		\item A memória tartalma addig él, amíg a számítógép mûködik
+		\item A folyamat szempontjából a memóriában lévõ adatok addig élnek, amíg a folyamat fut
+		\item Ha valamilyen adatot meg akar õrizni, akkor háttértárra kell menteni
+		\item A háttértárra írandó adatokat fájlokba kell szervezni
+		\item A felhasználó szempontjából az operációs rendszer legfontosabb feladata a fájlok kezelése (DOS-Disk Operating System)
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}{Fájlkezelés}
+	
+	\begin{itemize}
+		\item A másodlagos és harmadlagos tárolókon csak fájlokban lehet adatokat tárolni
+		\item A fájlok kezelése az operációs rendszer feladata
+		\item Két szint:
+			
+			\begin{enumerate}
+				\item A fájlok, mint tárolási egységek kezelése (egyben)
+					
+					\begin{itemize}
+						\item Fájlnév
+						\item Hierarchikus könyvtárszerkezet
+						\item Egy, vagy több gyökér (root)
+						\item Katalógusfájl (directory)
+						\item Kötetek (volume)
+						\item Mount
+						\item A fájl azonosítása: elérési út + fájlnév
+					\end{itemize}
+					
+				\item A fájlokban lévõ adatok kezelése
+					
+					\begin{itemize}
+						\item Fájlmodellek
+						\item Fájlmûveletek
+					\end{itemize}
+					
+			\end{enumerate}
+			
+	\end{itemize}
+	
+\end{frame}
+
+
+
+\begin{frame}{Fájlmodellek}
+	
+	\begin{itemize}
+		\item A fájlban lévõ adatok elérésére háromféle fájlmodell használatos:
+			
+			\begin{enumerate}
+				\item Soros elérésû (szekvenciális, sequential) fájl
+					
+					\begin{itemize}
+						\item mint a mágnesszalag
+						\item csak sorban lehet írni és olvasni
+						\item fájlpointer
+					\end{itemize}
+					
+				\item Közvetlen elérésû (direct) fájl
+					
+					\begin{itemize}
+						\item bármelyik adatelem bájt, vagy rekord elérhetõ a sorszáma alapján
+					\end{itemize}
+					
+				\item Indexelt, index-szekvenciális elérésû (index sequential access method, ISAM) fájl
+					
+					\begin{itemize}
+						\item adatrekordok, adatmezõk
+						\item kulcsmezõ(k) alapján lehet elérni az adatokat
+						\item indextábla, indexfájl, rendezett kulcsok, mutató az adatra
+						\item adatbázis
+					\end{itemize}
+					
+			\end{enumerate}
+			
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}{Fájlmûveletek}
+		
+	\begin{enumerate}
+		\item Megnyitás (open)
+		\item Lezárás (close)
+		\item Végrehajtás (execution)
+		\item Létrehozás (create)
+		\item Törlés (delete)
+		\item Adatelérés, írás, olvasás (write, read)
+		\item Hozzáírás, hozzáfûzés (append)
+		\item Pozícionálás (seek)
+	\end{enumerate}
+	
+\end{frame}
+
+
+
+
+\begin{frame}{}  %Ismétlés vége
+	
+\begin{block}{}
+	
+	\begin{center}
+	\vspace{1cm}
+	\LARGE{Ismétlés vége}
+	\vspace{1cm}
+	\end{center}
+	
+\end{block}
+
+\end{frame}
+
+
+\section{Külsõ készülékek és külsõ kapcsolatok}
+\label{sec:KulsoKeszulekekEsKulsoKapcsolatok}
+
+\subsection{A számítógép belseje és a külvilág}
+\label{sec:ASzamitogepBelsejeEsAKulvilag}
+
+\begin{frame}[allowframebreaks]{A számítógép belseje és a külvilág,}
+	
+	\begin{itemize}
+		\item Eddig a virtuális gépek olyan objektumaival foglalkoztunk, amelyek a számítógép belsejében találhatók: 
+			
+			\begin{itemize}
+				\item processzor
+				\item folyamatok
+				\item tárak
+			\end{itemize}
+			
+		\item Most nézzük, hogyan kapcsolódik a számítógép a külvilághoz!
+		\item Ezeket az eszközöket összefoglaló szóval perifériának nevezzük:
+		\item A határvonal nem éles, pl. a külsõ tárakat is szoktuk perifériának nevezni
+		\item Nagyon sokféle periféria létezik és ezek száma folyamatosan nõ
+		\item Ahhoz, hogy az operációs rendszerek használni tudják ezeket, minden eszközzel nagyobbá és bonyolultabbá kellene válniuk
+		\item Hogy ezt elkerüljük, szabványos módszereket alakítunk ki a perifériák kezelésére
+		\item Két fõ típus: (igazából nagyon hasonlítanak egymásra)
+			
+			\begin{itemize}
+				\item Fájl
+					
+					\begin{itemize}
+						\item Mindent fájlként kezelünk, amibe lehet írni és lehet belõle olvasni
+						\item Az eszközöket különbözõ fájlmûveletekkel kezeljük: megnyitás, lezárás, írás, olvasás, léptetés, stb.
+						\item Ilyen eszközök például: képernyõ, nyomtató, terminál
+						\item A fájlmûveletek implementálásakor vesszük figyelembe az egyéni részleteket
+					\end{itemize}
+					
+				\framebreak
+				\item Logikai periféria
+					
+					\begin{itemize}
+						\item Absztrakt (virtuális) bemeneti/kimeneti (B/K, I/O) eszköz
+						\item A programozónak nem kell foglalkoznia azzal, hogy milyen valóságos eszköz van a logikai periféria mögött
+						\item Ezt nevezzük készülékfüggetlen programozásnak
+						\item A program futtatásakor az operációs rendszer majd hozzárendel valamilyen fizikai eszközt minden logikai perifériához
+						\item A fizikai eszköz gyártója ír egy eszközmeghajtó programot (device driver), ami ténylegesen megvalósítja a logikai mûveleteket
+					\end{itemize}
+					
+			\end{itemize}
+			
+	\end{itemize}
+
+\end{frame}
+
+\begin{frame}[allowframebreaks]{Hálózati kapcsolatok kezelése,}
+	
+	\begin{itemize}
+		\item Speciális eset az, amikor a számítógéphez csatlakozó külsõ eszköz maga is egy számítógép
+		\item Ennek megvalósítására speciális eszközöket építünk a számítógépekbe (hálózati csatoló - network adapter). Ez a fizikai eszköz
+		\item Logikai szinten (szoftveresen) logikai csatlakozókat (socket) hoz létre az operációs rendszer
+		\item Ha összekapcsoljuk két különbözõ számítógép socketjeit, akkor ezen a kapcsolaton keresztül kommunikálhat egymással a két számítógép
+		\item Ezután egyszerûen fájl típusú perifériaként kezeljük a kapcsolatot
+		\item Egyre közelít egymáshoz a két számítógép és a két folyamat közötti kommunikáció módja, mûködhetnek üzenetsorok, csõvezetékek, különbözõ pufferek két távoli számítógép között
+	\end{itemize}
+	
+\end{frame}
+
+\subsection{Védelem és biztonság}
+\label{sec:VedelemEsBiztonsag}
+
+\begin{frame}[allowframebreaks]{Védelem és biztonság,}
+	
+	\begin{itemize}
+		\item Amíg egy számítógépet csak egy felhasználó használ és nem kapcsoljuk össze a külvilággal, addig a védelem és a biztonság kérdése nem játszik nagy szerepet
+		\item Amikor egy számítógépet egynél több felhasználó használ, vagy összekapcsoljuk azt a külvilággal, akkor feltétlenül védelmezni kell belülrõl és kívülrõl egyaránt
+		\framebreak
+		\item Definíciók:
+			
+			\begin{enumerate}
+				\item Védelem:
+					
+					\begin{itemize}
+						\item Védelemnek nevezzük eljárásoknak és módszereknek azon rendszerét, mely lehetõséget teremt a számítógép erõforrásainak programok, folyamatok, illetve felhasználók által történõ elérésének szabályozására
+						\item A rendszer belsõ objektumaival foglalkozik
+					\end{itemize}
+					
+				\item Biztonság:
+					
+					\begin{itemize}
+						\item  A rendszer biztonsága annak a mértéke, hogy mennyire lehetünk bizonyosak a számítógépes rendszer, illetve a 
+rendszerben tárolt adatok sérthetetlenségében
+						\item A rendszer külvilággal való kapcsolatával foglalkozik
+					\end{itemize}
+					
+			\end{enumerate}
+			
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}[allowframebreaks]{Védelem,}
+	
+	\begin{itemize}
+		\item Tehát védelemnek fogjuk nevezni a rendszer biztonságának azt a részterületét, ami azzal foglalkozik, hogy a rendszerben legálisan jelenlévõ objektumok milyen módon férhetnek hozzá egymáshoz
+		\item Például:
+			
+			\begin{itemize}
+				\item Milyen fájlokhoz férhet hozzá egy felhasználó?
+				\item Milyen memóriaterületet írhat/olvashat egy folyamat?
+			\end{itemize}
+			
+		\framebreak
+		
+		\item Rendszermodell
+			
+			\begin{itemize}
+				\item A rendszer különbözõ objektumok halmaza (hardver-szoftver eszközök, fájlok, processzorok, szemaforok, várakozási sorok, adatszerkezetek, nyomtatók, tárolók, stb.)
+				\item Az objektumokat valamilyen módon tudjuk azonosítani, névvel, számmal, \dots
+				\item Az objektumok a típusuktól függõen különbözõ mûveletekkel rendelkeznek, ezekkel kezelhetõk
+				\item A folyamatok ilyen mûveletek sorozatai
+				\item (Lásd késõbb Objektum-orientált programozás, OOP!)
+				\item Minden mûvelethez rendelhetünk jogosultsági elõírásokat
+				\item A mûveletet csak az végezheti el, aki rendelkezik a szükséges jogosultságokkal
+			\end{itemize}
+			
+		\framebreak
+		
+		\item Hogyan szervezzük meg a védelmet?
+		
+		\item Ideális helyzet, legbiztonságosabb
+			
+			\begin{itemize}
+				\item Minden folyamat minden pillanatban csak azokat a jogosítványokat birtokolja, amelyekre szüksége van a következõ mûvelet végrehajtásához
+			\end{itemize}
+			
+		\item Miért jó ez?
+			
+			\begin{itemize}
+				\item[$\oplus$] Központilag szabályozzuk a jogosultságokat (odaadjuk-elvesszük)
+				\item[$\oplus$] Mindig lehet tudni, hogy ki-mit képes megcsinálni
+				\item[$\oplus$] Könnyen visszakereshetõ a ,,tettes''
+				\item[$\oplus$] Csökkentjük a véletlen hibázás esélyét
+			\end{itemize}
+			
+		\item Miért nem jó ez?
+			
+			\begin{itemize}
+				\item[$\ominus$] Óriási adminisztratív terhelést okoz
+				\item[$\ominus$] Gyakorlatban megvalósíthatatlan
+				\item[$\ominus$] Csak nagyon speciális rendszerekben képzelhetõ el
+			\end{itemize}
+
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}[allowframebreaks]{Védelmi tartomány,}
+			
+	\begin{itemize}
+		\item A megoldás: Védelmi tartományok kialakítása
+		\item Védelmi tartomány:
+			
+			\begin{itemize}
+				\item Objektumokon végrehajtható mûveletekre szóló jogosítványok gyûjteménye
+				\item Tartalmazhat egy adott objektumon végezhetõ különbözõ mûveleteket
+				\item Tartalmazhat különbözõ objektumokat is rajtuk végezhetõ mûveletekkel
+				\item Egy-egy objektum-mûvelet páros több tartományban is szerepelhet
+				\item A védelmi tartomány lehet statikus, vagy dinamikus
+					
+					\begin{itemize}
+						\item[\textbf{Statikus}:] egy folyamat futása alatt végig ugyanabban a tartományban marad
+						\item[\textbf{Dinamikus}:] a folyamat tartományt válthat a futása során
+					\end{itemize}
+				
+			\end{itemize}
+			
+		\item A védelmi tartományokat egy elérési mátrixban definiálhatjuk
+		\item Lássunk egy-egy példát egy statikus és egy dinamikus tartományokat leíró elérési táblázatra!
+	\end{itemize}
+	
+	\framebreak
+
+\begin{center}
+	\textbf{Elérési mátrix statikus védelmi tartományokkal}
+\end{center}
+	\begin{figure}[htbp]
+	\centering
+		\only<beamer>{\includegraphics[width=1.00\textwidth]{images/vedelmi_tartomanyok_1.jpg}}
+		\only<article>{
+			\includegraphics[width=1.00\textwidth]{images/vedelmi_tartomanyok_1.jpg}
+			\caption{Elérési mátrix statikus védelmi tartományokkal}
+			}
+	\label{fig:eleresi_matrix_statikus}
+	\end{figure}
+	
+	\framebreak
+
+\begin{center}
+	\textbf{Elérési mátrix dinamikus védelmi tartományokkal}
+\end{center}
+	\begin{figure}[htbp]
+	\centering
+		\only<beamer>{\includegraphics[width=1.00\textwidth]{images/vedelmi_tartomanyok_2.jpg}}
+		\only<article>{
+			\includegraphics[width=1.00\textwidth]{images/vedelmi_tartomanyok_2.jpg}
+			\caption{Elérési mátrix dinamikus védelmi tartományokkal}
+			}
+	\label{fig:eleresi_matrix_dinamikus}
+	\end{figure}
+	
+\framebreak
+
+\begin{itemize}
+	\item A védelmi tartományok használata
+		
+		\begin{itemize}
+			\item A folyamat elinduláskor besoroljuk azt valamelyik védelmi tartományba
+			\item Ez meghatározza, hogy mit tehet meg a folyamat és mit nem
+			\item Ha dinamikus tartományokat használ a rendszer, akkor a folyamat megteheti, hogy átvált egy másik engedélyezett tartományba
+		\end{itemize}
+		
+\end{itemize}
+	
+\end{frame}
+
+\begin{frame}[allowframebreaks]{Biztonság,}
+	
+	\begin{itemize}
+		\item Eddig a védelemmel foglalkoztunk, ami a rendszer belsõ problémája volt, most áttérünk a rendszer külsõ védelmére, ezt nevezzük \textbf{biztonság}nak
+			
+			\begin{itemize}
+				\item \textit{Egy számítógépes rendszer biztonsága, annak a bizonyosságnak mértéke, hogy a rendszer, illetve a rendszerben tárolt információ nem sérülhet meg, vagy illetéktelenül nem kerülhet ki a rendszerbõl}
+			\end{itemize}
+					
+		\item A védelem keretében alapvetõen véletlen problémák, programhibák, programok káros mellékhatásai ellen védekezik a rendszer
+		\item Ezzel szemben a biztonság érdekében fel kell készülnünk a szándékos és rosszindulatú támadásokra is
+		
+%		\framebreak
+		
+		\item \textbf{Megvalósítható-e tökéletesen biztonságos rendszer?}
+			
+		\framebreak
+		
+		\item Nincsen abszolút biztonságos rendszer
+		\item Csak relatívan lehet vizsgálni a kérdést
+		\item Legyen ,,drágább'' a támadás, mint az elérhetõ haszon
+		\item Ha egyszerûen pénzrõl lenne szó, akkor ez könnyen mérhetõ lenne, de
+			
+			\begin{itemize}
+				\item mennyibe kerül az adat?
+				\item mennyibe kerül egy adat illetéktelen megváltoztatása?
+				\item mennyi kárt okoz egy adat illetéktelen megszerzése, és/vagy eltüntetése?
+			\end{itemize}
+			
+		\item Ezeket a kérdéseket kell mérlegelni és megválaszolni a biztonsági rendszer megtervezésekor
+			
+		\framebreak
+		
+		\item Csak úgy lehet elérni a kívánt biztonságot, ha teljes rendszert építünk ki
+			
+			\begin{itemize}
+				\item Nem tekinthetünk biztonságosnak egy rendszert, ha informatikailag mindent megtettünk a védelem érdekében, de a nyilvános folyosón áll a szerver, ahol bárki elviheti
+			\end{itemize}
+			
+		\item A sérülések oka lehet:
+			
+			\begin{itemize}
+				\item véletlen
+				\item szándékos
+					
+					\begin{itemize}
+						\item adatok illetéktelen olvasása
+						\item adatok illetéktelen módosítása
+						\item adatok tönkretétele
+					\end{itemize}
+					
+			\end{itemize}
+						
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}{Felhasználók azonosítása}
+	
+	\begin{itemize}
+		\item A rendszerhez való jogosulatlan hozzáférés megakadályozásának elsõ lépése a felhasználók azonosítása
+		\item Három módszer:
+			
+			\begin{enumerate}
+				\item a felhasználó azonosítása személyes tulajdonságai alapján: ujjlenyomat, retinamintázat, aláírás, stb. (Biometrikus azonosítás)
+				\item a felhasználó azonosítása a birtokában lévõ tárgyak alapján: kulcs, azonosító kártya, stb. 
+				\item a felhasználó azonosítása csak általa ismert információ alapján: név, jelszó, esetleg algoritmus
+			\end{enumerate}
+			
+		\item Az 1. és 2. kategória esetén szükség van speciális perifériákra
+		\item A legelterjedtebb módszer a jelszavas azonosítás
+	\end{itemize}
+		
+\end{frame}
+
+\begin{frame}{Jelszavas azonosítás}
+	
+	\begin{itemize}
+		\item Nem igényel speciális eszközt
+		\item Veszélyek:
+			
+			\begin{itemize}
+				\item a jelszó megfejtése, kitalálása
+				\item a jelszó ellopása, lehallgatása
+			\end{itemize}
+			
+		\item Védekezés a jelszófejtés ellen:
+			
+			\begin{itemize}
+				\item Nehezen kitalálható jelszó választása
+				\item Megfelelõ hosszúságú jelszavak
+				\item A jelszavak gyakori cseréje
+				\item Hiba esetén lassítás, letiltás
+			\end{itemize}
+			
+			\item Védekezés a jelszólopás ellen
+				
+				\begin{itemize}
+					\item Nem jelenik meg a jelszó a képernyõn
+					\item Csak titkosított csatornán engedünk bejelentkezést
+					\item A jelszót egyirányú kódolással tároljuk
+					\item A kódolt jelszavakat is csak a rendszergazda olvashatja
+					\item Ne írjuk fel a jelszót!
+					\item Jelszó helyett algoritmikus azonosítás
+				\end{itemize}
+							
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}[allowframebreaks]{Külsõ támadások,}
+	
+	\begin{itemize}
+		\item Fajtái:
+			
+			\begin{itemize}
+				\item Vírusok, férgek
+				\item Szolgáltatásbénítás (DoS)
+				\item Betörés (hacker, cracker)
+			\end{itemize}
+			
+		\item Férgek:
+			
+			\begin{itemize}
+				\item önálló életre képes, és magától terjed
+				\item nem kell hozzá hordozó program
+			\end{itemize}
+			
+		\item Vírusok:
+			
+			\begin{itemize}
+				\item hordozó programra van szüksége
+				\item azt megfertõzve terjed
+			\end{itemize}
+			
+		\item Védekezés:
+			
+			\begin{itemize}
+				\item Tûzfal
+				\item Állandóan futó, rendszeresen frissített vírusvédelmi program
+			\end{itemize}
+			
+		\item Szolgáltatásbénítás 
+			
+			\begin{itemize}
+				\item Denial of Service
+				\item Olyan mennyiségû kérést intézünk a szerverhez, amennyit nem tud kiszolgálni
+			\end{itemize}
+			
+			\item Hacker
+				
+				\begin{itemize}
+					\item nem ártó szándékú, feltöri a gépet és értesíti a rendszergazdát
+
+				\end{itemize}
+							
+			\item Cracker
+				
+				\begin{itemize}
+					\item Rossz szándékú
+				\end{itemize}
+				
+			\framebreak
+				
+			\item Védekezés
+				
+				\begin{itemize}
+					\item Tûzfal
+					\item Biztonsági frissítések rendszeres telepítése
+					\item Friss alkalmazások használata
+					\item Körültekintõ konfigurálás	
+						
+						\begin{itemize}
+							\item Csak a szükséges programok fussanak
+							\item Csak a szükséges dolgokat érjék el a felhasználók
+						\end{itemize}
+						
+					\item A rendszer állandó figyelése, naplózása
+					\item Gyanú esetén riasztás
+						
+				\end{itemize}
+				
+			\framebreak
+				
+			\item Tûzfal (firewall)
+				
+				\begin{itemize}
+					\item Eredetileg olyan házfal, amin nincs ablak, ezért lassabban terjed át rajta a tûz
+					\item  Az informatikában olyan (biztonságos) gép, vagy 
+program, amin a védett gép vagy hálózat forgalma áthalad, és csak azok a csomagok mehetnek rajta keresztül, amelyeket kimondottan megengedünk
+					\item A gyakorlatban ez leggyakrabban azt jelenti, hogy portszintû szûrést végzünk a forráscím (és a célcím) ill. további feltételek vizsgálata alapján
+					\item Ma már elengedhetetlen minden számítógépen
+					
+				\end{itemize}
+							
+	\end{itemize}
+	
+\end{frame}
+
+\section{Befejezés}
+\label{sec:Befejezes}
+
+\subsection{Emlékeztetõ kérdések}
+\label{sec:EmlekeztetoKerdesek}
+
+\begin{frame}{Emlékeztetõ kérdések}
+	
+	\begin{enumerate}
+		\item Milyen módokon kezelhetjük egységes formában a különbözõ perifériákat?
+		\item Hogyan kezeli az operációs rendszer a hálózati kapcsolatokat?
+		\item Mit nevezünk ,,Védelem''-nek ebben az összefüggésben?
+		\item Mit nevezünk ,,Biztonság''-nak ebben az összefüggésben?
+		\item Hogyan szervezzük meg a rendszer védelmét?
+		\item Mit nevezünk védelmi tartománynak? Hogyan lehet definiálni, dokumentálni? Milyen fajtái vannak?
+		\item Milyen lehetõségek vannak a felhasználók azonosítására?
+		\item Mire kell figyelni a jelszavas védelem kialakításakor?
+		\item Milyen külsõ támadásokra kell felkészülni a rendszer tervezésekor?
+		\item Hogyan védekezhetünk ezek ellen?
+	\end{enumerate}
+	
+\end{frame}
+
+\begin{frame}{Befejezés}
+
+\begin{block}{}
+	
+	\begin{center}
+	\vspace{1cm}
+	\LARGE{Köszönöm a figyelmet!}
+	\vspace{1cm}
+	\end{center}
+	
+\end{block}
+
+\end{frame}
+
+\end{document}
+

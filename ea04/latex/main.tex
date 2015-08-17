@@ -1,0 +1,1449 @@
+% $Header: /cvsroot/latex-beamer/latex-beamer/solutions/conference-talks/conference-ornate-20min.en.tex,v 1.7 2007/01/28 20:48:23 tantau Exp $
+
+% Version for PROJECTOR (Vetíthetõ változat)
+% Uncomment the next line (A vetíthetõ változathoz vedd ki a % jelet a következõ sor elejérõl)
+%\documentclass{beamer}
+% End of version for PROJECTOR (A vetíthetõ változat vége)
+
+% PRINTABLE version (Nyomtatható változat):
+% Uncomment the next two lines (vedd ki a % jelet a következõ 2 sor elejérõl)
+%\documentclass{article}
+%\usepackage{beamerarticle}
+% End of PRINTABLE version (A nyomtatott változat beállításának vége)
+
+
+% This file is a solution template for:
+
+% - Talk at a conference/colloquium.
+% - Talk length is about 20min.
+% - Style is ornate.
+
+
+
+% Copyright 2004 by Till Tantau <tantau@users.sourceforge.net>.
+%
+% In principle, this file can be redistributed and/or modified under
+% the terms of the GNU Public License, version 2.
+%
+% However, this file is supposed to be a template to be modified
+% for your own needs. For this reason, if you use this file as a
+% template and not specifically distribute it as part of a another
+% package/program, I grant the extra permission to freely copy and
+% modify this file as you see fit and even to delete this copyright
+% notice. 
+
+
+\mode<presentation>
+{
+	\usetheme{Warsaw}
+	% or ...
+	
+	\setbeamercovered{transparent}
+	% or whatever (possibly just delete it)
+}
+
+% Magyar szöveg
+\usepackage[magyar]{babel}		% a Babel csomagot a magyar nyelvvel használjuk
+\usepackage[latin2]{inputenc}		% Latin-2-es kódolású ez a forrás
+\usepackage{t1enc}			% a belsõ ábrázolás és a kimeneti font-kódolás
+% a T1 kódolás
+\usepackage{indentfirst}		% az elsõ bekezdés is behúzott legyen, ne csak a 2-tól
+\frenchspacing				% a mondatköz ugyanakkora nagy, mint a szóköz
+\setlength{\parskip}{\smallskipamount}	% bekezdések közötti távolság beállítása
+% (gumi-méret: 3pt plus 1pt minus 1 pt)
+% Magyar szöveg vége
+
+
+% Angol szöveg
+%\usepackage[english]{babel}
+%\usepackage[latin1]{inputenc}
+%\usepackage{times}
+%\usepackage[T1]{fontenc}
+% Angol szöveg vége
+
+
+% Or whatever. Note that the encoding and the font should match. If T1
+% does not look nice, try deleting the line with the fontenc.
+
+\def\screenshotsize{0.70}
+\def\screenshotsizeB{0.50}
+\def\maintitle{Operációs rendszerek 1. -- 4. elõadás \\ Holtpont}
+\def\shorttitle{OPRE1 -- 4 - Holtpont}
+\def\longdate{}
+\def\shortdate{}
+
+
+\usepackage{graphicx}
+\usepackage{amsfonts}
+
+\only<beamer>{
+	%Insert frame number to footline
+	%Tested with the next themes: Warsaw, Berlin, Szeged, ...
+	\newcommand*\oldmacro{}%
+	\let\oldmacro\insertshorttitle%
+	\renewcommand*\insertshorttitle{%
+		\oldmacro\hfill%
+		\insertframenumber\,/\,\inserttotalframenumber}
+	%End of frame number to footline
+}
+
+\title[\shorttitle] % (optional, use only with long paper titles)
+{\maintitle}
+
+\author[Soós Sándor] % (optional, use only with lots of authors)
+{Soós Sándor}
+% - Give the names in the same order as the appear in the paper.
+% - Use the \inst{?} command only if the authors have different
+%   affiliation.
+
+\institute[NYME SKK INGA] % (optional, but mostly needed)
+{
+	%  \inst{1}%
+	Nyugat-magyarországi Egyetem\\
+	Simonyi Károly Mûszaki, Faanyagtudományi és Mûvészeti Kar\\
+	Informatikai és Gazdasági Intézet\\
+	\vspace{0.3cm}
+	E-mail: soossandor@inf.nyme.hu
+}
+% - Use the \inst command only if there are several affiliations.
+% - Keep it simple, no one is interested in your street address.
+
+\date[\shortdate] % (optional, should be abbreviation of conference name)
+{\longdate}
+% - Either use conference name or its abbreviation.
+% - Not really informative to the audience, more for people (including
+%   yourself) who are reading the slides online
+
+% Delete this, if you do not want the table of contents to pop up at
+% the beginning of each subsection:
+\AtBeginSubsection[]
+{
+	\begin{frame}<beamer>{Hol tartunk?}
+		\tableofcontents[currentsection,currentsubsection]
+	\end{frame}
+}
+
+
+% If you wish to uncover everything in a step-wise fashion, uncomment
+% the following command: 
+
+%\beamerdefaultoverlayspecification{<+->}
+
+\begin{document}
+	
+	
+	\only<article>{
+		\begin{titlepage}
+			
+			\begin{center}
+				
+				%\vspace*{1cm}
+				\Large
+				\textsc{\maintitle}\\
+				
+				\vspace{5cm}
+				
+				%\LARGE
+				\textsc{Soós Sándor}\\
+				
+				\vspace{3cm}
+				
+				Nyugat-magyarországi Egyetem\\
+				Simonyi Károly Mûszaki, Faanyagtudományi és Mûvészeti Kar\\
+				Informatikai és Gazdasági Intézet\\
+				\vspace{0.3cm}
+				E-mail: soossandor@inf.nyme.hu
+				%\textsc{\today}\\ %%Date - better you write it yourself.
+				\textsc{\longdate}\\
+				
+			\end{center}
+			
+		\end{titlepage}
+	}
+	
+	% If you have a file called "university-logo-filename.xxx", where xxx
+	% is a graphic format that can be processed by latex or pdflatex,
+	% resp., then you can add a logo as follows:
+	
+	\only<beamer>{
+		\pgfdeclareimage[height=1cm]{university-logo}{images/nyme_skk}
+		\logo{\pgfuseimage{university-logo}}
+	}
+	
+	%\only<beamer>{\subject{Practical Computer Science}}
+	% This is only inserted into the PDF information catalog. Can be left
+	% out. 
+	
+	
+	\only<beamer>{
+		\begin{frame}{}
+			\titlepage
+		\end{frame}
+	}
+	
+	\begin{frame}{Tartalomjegyzék}
+		\tableofcontents
+		% You might wish to add the option [pausesections]
+	\end{frame}
+	
+	
+
+\section{Ismétlés}
+\label{sec:Ismetles}
+
+\subsection{Emlékeztetõ az elõzõ órákról}
+\label{sec:EmlekeztetoAzElozoOrakrol}
+
+\begin{frame}{Az operációs rendszer mint virtuális gép}
+	
+	\begin{itemize}
+		\item A korábbiakban megállapítottuk, hogy az operációs rendszer egyik fõ feladata, hogy megvalósítson egy virtuális gépet a felhasználói és a programozói felületen
+		\item Most vizsgáljuk meg ezt a virtuális gépet belülrõl
+		\item Elõször megvizsgáltuk a folyamatokat:
+			
+			\begin{itemize}
+				\item A folyamat fogalma
+				\item A folyamatokból álló rendszerek
+				\item Független, versengõ és együttmûködõ folyamatok
+				\item Folyamatok születése és halála
+				\item Folyamatok együttmûködése
+				\item Folyamatok szinkronizációja
+				\item Folyamatok kommunikációja
+			\end{itemize}
+			
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}{A folyamat és a szál fogalma}
+
+\begin{itemize}
+	\item Folyamat (process)
+	
+			\begin{itemize}
+				\item Meghatározott sorrendben végrehajtott mûveletek sorozata
+				\item A számítógépes terminológiában: A folyamat egy végrehajtás alatt álló program
+			\end{itemize}
+
+	\item Szál (thread)
+			
+			\begin{itemize}
+				\item Egymás utáni mûveletek fûzére
+				\item Párhuzamos végrehajtású, közös memóriát használó programrészek a folyamatokon belül
+				\item Saját logikai processzoruk van, de közös logikai memóriát használnak
+				\item Az operációs rendszer gyorsabban tud váltani a szálak, mint a folyamatok között
+			\end{itemize}
+			
+	\item Alternatív elnevezések:
+			
+			\begin{itemize}
+				\item Folyamat: ,,Nehézsúlyú (heavyweight) folyamat''
+				\item Szál: ,,Pehelysúlyú (lightweight) folyamat''
+			\end{itemize}
+\end{itemize}
+			
+\end{frame}
+
+\begin{frame}[allowframebreaks]{Folyamatmodell,}
+	
+	\begin{itemize}
+		\item A folyamatok vizsgálatára felállítunk egy modellt a következõképpen:
+			
+			\begin{itemize}
+				\item Minden folyamathoz tartozik egy logikai processzor és egy logikai memória
+				\item A memória tartalmazza a programokat, a konstansokat és a változókat
+				\item A processzor hajtja végre a programot
+				\item A programkódban szereplõ utasítások és a végrehajtó processzor utasításkészlete megfelelnek egymásnak 
+				\item Egy utasítás végrehajtását általában oszthatatlannak tekintjük, azaz a folyamat állapotát csak olyankor vizsgáljuk, amikor egy utasítás már befejezõdött, a következõ pedig még nem kezdõdött el
+				\item  A programvégrehajtás egy vezérlési szál mentén, szekvenciálisan történik, alapvetõen az utasítások elhelyezkedésének sorrendjében, ettõl speciális utasítások esetén van eltérés
+				\item  A processzornak vannak saját állapotváltozói (programszámláló, veremmutató, regiszterek, jelzõbitek stb.), amelyek értéke befolyásolja a következõ utasítás végrehajtásának eredményét
+			\end{itemize}
+			
+		\item A memória a RAM-modell szerint mûködik, azaz
+			
+			\begin{itemize}
+				\item tárolórekeszekbõl áll
+				\item egy dimenzióban, rekeszenként címezhetõ
+				\item csak rekeszenként, írás és olvasás mûveletekkel érhetõ el
+				\item az írás a teljes rekesztartalmat felülírja az elõzõ tartalomtól független új értékkel
+				\item az olvasás nem változtatja meg a rekesz tartalmát, tehát tetszõleges számú, egymást követõ olvasás az olvasásokat megelõzõen utoljára beírt értéket adja vissza
+			\end{itemize}
+
+		\item A folyamatot egy adott pillanatban leíró információk a következõk (ezt nevezzük a folyamat állapotterének):
+			
+			\begin{itemize}
+				\item a memória tartalma (a programkód és a változók pillanatnyi értéke)
+				\item a végrehajtó processzor állapota (a program számláló és a többi regiszter és jelzõbit értéke)
+			\end{itemize}
+			
+		\framebreak
+		
+		\item Az operációs rendszer feladata, hogy a fizikai eszközökön (fizikai processzor és memória) egymástól elkülönítetten (védetten) létrehozza és mûködtesse a folyamatoknak megfelelõ logikai processzorokat és memóriákat
+		\item Ez a modell alkalmazható egy- és többprocesszoros gépeken egyaránt
+		\item Egyprocesszoros rendszerek esetén minden logikai processzort ugyanazon a fizikai processzoron kell megvalósítani
+		\item Multiprocesszoros rendszerekben a logikai processzorok szétoszthatók különbözõ processzorokra, vagy futhatnak azonoson is
+			
+%		\framebreak
+		
+		\item Szálak esetében az a különbség, hogy minden szálnak saját logikai processzora van, a memóriájuk viszont közös, azaz a programkódjuk és a változóik azonosak
+
+		
+	\end{itemize}
+
+\end{frame}
+
+
+
+
+
+\begin{frame}[allowframebreaks]{Független, versengõ és együttmûködõ folyamatok,}
+Egy rendszer folyamatai egymáshoz való viszonyukat tekintve háromfélék lehetnek:
+	
+	\begin{enumerate}
+		\item \textbf{Független folyamatok}: 
+			
+			\begin{itemize}
+				\item Egymás mûködését semmiképpen nem befolyásolják
+				\item Végrehajtásuk teljes mértékben aszinkron
+				\item Párhuzamosan és egymás után is végrehajtódhatnak tetszõleges sorrendben
+				\item Külön-külön, önálló programokként vizsgálhatók
+			\end{itemize}
+			
+		\item \textbf{Versengõ folyamatok}: 
+			
+			\begin{itemize}
+				\item Nem ismerik egymást, de közös erõforrásokon kell osztozniuk
+				\item Ilyen folyamatok alakulnak ki például az egymást nem ismerõ felhasználói jobok feldolgozásakor
+				\item Nem kell tudniuk arról, hogy egy multiprogramozott rendszerben fognak futni, programkódjuk ugyanolyan, mintha egy soros feldolgozást végzõ rendszerre írták volna
+				\item A folyamatok helyes és hatékony futtatását az operációs rendszernek kell megoldania, pl.
+					
+					\begin{itemize}
+						\item minden folyamatnak külön memóriaterülete legyen
+						\item a nyomtatások ne gabalyodjanak össze
+						\item hatékonyan használjuk az erõforrásokat
+					\end{itemize}
+					
+				\item Ezeket a feladatokat gyakran együttmûködõ folyamatokkal oldja meg az operációs rendszer
+					
+					\begin{itemize}
+						\item Például ha egy folyamat nyomtatni akar a rendszerhez kapcsolt nyomtatóra, amikor egy másik folyamat nyomtat, akkor meg kell várnia, amíg a másik folyamat befejezi a nyomtatást
+					\end{itemize}
+					
+				\item Az operációs rendszer saját belsõ folyamatait \textit{rendszerfolyamatnak}, a felhasználók folyamatait \textit{felhasználói folyamatnak} nevezzük
+			\end{itemize}
+			
+		\item \textbf{Együttmûködõ folyamatok}: 
+			
+			\begin{itemize}
+				\item Ismerik egymást
+				\item Együtt dolgoznak egy feladat megoldásán
+				\item Információt cserélnek egymással
+				\item Egy programozó, vagy egy programozó csapat írta meg az egyes folyamatokat, tudatosan alakította ki az egyes folyamatokat
+				\item A folyamatok kooperatívan (együttmûködve) futnak
+				\item A párhuzamosan futó folyamatok lehetnek szálak is
+				\item Az együttmûködés mûveletei a programkódban is megjelennek, a logikai processzor utasításkészletében szerepelnie kell ezeknek a mûveleteknek:
+					
+					\begin{itemize}
+						\item folyamat/szál elindítása
+						\item erõforrások kizárólagos használatának kérése, befejezése
+						\item üzenetküldés egy másik folyamatnak
+					\end{itemize}
+					
+				\item Az együttmûködõ folyamatok üzenetküldés segítségével hangolják össze mûködésüket
+			\end{itemize}
+			
+	\end{enumerate}
+	
+\end{frame}
+
+
+
+
+
+
+
+\begin{frame}{Folyamatok együttmûködése}
+	
+	\begin{itemize}
+		\item Információátadással valósul meg
+		\item Az információátadás történhet:
+			
+			\begin{itemize}
+				\item közös memórián keresztül
+				\item üzenetváltással
+			\end{itemize}
+			
+		\item Az átadott információ az 1 bittõl a tetszõleges méretû adatbázisokig terjedhet
+	\end{itemize}
+	
+\end{frame}
+
+
+
+
+\begin{frame}[allowframebreaks]{PRAM memória-modell,}
+	
+	\begin{itemize}
+		\item PRAM-modell -- Pipelined Random Access Memory
+		\item A RAM-modellt kiegészíti a következõ tulajdonságokkal:
+			
+			\begin{itemize}
+				\item \textbf{olvasás-olvasás ütközés}: Ha két folyamat egyszerre akarja olvasni a közös memóriarekeszt, akkor mindkettõ ugyanazt az értéket kapja és az megegyezik a memóriarekesz tartalmával
+				\item \textbf{olvasás-írás ütközés}: Ha az egyik folyamat írni, a másik ugyanakkor olvasni akarja a közös rekesz tartalmát, akkor az felülíródik a beírni szándékozott adattal, az olvasás eredménye vagy a rekesz régi, vagy az új tartalma lesz, más érték nem lehet
+				\item \textbf{írás-írás ütközés}: Ha két folyamat egyidõben akarja írni a közös rekeszt, akkor valamelyik mûvelet hatása érvényesül, a rekesz új tartalma a kettõ közül valamelyik lesz, harmadik érték nem alakulhat ki
+			\end{itemize}
+			
+		\item Azaz az egyidejû mûveletek nem interferálhatnak, nem lehet közöttük zavaró kölcsönhatás
+		\item Hatásuk olyan, mintha egy elõre nem meghatározható sorrendben, de egymás után hajtódnának végre
+		\item Erre utal az elnevezés: pipeline = csõvezeték
+		\item Másképp fogalmazva az írás és olvasás mûveletek oszthatatlanok (atomiak)
+		\item A közös memóriával történõ adatcseréhez tehát PRAM-modell szerint mûködõ memóriát használunk, és emellett össze kell hangolni a folyamatok mûködését, szinkronizálni kell a folyamatokat
+		\item Például ha át akarunk adni adatokat a közös memórián keresztül, akkor biztosítanunk kell, hogy a fogadó azután olvassa el a közös memóriát, miután a küldõ elhelyezte ott az információt. Ehhez van szükség a folyamatok szinkronizációjára. Ennek megvalósítási lehetõségeivel késõbb foglalkozunk
+	
+	\end{itemize}
+	
+\end{frame}
+
+
+
+\begin{frame}{Folyamatok szinkronizációja}
+	
+	\begin{itemize}
+		\item A folyamatok bizonyos esetekben egymástól függetlenül futhatnak
+		\item Máskor szükség van arra, hogy korlátozzuk az egyes folyamatok ,,szabadonfutását'' 
+		\item A mûveletek végrehajtására vonatkozó idõbeli korlátozásokat nevezzük szinkronizációnak
+		\item A korlátozások alapesetei a következõk:
+			
+			\begin{itemize}
+				\item Kölcsönös kizárás (mutual exclusion)
+				\item Egyidejûség (randevú)
+				\item Elõírt sorrend (precedencia)
+			\end{itemize}
+			
+	\end{itemize}
+	
+\end{frame}
+
+
+
+\begin{frame}{PRAM alapú szoftveres megoldások szinkronizációra}
+	
+	\begin{itemize}
+		\item Foglaltságjelzõ bit
+		\item Peterson-algoritmus
+		\item Bakery-algoritmus
+		\item A PRAM-modell kiterjesztése OlvasÉsÍr, ill. Csere mûvelettel
+	\end{itemize}
+		
+\end{frame}
+
+\begin{frame}{Szinkronizációs eszközök az operációs rendszer szintjén}
+	
+	\begin{itemize}
+		\item Szemafor
+		\item Erõforrás
+		\item Esemény
+		\item Várakozási sorok
+	
+	\end{itemize}
+	
+\end{frame}
+
+
+
+
+\begin{frame}{Folyamatok kommunikációja}
+
+	\begin{figure}[htbp]
+		\centering
+			\only<beamer>{\includegraphics[width=1.00\textwidth]{images/kommunikacio_direkt_megnevezessel.jpg}}
+			\only<article>{
+				\includegraphics[width=1.00\textwidth]{images/kommunikacio_direkt_megnevezessel.jpg}
+				\caption{A kommunikáció alapsémája}
+				}
+		\label{fig:kommunikacioAlapSema}
+	\end{figure}
+	
+\end{frame}
+
+
+\begin{frame}{}  %Ismétlés vége
+	
+\begin{block}{}
+	
+	\begin{center}
+	\vspace{1cm}
+	\LARGE{Ismétlés vége}
+	\vspace{1cm}
+	\end{center}
+	
+\end{block}
+
+\end{frame}
+
+
+
+
+
+
+
+\section{Holtpont}
+\label{sec:Holtpont}
+
+
+\subsection{A holtpont fogalma}
+\label{sec:AHoltpontFogalma}
+
+\begin{frame}[allowframebreaks]{A holtpont jelenség,}
+	
+	\begin{itemize}
+		\item Az elsõ multiprogramozott rendszerek üzemeltetése közben új típusú furcsa jelenségeket tapasztaltak
+		\item Nehéz volt reprodukálni ezeket
+		\item Miért baj ez?
+		\item Két alapvetõ hibatípus:
+			
+			\begin{enumerate}
+				\item Nem teljesül a kölcsönös kizárás: ezzel foglalkoztunk az elõzõ órán, megtanultunk különbözõ algoritmusokat a probléma megoldására
+				\item Lefagyás: ezzel foglalkozunk ezen az órán
+			\end{enumerate}
+			
+		\item Mit jelent az, hogy lefagy egy számítógépes rendszer?
+		\item Mi okozhatja ezt?
+		
+		\framebreak
+		
+		\item Alapos elemzéssel kiderítették, hogy mi történik ilyenkor:
+			
+			\begin{itemize}
+				\item Amikor legalább két folyamat van a rendszerben, amelyek valamilyen okból várakoznak
+				\item Ez önmagában nem okoz holtpontot
+				\item De\dots
+					
+					\begin{itemize}
+						\item ha az $A$ folyamat arra várakozik, hogy a $B$ folyamat elvégezzen valamit
+						\item miközben a $B$ folyamat arra vár, hogy az $A$ elvégezzen valamit
+					\end{itemize}
+					
+				\item \dots akkor egyik sem tud továbblépni
+				\item Ezt a helyzetet nevezzük \textbf{holtpont}-nak angolul \textbf{deadlock}-nak
+				\item A holtpont kialakulásának valószínûsége általában nagyon kicsi, nehezen állítható elõ szándékosan
+				\item Alattomos hiba!
+				\item Teszteléssel nem lehet kiszûrni
+				\item Alapos tervezéssel lehet elkerülni a kialakulását
+					
+			\end{itemize}
+			
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}[allowframebreaks, plain]{Egy példa holtpont kialakulására,}
+	
+	Adott két folyamat $A$ és $B$, mindkettõ használja a nyomtató ($Ny$) és a 
+mágneslemez ($M$) erõforrást. Mindkét erõforrásból csak egy van a rendszerben
+	
+	\begin{center}
+			\begin{tabular}{|c|c|}
+				\hline
+				\textbf{$A$ folyamat:} & \textbf{$B$ folyamat:} \\ \hline \hline
+				\textit{Lefoglal(M)} & \textit{Lefoglal(Ny)} \\ \hline
+				< mágneslemez használata > & < nyomtató használata > \\ \hline
+				\textit{Lefoglal(Ny)} & \textit{Lefoglal(M)} \\ \hline
+				< mágneslemez és nyomtató  & < mágneslemez és nyomtató \\
+				együttes használata > & együttes használata > \\ \hline
+				\textit{Felszabadít(M)} & \textit{Felszabadít(Ny)} \\ \hline
+				< nyomtató használata > & < mágneslemez használata > \\ \hline
+				\textit{Felszabadít(Ny)} & \textit{Felszabadít(M)} \\ \hline
+			\end{tabular}
+	\end{center}
+	
+	Hogyan futhat le ez a két folyamat? 
+	
+	\framebreak
+	
+	Milyen esetek fordulhatnak elõ a két folyamat együttes lefutásakor?
+	
+	\begin{enumerate}
+		\item Egyik megelõzi a másikat. Ekkor biztosan nem alakul ki holtpont
+		\item Az egyik megszerzi mindkét erõforrást, a másik várakozik, ha 
+szükséges és utána lefut. Ekkor biztosan nem alakul ki holtpont
+		\item Az egyik lefoglalja az egyik, a másik a másik erõforrást
+			
+			\begin{itemize}
+				\item ezután egyik sem tudja megszerezni a másik erõforrást, ezért várakozni kényszerül
+				\item így nem tudja elengedni az általa lefoglalt erõforrást
+				\item ezért mindkét folyamat a végtelenségig várakozni kényszerül
+				\item ez a holtpont
+			\end{itemize}
+			
+	\end{enumerate}
+
+\end{frame}
+
+
+
+
+\subsection{A holtpont definíciója}
+\label{sec:AHoltpontDefinicioja}
+
+\begin{frame}[allowframebreaks]{A holtpont definíciója,}
+	
+	\begin{itemize}
+		\item Definíció:
+			
+			\begin{itemize}
+				\item Egy rendszer folyamatainak egy $H$ részhalmaza holtponton van, ha a $H$ 
+halmazba tartozó valamennyi folyamat olyan eseményre vár, amelyet csak egy másik, $H$ halmazbeli folyamat tudna elõidézni
+			\end{itemize}
+		
+		\framebreak
+		
+		\item Megjegyzések:
+					
+			\begin{enumerate}
+				\item  A definíció általános, az esemény nemcsak erõforrás felszabadulása lehet, hanem tetszõleges más valami is, amire egy folyamat várakozni tud
+				\item A rendszerben lehetnek futó, élõ folyamatok a holtponton lévõk mellett, tehát nem biztos, hogy a befagyás teljes
+				\item Nem biztos, hogy a holtpont a folyamatok minden együttfutásakor kialakul, sõt az esetek jelentõs részében igen kis valószínûséggel alakul ki. Ezért a jelenség nehezen reprodukálható, alattomos hibaforrás
+				\item A holtpont egyrészt azon funkciók kiesését okozza, amelyeket a befagyott folyamatok látnak el, másrészt csökkenti a rendszer teljesítõképességét, hiszen a befagyott folyamatok által lekötött erõforrásokhoz a többi folyamat sem tud hozzájutni
+			\end{enumerate}
+			
+	\end{itemize}
+	
+\end{frame}
+
+
+\subsection{Holtpont erõforrásokért versengõ rendszerekben}
+\label{sec:HoltpontEroforrasokertVersengoRendszerekben}
+
+\begin{frame}[allowframebreaks]{Holtpont erõforrásokért versengõ rendszerekben,}
+	
+	\begin{itemize}
+		\item Rendszermodell:
+			
+			\begin{itemize}
+				\item Véges számú és típusú erõforrás van a rendszerben
+				\item Lehetnek egypéldányos és többpéldányos erõforrások
+				\item A többpéldányos erõforrások egyenértékûek
+				\item Az erõforrások használati módjuk szerint kétfélék lehetnek:
+					
+					\begin{enumerate}
+						\item megosztottan használhatók: az állapotuk elmenthetõ és visszaállítható, így elvehetõk egy folyamattól és késõbb visszaadhatók úgy, hogy a folyamat zökkenõmentesen folytatódhat. Ebben az esetben párhuzamos használatot lehet szimulálni (pl. CPU, memória)
+						\item csak kizárólagosan használhatók: az állapotuk nem menthetõ és nem állítható vissza anélkül, hogy a folyamat károsodna (pl. nyomtató)
+					\end{enumerate}
+					
+			\end{itemize}
+			
+	\end{itemize}
+	
+	\framebreak
+	
+Az erõforrások használata során a folyamatok 3 lépést hajtanak végre:
+					
+	
+	\begin{enumerate}
+		\item Igénylés
+		\item Használat
+		\item Felszabadítás
+	\end{enumerate}
+	
+	Vegyük sorra ezeket a mûveleteket!
+	
+	\framebreak
+	
+	\begin{enumerate}
+		\item Igénylés, \textit{Kér} mûvelet:
+		
+			\begin{itemize}
+				\item rendszerhívás
+				\item több erõforrás több példánya kérhetõ egyetlen rendszerhívással
+				\item a paramétere egy $n$ elemû tömb, ha $n$ fajta erõforrás van a rendszerben
+				\item a tömb $i$-edik eleme mutatja, hogy hány példányt kérünk az $i$-edik erõforrásból
+				\item az igény nem teljesíthetõ, ha bármelyik erõforrás típusból nem adható ki a kért mennyiség
+				\item ilyenkor a folyamat várakozni kényszerül
+				\item az erõforrások egyenértékûek, ezért bármelyiket megkaphatja a folyamat
+				\item a használathoz viszont azonosítani kell az erõforrásokat, ezért a \textit{Kér}  mûvelet visszaad egy-egy tömböt minden erõforrástípushoz. A tömb tartalmazza a megkapott erõforrások azonosítóit
+				\item ezek segítségével fogja használni a folyamat az erõforrásokat
+			\end{itemize}
+			
+		\item Használat
+			
+			\begin{itemize}
+				\item a megkapott azonosítók segítségével a folyamat használja az erõforrásokat
+			\end{itemize}
+			
+		\framebreak
+		
+		\item Felszabadítás:
+			
+			\begin{itemize}
+				\item kétféle felszabadító mûveletet definiálunk
+				\item az egyik felszabadítja a folyamat által birtokolt összes erõforrást a megadott erõforrástípusokból: \textit{Felszabadít(E1, E2, \dots, Em)}, a paraméterek erõforrástípusok
+				\item a másik mûvelet csak a megadott azonosítójú erõforrásokat szabadítja fel: \textit{Felszabadít(V1, V2, \dots, Vn)}, a paraméterek tömbök, amelyek a felszabadítandó erõforrások azonosítóit tartalmazzák az egyes típusokból
+				\item ha vannak a rendszerben olyan folyamatok, amelyek  az erõforrásokra  várakoznak, akkor azok megkaphatják a felszabadított erõforrásokat
+			\end{itemize}
+		
+	\end{enumerate}
+	
+\end{frame}
+
+\begin{frame}[plain]{A holtpont kialakulásának szükséges feltételei}
+	
+	(Mit jelent az, hogy szükséges feltétel?)
+	
+	\begin{enumerate}
+		\item Kölcsönös kizárás: legyenek olyan erõforrások a rendszerben, amelyeket a folyamatok csak kizárólagosan használhatnak
+		\item Foglalva várakozás: legyen olyan folyamat a rendszerben, amelyik lefoglalva tart erõforrásokat, miközben más erõforrásokra várakozik
+		\item Nincs erõszakos erõforrás-elvétel a rendszerben: minden folyamat addig birtokolja az erõforrásokat, amíg õ maga fel nem szabadítja azokat
+		\item Körkörös várakozás: a rendszerben lévõ folyamatok között létezik egy olyan ${P_0, P_1, \dots, P_n}$ sorozat, amelyben $P_0$ várakozik egy $P_1$ által lefoglalva tartott erõforrásra, $P_i$ egy $P_{i+1}$-re, $P_n$ pedig $P_0$-ra várakozik
+	\end{enumerate}
+	
+	Ha ezek közül bármelyik feltétel nem teljesül, akkor nem alakulhat ki holtpont
+	
+\end{frame}
+
+\begin{frame}[allowframebreaks]{Erõforrásfoglalási gráf,}
+
+	A rendszer pillanatnyi állapotának leírására szolgál az erõforrásfoglalási gráf:
+	
+	\begin{figure}[htbp]
+		\centering
+			\only<beamer>{\includegraphics[width=0.60\textwidth]{images/eroforras_foglalasi_graf.jpg}}
+			\only<article>{
+				\includegraphics[width=1.00\textwidth]{images/eroforras_foglalasi_graf.jpg}
+				\caption{Erõforrásfoglalási gráf}
+				}
+		\label{fig:eroforras_foglalasi_graf}
+	\end{figure}
+		
+	\framebreak
+		
+	
+	\begin{itemize}
+		\item Kétféle csomópont:
+			
+			\begin{enumerate}
+				\item Folyamatok: körök, $Pi$
+				\item Erõforrástípusok: téglalapok, $Ri$, a konkrét erõforrásokat pontokkal jelöljük a téglalapon belül
+			\end{enumerate}
+			
+		\item Kétféle él:
+			
+			\begin{enumerate}
+				\item Kérés él: irányított él egy folyamattól egy erõforrástípus felé. Azt jelenti, hogy a folyamat igényelt az erõforrásból, de még nem kapta meg
+				\item Foglalás él: irányított él egy konkrét erõforrástól egy folyamathoz. Azt jelzi, hogy a folyamat lefoglalta az erõforrást és még nem szabadította fel
+			\end{enumerate}
+			
+		\item A rendszer mûködése során a gráf folyamatosan változik, ahogyan kérések, foglalások és felszabadítások történnek
+		
+		\framebreak
+		
+		\item A gráf vizsgálatával következtethetünk a rendszerben elõforduló holtpontokra
+			
+			\begin{itemize}
+				\item Körkörös várakozás esetén (a holtpont 4. szükséges feltétele) a gráfon is irányított kör van
+				\item Ha körben lévõ minden erõforrás egypéldányos, a gráfon kimutatható kör egyben elégséges feltétel is a holtpont fennállására
+				\item Ha valamelyik erõforrás többpéldányos, akkor a kör nem jelent feltétlenül holtpontot
+				\item Vizsgáljuk meg a következõ két gráfot!
+			\end{itemize}
+			
+	\end{itemize}
+		
+	\framebreak
+	
+	\begin{figure}[htbp]
+		\centering
+			\only<beamer>{\includegraphics[width=1.00\textwidth]{images/graf_iranyitott_korrel.jpg}}
+			\only<article>{
+				\includegraphics[width=1.00\textwidth]{images/graf_iranyitott_korrel.jpg}
+				\caption{Irányított kört tartalmazó gráf holtponttal és holtpont nélkül}
+				}
+		\label{fig:graf_iranyitott_korrel}
+	\end{figure}
+		
+	A baloldali rendszerben van holtpont, a jobb oldaliban nincsen
+		
+\end{frame}
+
+\begin{frame}{A holtpontok kezelése}
+	
+	\begin{itemize}
+		\item Mit tehet a rendszer(gazda) a holtponthelyzetek elkerülésére, feloldására?
+		\item Három stratégiát használhatunk:
+			
+			\begin{enumerate}
+				\item Nem csinálunk semmit (strucc algoritmus)
+				\item Holtpont észlelése és megszüntetése (detektálás és feloldás)
+				\item Holtpont kizárása
+					
+					\begin{itemize}
+						\item \textit{megelõzés}: olyan rendszert tervezünk, ami kizárja a holtpont kialakulását, kizárjuk a szükséges feltételek valamelyikét
+						\item \textit{elkerülés}: a rendszer futása közben csak olyan erõforráskéréseket elégítünk ki, amelyek nem vezetnek holtpontveszélyes helyzethez
+					\end{itemize}
+					
+			\end{enumerate}
+			
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}[allowframebreaks]{Strucc algoritmus,}
+	
+	\begin{itemize}
+		\item Ne csináljunk semmit a holtpontok ellen!
+		\item Ha bekövetkezik, újraindítjuk a rendszert
+		\item Elfogadható ez a hozzáállás?
+		
+		\framebreak
+		
+		\item Vannak olyan rendszerek, amikor nem lehetséges az újraindítás, ilyenkor nem megfelelõ ez a megoldás
+		\item Máskor belefér, hogy szükség esetén leállítjuk és újraindítjuk a rendszert
+		\item Tipikus mérnöki megközelítés:
+			
+			\begin{itemize}
+				\item Mérlegeljük, hogy mekkora a probléma, mekkora a bekövetkezés valószínûsége és mekkora a megoldás költsége
+				\item Ha a megoldás költsége túlságosan nagy a probléma nagyságához képest, akkor nem érdemes bonyolult, drága megoldást választani
+				
+			\end{itemize}
+			
+		\item Az esetek nagy részében a holtpont kialakulásának esélye kicsi
+		
+		\framebreak
+		
+		\item Növeli az esélyt:
+			
+			\begin{itemize}
+				\item ha sokféle típusú erõforrás van a rendszerben
+				\item ha egy-egy típusból kevés erõforrás áll rendelkezésre
+				\item ha a folyamatok hosszú ideig foglalnak egy-egy erõforrást
+				\item ha gyakran történik ,,rákérés'', azaz egy folyamat úgy igényel újabb erõforrást, hogy másik erõforrást már lefoglalva tart
+			\end{itemize}
+		
+		\item Ha a holtpont kialakulásának valószínûsége az elfogadható szint fölé emelkedik és/vagy túlságosan nagy kárt okozna, akkor megoldást kell találnunk arra, hogy felismerjük és megszüntessük a holtpontot, vagy megakadályozzuk annak kialakulását
+		
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}[allowframebreaks]{A holtpont észlelése (detektálás),}
+	
+	\begin{itemize}
+		\item Hogyan vehetjük észre, hogy holtpont van a rendszerben?
+			
+			\begin{itemize}
+				\item bizonyos funkciók nem mûködnek
+				\item lelassulhat a rendszer
+				\item a felhasználói parancsokra egyáltalán nem, vagy a szokottnál lassabban reagál
+			\end{itemize}
+			
+		\item Gyanú esetén, rendszeres idõközönként, vagy valamilyen eseményekhez kötötten lefuttathatunk egy holtpontdetektáló programot. Ezt megteheti az operációs rendszer, vagy a rendszergazda
+		\item Ez megvizsgálja a rendszert és eldönti, hogy van-e holtpont, és ha van, akkor mely folyamatok vannak holtpontban
+		\item Ha van holtpont, akkor azt megszüntetjük néhány folyamat kilövésével (kill)
+		\item Ez drasztikus megoldás, de nincs jobb, az érintett folyamat számára olyan, mint a strucc algoritmus esetén az újraindítás, de a többi folyamatot nem érinti
+		\item Szélsõséges esetben azt is megtehetjük, hogy minden erõforráskérés teljesítése után megvizsgáljuk, hogy nem vezetett-e holtponthoz
+		\item Ez azonban akkora pluszterhelést okozna a rendszerben, ami összemérhetõ az elkerülés érdekében végzendõ ellenõrzéssel
+		\item Akkor inkább elõre végezzünk ellenõrzést és kerüljük el a holtpontot!
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}[allowframebreaks]{Hogyan müködhet a holtpontdetektáló algoritmus?}
+	
+	\begin{itemize}
+		\item Vizsgáljunk meg egy konkrét példát!
+		\item Egy rendszerben van 10 darab egyforma erõforrás, és 4 darab folyamat ($F_1$, \dots, $F_4$)
+		\item A folyamatok a következõképpen foglalnak most és kérnek további erõforrásokat:
+
+	\begin{center}
+			\begin{tabular}{|c|c|c|}
+				\hline
+				folyamat & foglal & kér \\ \hline \hline
+				$F_1$ & 4 & 4 \\ \hline
+				$F_2$ & 1 & 0 \\ \hline
+				$F_3$ & 3 & 4 \\ \hline
+				$F_4$ & 1 & 2 \\ \hline
+			\end{tabular}
+	\end{center}
+
+		\item Vizsgáljuk meg, mi a helyzet ebben a rendszerben!
+
+		\framebreak
+		
+		\item Jelenleg 9 erõforrás foglalt, 1 még szabad
+		\item $F_1$, $F_3$ és $F_4$ várakozik, és egyik sem elégíthetõ ki, ezért tovább várakoznak
+		\item $F_2$ fut
+		\item Van-e holtpont a rendszerben?
+			
+			\begin{itemize}
+				\item $F_2$ biztosan nincs holtponton
+				\item $F_1$, $F_3$ és $F_4$ várakozik, az a kérdés, hogy egymásra várakoznak-e, vagy van esélyük a továbblépésre?
+				\item Jelenleg csak $F_2$ tud futni, ha véget ér, visszaadja az általa lefoglalt 1 darab erõforrást
+				\item Ekkor lehet a rendszerben 2 darab szabad erõforrás. Mire elég ez?
+				\item Csak $F_4$-nek elég, neki van esélye továbbfutni és befejezõdni
+				\item Ha véget ér, visszaadhatja az összes nála lévõ erõforrást, mind a hármat
+				\item Ekkor a rendszerben legfeljebb 3 erõforrás lehet szabad
+				\item Ez kevés a másik két folyamatnak, ezért azok holtponton vannak
+			\end{itemize}
+		
+		\item Miért fogalmaztunk végig feltételes módban?	
+			
+			\begin{itemize}
+				\item A táblázatból csak a jelenlegi igényeket látjuk, azt nem tudjuk, hogy késõbb milyen igényei lesznek a folyamatoknak, lehet, hogy olyanok lesznek, amit szintén nem tudunk kielégíteni, és így bármelyik másik folyamat is holtpontba kerülhet
+			\end{itemize}
+
+		\item Ezt a gondolatmenetet használja a következõ algoritmus
+
+	\end{itemize}
+
+\end{frame}
+
+\begin{frame}[allowframebreaks, fragile, plain]{Coffman-féle holtpontdetektáló algoritmus,}
+	
+	\begin{itemize}
+		\item Változók:
+			
+			\begin{itemize}
+				\item $N$: folyamatok száma
+				\item $M$: erõforrástípusok száma
+				\item $SZABAD$, $M$ elemû vektor: a szabad erõforrások száma
+				\item $FOGLAL$, $N\times M$ elemû mátrix: az egyes folyamatok által lefoglalt erõforrások száma
+				\item $KER$, $N\times M$ elemû mátrix: a kérések száma
+				\item $FOGLAL[i]$ a $FOGLAL$ mátrix $i$-edik sora: az $F_i$ által lefoglalt erõforrások száma
+				\item $KER[i]$ a $KER$ mátrix $i$-edik sora: az $F_i$  folyamat kérései az egyes erõforrástípusokból
+				\item $GYUJTO$, $M$ elemû vektor: a visszakapott erõforrások
+				\item $TOVABB$, $N$ elemû logikai vektor: a továbbléptethetõ folyamatok jelzésére
+			\end{itemize}
+			
+		\framebreak
+		
+		\item Az algoritmus alapgondolata:
+				
+				\begin{itemize}
+					\item Megkeressük azokat a folyamatokat, amelyek az adott helyzetben továbbléphetnek, mert kielégíthetõk az igényei
+					\item Ezeket végigfuttatjuk és visszavesszük az erõforrásaikat
+					\item Ezt addig ismételjük, amíg elfogynak az ilyen folyamatok
+					\item Ha nem maradt folyamat, akkor nincs holtpont
+					\item Ha maradt, akkor a megmaradt folyamatok holtponton vannak
+				\end{itemize}
+				
+	\end{itemize}
+	
+	\framebreak
+	
+	
+	\begin{enumerate}
+		\item Kezdõértékek beállítása:
+			
+			\begin{verbatim}
+			  GYUJTO := SZABAD
+			  TOVABB[i] := hamis, minden j=1, 2, ..., N-re
+			\end{verbatim}
+			
+		\item Továbblépésre esélyes folyamatok keresése
+		
+			\begin{verbatim}
+			  Keress i-t, amelyre 
+				      (TOVABB[i] = hamis és KER[i] <= GYUJTO)
+			  Ha van ilyen i, akkor
+			    GYUJTO := GYUJTO + FOGLAL[i]
+			    TOVABB[i] := igaz
+			    ismételd a 2. lépést
+			  egyébként folytasd a 3. lépéssel
+			\end{verbatim}
+		
+		%\framebreak
+		
+		\item Értékelés:
+			
+			\begin{verbatim}
+			  Ha TOVABB[i] = igaz, minden i = 1, 2, ..., N-re
+			    akkor NINCS HOLTPONT
+			    egyébként holtponton vannak azok a folyamatok, 
+			      amelyekre TOVABB[i] = hamis
+			\end{verbatim}
+			
+	\end{enumerate}
+
+	\framebreak
+		
+		Megjegyzések:
+			
+			\begin{enumerate}
+				\item Mit jelent a KER[i] <= GYUJTO feltétel? 
+					
+					\begin{itemize}
+						\item Két vektor összehasonlítása
+						\item Mikor kisebb egy vektor a másiknál?
+						\item Különbözõ módokon definiálhatjuk
+						\item Telefonkönyv: Elõször a vezetéknév alapján döntünk, ha azonos, akkor vizsgáljuk a keresztnevet
+						\item Most nem ezt használjuk: $A$ vektor akkor kisebb $B$ vektornál, ha $A$ minden eleme kisebb $B$ megfelelõ eleménél
+					\end{itemize}
+					
+				\item Mi a helyzet egypéldányos erõforrások esetén?
+					
+					\begin{itemize}
+						\item Használhatjuk ugyanezt az algoritmust
+						\item Hatékonyabb, ha kört keresünk az erõforrásfoglalási gráfban
+					\end{itemize}
+					
+			\end{enumerate}
+			
+\end{frame}
+
+\begin{frame}[allowframebreaks]{Holtpont feloldása,}
+	
+Mit tegyünk, ha holtpontot találtunk?
+			
+	\begin{itemize}
+		\item Ekkor már csak radikális megoldások jöhetnek szóba:
+			
+			\begin{enumerate}
+				\item Kilövünk legalább egy folyamatot
+				\item Elvesszük az erõforrásokat legalább egy folyamattól. Ehhez vissza kell görgetni a folyamatot egy korábbi állapotba, amikor még nem használta az erõforrásokat, vagy az indulásra
+			\end{enumerate}
+			
+		\item Ezt végezheti a rendszer kezelõje manuálisan, vagy a rendszer automatikusan
+	\end{itemize}
+			
+\framebreak
+
+Megvizsgálandó kérdések:
+	
+	\begin{enumerate}
+		\item Radikális, vagy kíméletes megoldást válasszunk?
+			
+			\begin{itemize}
+				\item Radikális: 
+					
+					\begin{itemize}
+						\item minden holtpontban lévõ folyamatot kilövünk, vagy elvesszük az erõforrásaikat
+						\item ekkor biztosan megszüntetjük a holtpontot
+						\item nincsen plusz költség (feladat)
+					\end{itemize}
+					
+				\item Kíméletes:
+					
+					\begin{itemize}
+						\item csak bizonyos folyamatokat lövünk ki
+						\item ehhez döntéseket kell hoznunk, amihez plusz információkat kell beszereznünk és nyilvántartanunk:
+						\item[  -] mely folyamatokat lõjünk ki?
+						\item[  -] hány folyamatot kell kilõni, hogy megszûnjön a holtpont?
+						\item[  -] milyen a folyamatok prioritása?
+						\item[  -] hol tartanak az egyes folyamatok? Mekkora részét végezték már el a munkájuknak?
+						\item[  -] vannak-e menthetõ állapotú erõforrások? Ezek elvétele esetén kisebb a veszteség
+							
+					\end{itemize}
+					
+			\end{itemize}
+			
+		\item Mi történik ha kilövünk egy folyamatot?
+			
+			\begin{itemize}
+				\item Lehet, hogy módosította a rendszert, fájlokat hozott létre, vagy módosított
+				\item Lehet, hogy a holtpontra jutásakor félkész, inkonzisztens állapotban hagyta a rendszert
+				\item Az ilyen folyamatot nem szerencsés kilõni
+			\end{itemize}
+
+		\framebreak
+
+		\item Mi lehet a megoldás?
+			
+			\begin{itemize}
+				\item Közbensõ visszaállítási pontok létrehozása a folyamatokban
+				\item Amikor a folyamat eléri ezt a pontot, akkor elmenti az állapotát
+				\item Ha késõbb holtpontra jut, akkor lehetõség van arra, hogy egy ilyen visszaállítási pontig visszagörgetjük a folyamatot (rollback)
+				\item Ezt az operációs rendszer nem tudja elvégezni, szükség van a folyamatok felkészítésére és közremûködésére is
+			\end{itemize}
+			
+	\end{enumerate}
+
+Mindezeket a problémákat elkerülhetjük, ha megelõzzük a holtpont kialakulását. Persze ez felvet újabb kérdéseket
+			
+\end{frame}
+
+\begin{frame}[allowframebreaks]{A holtpont megelõzése,}
+	
+	\begin{itemize}
+		\item Ha a rendszer olyan, hogy nem engedhetõ meg a holtpont kialakulása, akkor védekezni kell ellene
+		\item Ennek legegyszerûbb módja, hogy olyan rendszert tervezünk, amiben kiküszöböljük a holtpont kialakulásának valamelyik szükséges feltételét
+		\item Az ilyen rendszer egyszerû és gyors, mert nem kell plusz ellenõrzésekkel foglalkoznia
+		\item Mik a holtpont kialakulásának szükséges feltételei?
+			
+			\begin{enumerate}
+				\item kölcsönös kizárás
+				\item foglalva várakozás
+				\item nincs erõszakos erõforráselvétel
+				\item körkörös várakozás
+			\end{enumerate}
+			
+		\item Hogyan lehet kiküszöbölni ezeket?
+		
+		\framebreak
+		
+		\item Szükséges feltételek kiküszöbölésének lehetõségei:
+		
+			\begin{enumerate}
+				\item Kölcsönös kizárás
+					
+					\begin{itemize}
+						\item Nincsen lehetõségünk a kiküszöbölésre
+						\item Bizonyos mûveleteket csak kölcsönös kizárással lehet végrehajtani
+						\item Viszont csökkenthetjük a kölcsönösen kizárt erõforrások számát és használati idejét. Hogyan?
+						\item Fájl zárolás helyett rekordzárolás
+						\item Csak írás esetén kell zárolni a fájlt, vagy a rekordot, olvasáskor nem szükséges
+						\item A kizárólagos használatú szakaszok helyett oszthatatlan mûveletek sorosítása
+						\item[-] A nyomtató lefoglalása helyett nyomtatás fájlba
+						\item[-] A fájl elküldése a nyomtatónak (oszthatatlan mûvelet)
+						\item[-] A nyomtatóvezérlõ folyamat sorban kinyomtatja a fájlokat
+					\end{itemize}
+					
+				\framebreak
+				
+				\item Foglalva várakozás
+					
+					\begin{itemize}
+						\item Ezt a problémát könnyen kiküszöbölhetjük, de ára van
+						\item Minden folyamat egyetlen rendszerhívással igényelje az összes szükséges erõforrást!
+						\item Így biztosan nem lesz holtpont
+						\item A folyamatok hosszabb ideig foglalják az erõforrásokat, mint az feltétlenül szükséges lenne
+					\end{itemize}
+					
+				\framebreak
+				
+				\item Nincs erõszakos erõforráselvétel
+					
+					\begin{itemize}
+						\item Ez a feltétel menthetõ állapotú erõforrások esetén küszöbölhetõ ki, ellenkezõ esetben az erõforrás elvétele a folyamat abortálását, vagy egy korábbi állapotba való visszagörgetését eredményezi
+						\item Kétféle megoldás jöhet szóba:
+						\item[1.] Az erõforrást kérõ folyamatot bünteti:
+						\item[-] ha egy folyamat olyan erõforrást kér, amit nem tudunk kielégíteni, akkor minden erõforrását elveszi tõle a rendszer
+						\item[-] csak akkor kapja vissza, ha minden kérése kielégíthetõ
+						\item[2.] Az erõforrást kérõ folyamatot kedvezményezi:
+						\item[-] ha egy folyamat kérését nem lehet kielégíteni, akkor megpróbáljuk a már várakozó folyamatoktól elvett erõforrásokból kielégíteni
+						\item[-] ha így sem sikerül, akkor õ is várakozóvá válik, és lehet, hogy elveszíti az erõforrásai egy részét
+						\item[-] a folyamat akkor folytatódhat, ha a kért és az esetleg közben elveszített erõforrásokat egyaránt megkaphatja egyszerre
+					\end{itemize}
+					
+				\framebreak
+				
+				\item Körkörös várakozás
+					
+					\begin{itemize}
+						\item Ez a feltétel kiküszöbölhetõ, ha minden folyamattal betartatunk egy új szabályt
+						\item Azt szeretnénk elérni, hogy ne lehessen kör az erõforrásfoglalási gráfon
+						\item A kör így néz ki:
+						\item[] $P_i \rightarrow R_j \rightarrow P_{i+1} \rightarrow R_{j+1} \rightarrow \dots \rightarrow P_{i+n} \rightarrow R_{j+n} \rightarrow P_i$
+						\item Sorszámozzuk meg az erõforrásokat!
+						\item Egyezzünk meg abban, hogy minden folyamat csak nagyobb sorszámú erõforrást igényelhet, mint amilyeneket már korábban lefoglalt!
+						\item Ha ezt betartjuk, akkor nem alakulhat ki kör a gráfban, azaz nem lehet holtpont a rendszerben
+						\item Mit jelent ez a megkötés a folyamatokra nézve?
+						\item Nem foglalhatnak össze-vissza, de nem is kell minden erõforrást egyszerre lefoglalniuk
+						\item Ez igényel egy kis odafigyelést és adminisztrációt, de javítja az erõforrások kihasználtságát
+						
+					\end{itemize}
+				
+			\end{enumerate}
+
+		\item Ha a négy szükséges feltétel valamelyikét kiküszöböljük, akkor biztos, hogy nem alakulhat ki holtpont a rendszerben
+		\item Ez megkövetel némi pluszmunkát és adminisztrációt az operációs rendszertõl, vagy megkötéseket jelent a folyamatok számára, de elkerülhetjük vele a holtpont kialakulását és így a folyamatok kényszerû kilövését, vagy a rendszer újraindítását
+		
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}[allowframebreaks]{Holtpont elkerülése,}
+	
+	\begin{itemize}
+		\item A holtpont elleni védekezés másik módja az elkerülés
+		\item Minden erõforráskérés kielégítése elõtt vizsgáljuk meg, hogy nem vezet-e holtpontveszélyes helyzethez, azaz fennmarad-e a biztonságos állapot
+		\item Ezért elõfordulhat, hogy a rendszer akkor sem teljesít egy erõforrásigényt, amikor lenne elegendõ szabad erõforrás 
+		\item Ez a védekezés dinamikus formája
+		\item Futásidejû helyzetelemzést igényel
+		\item Nem vezet be olyan intézkedéseket, amelyek rontanák az erõforrás-kihasználást
+		\item Adminisztrációs teljesítményveszteséget okoz
+		\item Hogyan lehet eldönteni, hogy egy erõforráskérés kielégítése holtpontveszélyt idéz elõ?
+		\item Vizsgáljunk meg egy példát többpéldányos erõforrások esetén!
+
+		\framebreak
+		
+		\item Egy rendszerben van 10 darab egyforma erõforrás, és 4 darab folyamat ($F_1$, \dots, $F_4$)
+		\item A folyamatok a következõképpen foglalnak most és kérnek további erõforrásokat:
+
+	\begin{center}
+			\begin{tabular}{|c|c|c|c|c|}
+				\hline
+				folyamat & maximális igény & foglal & még kérhet & kér \\ \hline \hline
+				$F_1$ & 7 & 3 & 4 & 0 \\ \hline
+				$F_2$ & 7 & 0 & 7 & 0 \\ \hline
+				$F_3$ & 8 & 1 & 7 & 2 \\ \hline
+				$F_4$ & 6 & 3 & 3 & 1 \\ \hline
+			\end{tabular}
+	\end{center}
+
+		\item Vizsgáljuk meg, mi a helyzet ebben a rendszerben!
+
+		\framebreak
+		
+		\item A rendszerben 3 szabad erõforrás van
+		\item $P_3$ és $P_4$ igényel most erõforrást
+		\item Mindkét igény kielégíthetõ
+		\item Mi történik, ha kielégítjük mindkettõt?
+			
+			\begin{itemize}
+				\item Elfogy minden szabad erõforrás 
+				\item Ha most a folyamatok benyújtják az igényeiket, a rendszer holtpontra jut
+			\end{itemize}
+		\item Mi történik ha csak $P_4$ igényét elégítjük ki?
+			\begin{itemize}
+				\item Marad 2 szabad erõforrás
+				\item Ha ekkor minden folyamat benyújtja a maximális igényeit, a rendszer szépen sorban ki tudja elégíteni azokat
+				\item Tehát, ha a rendszer folyamatosan óvatos taktikát folytat, akkor el tudja kerülni a holtpontot
+			\end{itemize}
+			
+		\item Ezt a gondolatmenetet valósítja meg a bankár-algoritmus
+		
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}[allowframebreaks, plain, fragile]{Bankár-algoritmus,}
+	
+	\begin{itemize}
+		\item Dijkstra, 1965
+		\item Az elnevezés oka az, hogy a bankok is hasonló elvek alapján helyezik ki az erõforrásaikat (hitel)
+		\item A hitelkérõ megmondja, hogy mennyi hitelre van szüksége
+		\item A bank a megvalósítás ütemében folyósítja a hitelt
+		\item Az a hitelfelvevõ tudja visszafizetni a hitelt, aki be tudja fejezni a beruházását, ehhez meg kell kapnia a teljes összeget
+		\item Ha a bank túl sok hitelt kezd el folyósítani, akkor elõfordulhat,  hogy elfogy a pénze mielõtt elkészülnének a beruházások, és a hitelfelvevõk még nem tudják visszafizetni a megkapott pénzt
+		\item Hogyan viselkedjen a bank, hogy elkerülje ezt a helyzetet?
+	\end{itemize}
+	
+	\framebreak
+	
+	\begin{itemize}
+		\item Változók:
+			
+			\begin{itemize}
+				\item $N$: folyamatok száma
+				\item $M$: erõforrástípusok száma
+				\item $MAX$, $N\times M$ elemû mátrix: a folyamat maximális igénye az egyes erõforrástípusokból
+				\item $SZABAD$, $M$ elemû vektor: a szabad erõforrások száma
+				\item $FOGLAL$, $N\times M$ elemû mátrix: az egyes folyamatok által lefoglalt erõforrások száma
+				\item $MEG$, $N\times M$ elemû mátrix: még ennyit kérhet a folyamat az egyes erõforrásokból ($MAX-FOGLAL$)
+				\item $KER$, $N\times M$ elemû mátrix: a kérések száma
+				\item $FOGLAL[i]$ a $FOGLAL$ mátrix $i$-edik sora: az $F_i$ által lefoglalt erõforrások száma
+				\item $KER[i]$ a $KER$ mátrix $i$-edik sora: az $F_i$  folyamat kérései az egyes erõforrástípusokból
+				\item $MEG[i]$ a $MEG$ mátrix $i$-edik sora: az $F_i$  folyamat maximális kérései az egyes erõforrástípusokból
+			\end{itemize}
+		
+		\end{itemize}
+		
+		\framebreak
+		
+Bankár-algoritmus:
+
+\begin{enumerate}
+	\item A kérés ellenõrzése:
+	
+\begin{verbatim}
+Ha KER[i] > MEG[i] akkor STOP  // nem kérhet ennyit
+Ha KER[i] > SZABAD akkor VÉGE  // nincs elég erõforrás
+\end{verbatim}
+
+	\item A nyilvántartás átállítása az új állapotra:
+	
+\begin{verbatim}
+SZABAD := SZABAD - KER[i]
+FOGLAL[i] := FOGLAL[i] + KER[i]
+\end{verbatim}
+
+	\item Biztonságosság vizsgálata külön algoritmussal
+	
+	\item Döntés:
+	
+\begin{verbatim}
+Ha nem BIZTONSAGOS akkor
+  az állapot visszaállítása:
+    SZABAD := SZABAD + KER[i]
+    FOGLAL[i] := FOGLAL[i] - KER[i]
+    VÉGE  // várni kell
+egyébként
+  a kérés teljesítése
+  VÉGE
+\end{verbatim}
+
+\end{enumerate}
+			
+\framebreak
+
+A biztonságosság vizsgálata:
+
+\begin{itemize}
+	\item Változók:
+		
+		\begin{itemize}
+			\item $GYUJTO$, $M$ elemû vektor: a visszakapott erõforrások
+			\item $LEFUT$, $N$ elemû logikai vektor: a továbbléptethetõnek talált folyamatok jelzésére		
+		\end{itemize}
+		
+	\item Alapötlet:
+		
+		\begin{itemize}
+			\item Sorban keressük meg azokat a folyamatokat, amelyek a legrosszabb esetben is le tudnak futni
+			\item A legrosszabb eset az, amikor minden folyamat igényli a maximálisan igényelhetõ mennyiségû erõforrást
+			\item Amelyik folyamat ilyen, azt ,,futtassuk le'', adja vissza az erõforrásokat
+			\item A keresést most már a bõvebb erõforráskészlettel folytathatjuk
+			\item Az algoritmus akkor áll le, ha elfogytak a megfelelõ folyamatok
+			\item Ha minden folyamat lefuttathatónak bizonyult, akkor az állapot biztonságos, ha nem, akkor a megmaradt folyamatok holtpontra juthatnak a legrosszabb esetben, ezért az állapot nem biztonságos
+		\end{itemize}
+	
+\end{itemize}
+
+\framebreak
+
+A biztonságosság ellenõrzése:
+
+\begin{enumerate}
+	\item Kezdõértékek beállítása:
+	
+\begin{verbatim}
+GYUJTO := SZABAD
+LEFUT[i] := hamis, minden i=1, 2, ..., N-re
+\end{verbatim}	
+
+	\item Továbblépésre esélyes folyamatok keresése:
+	
+\begin{verbatim}
+Keress i-t, amire (LEFUT[i]=hamis és MEG[i]<=GYUJTO)
+Ha van ilyen i, akkor
+  GYUJTO := GYUJTO + FOGLAL[i]
+  LEFUT[i] := igaz
+  ismételd a 2. lépést
+egyébként folytasd a 3. lépéssel
+\end{verbatim}
+
+	\framebreak
+	
+	\item Kiértékelés:
+	
+\begin{verbatim}
+Ha LEFUT[i] = igaz, minden i=1, 2, ..., N-re
+  akkor BIZTONSÁGOS
+	egyébként NEM BIZTONSÁGOS
+\end{verbatim}
+
+(Azok a $P_i$ folyamatok, amelyekre LEFUT[i] = hamis, holtpontra juthatnak)
+\end{enumerate}
+
+\framebreak
+
+Megjegyzések:
+
+\begin{itemize}
+	\item Az algoritmus emlékeztet a Coffman-féle holtpontdetektáló algoritmusra, de ez idõben korábban született
+	\item Egypéldányos erõforrások esetén itt is érdemes az erõforrásfoglalási gráfot használni.
+		
+		\begin{itemize}
+			\item Vezessünk be egy új éltípust a lehetséges kérések jelzésére
+			\item Ez egy folyamattól vezet egy erõforráshoz, ha a folyamat a jövõben kérheti az erõforrást
+			\item Ezzel a jelöléssel a legrosszabb eset azt jelenti, hogy az összes lehetséges kérés él valóságos kéréssé alakul
+			\item A biztonságosság mérlegelésekor ezt az élet megfordítjuk (teljesítjük a kérést) és az így kialakult gráfban ellenõrizzük kör meglétét
+		\end{itemize}
+		
+	\item Ezt illusztrálja a következõ ábra
+	
+\end{itemize}
+
+\framebreak
+
+	\begin{figure}[htbp]
+		\centering
+			\only<beamer>{\includegraphics[width=0.80\textwidth]{images/potencialis_keresek.jpg}}
+			\only<article>{
+				\includegraphics[width=1.00\textwidth]{images/potencialis_keresek.jpg}
+				\caption{Potenciális kérések az erõforrásfoglalási gráfban}
+				}
+		\label{fig:potencialis_keresek}
+	\end{figure}
+
+\end{frame}
+
+\begin{frame}{Kombinált stratégiák}
+	
+	\begin{itemize}
+		\item Az eddig tárgyalt módszereket kombináltan is használhatjuk
+		\item Az erõforrásokat osztályokba sorolhatjuk és a különbözõ osztályba tartozókat eltérõen kezelhetjük
+		\item Például osszuk négy osztályba az erõforrásokat:
+
+			\begin{enumerate}
+				\item Rendszererõforrások: ezeket csak a rendszerfolyamatok érhetik el
+				\item Memória: menthetõ állapotú erõforrás (háttértárra mentés, visszatöltés) használható az erõszakos elvétel
+				\item Készülékek és fájlok: elkerülés alkalmazható a használati igény elõzetes bejelentése alapján
+				\item Munkaterület a lemezen: ismert igények vanak, egyszerre kell igényelni, nincs rákérés
+			\end{enumerate}
+			
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}[allowframebreaks]{Éhezés,}
+	
+	\begin{itemize}
+		\item A holtponttal rokon jelenség, de nem azonos azzal!
+		\item Azt jelenti, hogy egy várakozó folyamat nincs holtponton, de nincs rá garancia, hogy véges idõn belül továbbindulhat
+		\item Ha mindig véletlen módon választunk a várakozó folyamatok közül, akkor nem tudjuk garantálni, hogy nem jelentkezik az éhezés problémája
+		\item Az éhezés elkerülhetõ, ha megfelelõ ütemezõ algoritmusokat használunk (FIFO, LIFO, prioritásos)
+		\item Egy ütemezõ algoritmus tisztességes (fair), ha  garantálja, hogy egy várakozási sorból minden folyamat véges idõn belül továbbindulhat, amennyiben a rendszerben véges számú folyamat mûködik és a rendszerben nincs holtpont vagy hibás folyamat (amelyik például nem enged el egy megszerzett erõforrást)
+		\item Ellenkezõ esetben tisztességtelen (unfair)
+		\item Tisztességes ütemezés a FIFO
+		\item Tisztességtelen a prioritásos ütemezés, ha statikusan rögzített rangsort használ
+		\item A tisztességtelen ütemezés nem feltétlenül rossz, használhatjuk szándékosan is, de számolni kell az éhezés lehetõségével
+		\item Az éhezés nem holtpont!!!
+		\item Ha külsõ eseményre (például a kezelõre) várakozik egy folyamat, akkor az nem számít sem holtpontnak, sem éhezésnek, ilyenkor a folyamat nem kész a futásra
+	\end{itemize}
+	
+\end{frame}
+
+\section{Befejezés}
+\label{sec:Befejezes}
+
+\subsection{Emlékeztetõ kérdések}
+\label{sec:EmlekeztetoKerdesek}
+
+\begin{frame}[allowframebreaks]{Emlékeztetõ kérdések,}
+	
+	\begin{enumerate}
+		\item Mit nevezünk holtpontnak?
+		\item Milyen rendszermodellben vizsgáljuk a holtpont jelenségét?
+		\item Mik a holtpont kialakulásának szükséges feltételei?
+		\item Mit nevezünk erõforrásfoglalási gráfnak?
+		\item Mire használható az erõforrásfoglalási gráf?
+		\item Milyen stratégiákat használhatunk a holtpontok kezelésére?
+		\item Hogyan tudjuk detektálni a rendszerben lévõ holtpontot?
+		\item Hogyan mûködik a Coffman-algoritmus?
+		\item Hogyan tudjuk feloldani a rendszerben lévõ holtpontot?
+		\item Hogyan lehet megelõzni a holtpont kialakulását?
+		\item Hogyan lehet elkerülni a holtpont kialakulását?
+		\item Hogyan mûködik a bankár-algoritmus?
+		\item Honnan származik a bankár-algoritmus elnevezése?
+		\item Hogyan kombinálhatjuk a különbözõ holtpontkezelési módszereket?
+		\item Mit nevezünk éhezésnek? Hogyan kerülhetjük el?
+	\end{enumerate}
+	
+\end{frame}
+
+\begin{frame}{Befejezés}
+
+\begin{block}{}
+	
+	\begin{center}
+	\vspace{1cm}
+	\LARGE{Köszönöm a figyelmet!}
+	\vspace{1cm}
+	\end{center}
+	
+\end{block}
+
+\end{frame}
+
+\end{document}
+

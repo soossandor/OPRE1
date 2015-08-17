@@ -1,0 +1,1058 @@
+% $Header: /cvsroot/latex-beamer/latex-beamer/solutions/conference-talks/conference-ornate-20min.en.tex,v 1.7 2007/01/28 20:48:23 tantau Exp $
+
+% Version for PROJECTOR (Vetíthetõ változat)
+% Uncomment the next line (A vetíthetõ változathoz vedd ki a % jelet a következõ sor elejérõl)
+%\documentclass{beamer}
+% End of version for PROJECTOR (A vetíthetõ változat vége)
+
+% PRINTABLE version (Nyomtatható változat):
+% Uncomment the next two lines (vedd ki a % jelet a következõ 2 sor elejérõl)
+%\documentclass{article}
+%\usepackage{beamerarticle}
+% End of PRINTABLE version (A nyomtatott változat beállításának vége)
+
+
+% This file is a solution template for:
+
+% - Talk at a conference/colloquium.
+% - Talk length is about 20min.
+% - Style is ornate.
+
+
+
+% Copyright 2004 by Till Tantau <tantau@users.sourceforge.net>.
+%
+% In principle, this file can be redistributed and/or modified under
+% the terms of the GNU Public License, version 2.
+%
+% However, this file is supposed to be a template to be modified
+% for your own needs. For this reason, if you use this file as a
+% template and not specifically distribute it as part of a another
+% package/program, I grant the extra permission to freely copy and
+% modify this file as you see fit and even to delete this copyright
+% notice. 
+
+
+\mode<presentation>
+{
+  \usetheme{Warsaw}
+  % or ...
+
+  \setbeamercovered{transparent}
+  % or whatever (possibly just delete it)
+}
+
+% Magyar szöveg
+\usepackage[magyar]{babel}		% a Babel csomagot a magyar nyelvvel használjuk
+\usepackage[latin2]{inputenc}		% Latin-2-es kódolású ez a forrás
+\usepackage{t1enc}			% a belsõ ábrázolás és a kimeneti font-kódolás
+					% a T1 kódolás
+\usepackage{indentfirst}		% az elsõ bekezdés is behúzott legyen, ne csak a 2-tól
+\frenchspacing				% a mondatköz ugyanakkora nagy, mint a szóköz
+\setlength{\parskip}{\smallskipamount}	% bekezdések közötti távolság beállítása
+					% (gumi-méret: 3pt plus 1pt minus 1 pt)
+% Magyar szöveg vége
+
+
+% Angol szöveg
+%\usepackage[english]{babel}
+%\usepackage[latin1]{inputenc}
+%\usepackage{times}
+%\usepackage[T1]{fontenc}
+% Angol szöveg vége
+
+
+% Or whatever. Note that the encoding and the font should match. If T1
+% does not look nice, try deleting the line with the fontenc.
+
+\def\screenshotsize{0.70}
+\def\screenshotsizeB{0.50}
+\def\maintitle{Operációs rendszerek 1. -- Alapok}
+\def\shorttitle{OPRE1 -- Alapok}
+\def\longdate{}
+\def\shortdate{}
+
+
+\usepackage{graphicx}
+\usepackage{amsfonts}
+
+\only<beamer>{
+%Insert frame number to footline
+%Tested with the next themes: Warsaw, Berlin, Szeged, ...
+\newcommand*\oldmacro{}%
+\let\oldmacro\insertshorttitle%
+\renewcommand*\insertshorttitle{%
+  \oldmacro\hfill%
+  \insertframenumber\,/\,\inserttotalframenumber}
+%End of frame number to footline
+}
+
+\title[\shorttitle] % (optional, use only with long paper titles)
+{\maintitle}
+
+\author[Soós Sándor] % (optional, use only with lots of authors)
+{Soós Sándor}
+% - Give the names in the same order as the appear in the paper.
+% - Use the \inst{?} command only if the authors have different
+%   affiliation.
+
+\institute[NYME SKK INGA] % (optional, but mostly needed)
+{
+%  \inst{1}%
+  Nyugat-magyarországi Egyetem\\
+  Simonyi Károly Mûszaki, Faanyagtudományi és Mûvészeti Kar\\
+  Informatikai és Gazdasági Intézet\\
+  \vspace{0.3cm}
+  E-mail: soossandor@inf.nyme.hu
+}
+% - Use the \inst command only if there are several affiliations.
+% - Keep it simple, no one is interested in your street address.
+
+\date[\shortdate] % (optional, should be abbreviation of conference name)
+{\longdate}
+% - Either use conference name or its abbreviation.
+% - Not really informative to the audience, more for people (including
+%   yourself) who are reading the slides online
+
+% Delete this, if you do not want the table of contents to pop up at
+% the beginning of each subsection:
+\AtBeginSubsection[]
+{
+  \begin{frame}<beamer>{Hol tartunk?}
+    \tableofcontents[currentsection,currentsubsection]
+  \end{frame}
+}
+
+
+% If you wish to uncover everything in a step-wise fashion, uncomment
+% the following command: 
+
+%\beamerdefaultoverlayspecification{<+->}
+
+\begin{document}
+
+
+\only<article>{
+\begin{titlepage}
+
+\begin{center}
+
+%\vspace*{1cm}
+\Large
+\textsc{\maintitle}\\
+
+\vspace{5cm}
+
+%\LARGE
+\textsc{Soós Sándor}\\
+
+\vspace{3cm}
+
+  Nyugat-magyarországi Egyetem\\
+  Simonyi Károly Mûszaki, Faanyagtudományi és Mûvészeti Kar\\
+  Informatikai és Gazdasági Intézet\\
+  \vspace{0.3cm}
+  E-mail: soossandor@inf.nyme.hu
+  %\textsc{\today}\\ %%Date - better you write it yourself.
+\textsc{\longdate}\\
+
+\end{center}
+
+\end{titlepage}
+}
+
+% If you have a file called "university-logo-filename.xxx", where xxx
+% is a graphic format that can be processed by latex or pdflatex,
+% resp., then you can add a logo as follows:
+
+\only<beamer>{
+\pgfdeclareimage[height=1cm]{university-logo}{images/nyme_skk}
+\logo{\pgfuseimage{university-logo}}
+}
+
+%\only<beamer>{\subject{Practical Computer Science}}
+% This is only inserted into the PDF information catalog. Can be left
+% out. 
+
+
+\only<beamer>{
+\begin{frame}{}
+  \titlepage
+\end{frame}
+}
+
+\begin{frame}{Tartalomjegyzék}
+  \tableofcontents
+  % You might wish to add the option [pausesections]
+\end{frame}
+
+
+% Structuring a talk is a difficult task and the following structure
+% may not be suitable. Here are some rules that apply for this
+% solution: 
+
+% - Exactly two or three sections (other than the summary).
+% - At *most* three subsections per section.
+% - Talk about 30s to 2min per frame. So there should be between about
+%   15 and 30 frames, all told.
+
+% - A conference audience is likely to know very little of what you
+%   are going to talk about. So *simplify*!
+% - In a 20min talk, getting the main ideas across is hard
+%   enough. Leave out details, even if it means being less precise than
+%   you think necessary.
+% - If you omit details that are vital to the proof/implementation,
+%   just say so once. Everybody will be happy with that.
+
+\section{Ismétlés}
+\label{sec:Ismetles}
+
+\begin{frame}{A számítógép réteges felépítése}
+
+\begin{figure}[htbp]
+	\centering
+		\only<beamer>{\includegraphics[height=0.80\textheight]{images/szg_retegek.jpg}}
+		\only<article>{
+		  \includegraphics[width=1.00\textwidth]{images/szg_retegek.jpg}
+			\caption{A számítógép réteges felépítése}
+		}
+	\label{fig:szg_retegek}
+\end{figure}
+	
+\end{frame}
+
+\begin{frame}{Az operációs rendszer feladata}
+	
+Az operációs rendszer alapvetõen két feladatot lát el:
+
+\begin{enumerate}
+	\item A felhasználó számára kényelmes és hatékony munkavégzést biztosít a számítógépen
+	\item Biztosítja a számítógép erõforrásainak hatékony, biztonságos és igazságos használatát (irányítás, koordinálás)
+\end{enumerate}
+	
+\end{frame}
+
+\begin{frame}{Az operációs rendszerek története}
+	
+	\begin{itemize}
+		\item Õskor, 0. generáció
+		\item 1. generáció (1945-1955): vákuumcsövek és kapcsolótáblák
+		\item 2. generáció (1955-1965): tranzisztorok és kötegelt rendszerek
+		\item 3. generáció (1965-1980): integrált áramkörök
+		\item 4. generáció (1980-napjainkig): személyi számítógépek
+		\item 5. generáció (napjainkban): Internet
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}{Hatékonyságnövelõ megoldások}
+
+	\begin{itemize}
+		\item kötegelt feldolgozás
+		\item mágnesszalag használata
+		\item online helyett offline mûködés
+		\item egyszerû monitor program (resident monitor) (az elsõ operációs rendszer)
+		\item jobvezérlõ program
+		\item memória felosztása: monitor memóriaterület -- felhasználói terület
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}{On-line és off-line perifériás mûveletek}
+
+\begin{figure}[htbp]
+	\centering
+		\only<beamer>{\includegraphics[width=0.90\textwidth]{images/batch_online_offline.jpg}}
+		\only<article>{
+			\includegraphics[width=1.00\textwidth]{images/batch_online_offline.jpg}
+			\caption{On-line és off-line perifériás mûveletek}
+			}
+	\label{fig:batch_online_offline}
+\end{figure}
+
+(a) On-line perifériák \newline
+
+(b) Off-line perifériák
+				
+		%\begin{enumerate}[(a)]
+			%\item  On-line perifériák
+			%\item Off-line perifériák
+		%\end{enumerate}
+		
+\end{frame}
+
+\begin{frame}{Munka vezérlõ program -- OS Job Control}
+	
+	\begin{figure}[htbp]
+		\centering
+			\only<beamer>{\includegraphics[width=0.90\textwidth]{images/batchprogram.jpg}}
+			\only<article>{
+				\includegraphics[width=1.00\textwidth]{images/batchprogram.jpg}
+				\caption{Munka vezérlõ program -- OS Job Control}
+				}
+		\label{fig:batchprogram}
+	\end{figure}
+				
+\end{frame}
+
+\begin{frame}{Spooling technika}
+	
+	\begin{figure}[htbp]
+		\centering
+			\only<beamer>{\includegraphics[height=0.80\textheight]{images/spooling.jpg}}
+			\only<article>{
+				\includegraphics[width=1.00\textwidth]{images/spooling.jpg}
+				\caption{Spooling technika}
+				}
+		\label{fig:spooling}
+	\end{figure}
+		
+\end{frame}
+
+\begin{frame}{A multiprogramozás alapelve}
+	
+\begin{figure}[htbp]
+	\centering
+		\only<beamer>{\includegraphics[width=1.00\textwidth]{images/multiprogramozas.jpg}}
+		\only<article>{
+			\includegraphics[width=1.00\textwidth]{images/multiprogramozas.jpg}
+			\caption{A multiprogramozás alapelve}
+			}
+	\label{fig:multiprogramozas}
+\end{figure}
+		
+\end{frame}
+
+\begin{frame}{Idõosztás (timesharing)}
+		
+		\begin{itemize}
+			\item Minden felhasználó kap egy on-line terminált (képernyõ + billentyûzet), amivel közvetlenül kapcsolódik a számítógéphez
+			\item Parancsokat tud begépelni a billentyûzeten, a választ a képernyõn látja
+			\item Amikor a processzor felszabadul az éppen ellátott feladat alól, akkor kiválasztja a soron következõt és végrehajtja, az eredményt visszaküldi a felhasználó képernyõjére
+			\item Amikor egy felhasználó gondolkodik, vagy éppen gépeli a parancsot, akkor nem terheli a számítógépet, így egyetlen gép sok felhasználót tud interaktívan kiszolgálni, miközben egy nagy kötegelt feladaton is dolgozik
+			\item Egy felhasználó viszont képes hosszú idõre lefoglalni a teljes gépet egy sokáig futó parancs kiadásával
+			\item Ezek a feladatok tovább bonyolították az operációs rendszert
+			\item A legismertebb ilyen operációs rendszer a MULTICS (MULTiplexed Information and Computing Service)
+			\item Az utolsó nagy MULTICS rendszert 2000. októberében állították le a Kanadai Védelmi Minisztériumban
+		\end{itemize}
+				
+\end{frame}
+
+\begin{frame}{Napjainkban}
+	
+	\begin{itemize}
+		\item Személyi számítógépek
+		\item Felhasználóbarátság
+		\item Számítógép hálózatok
+		\item Hálózati operációs rendszerek
+		\item Elosztott operációs rendszerek
+		\item Valós idejû rendszerek
+		\item Internet
+		\item Szabványos rendszerek
+		\item Nyílt rendszerek
+		\item Virtualizáció
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}{}
+	
+\begin{block}{}
+	
+	\begin{center}
+	\vspace{1cm}
+	\LARGE{Ismétlés vége}
+	\vspace{1cm}
+	\end{center}
+	
+\end{block}
+
+\end{frame}
+
+\section{Rendszermodell és rendszerarchitektúra}
+\label{sec:RendszermodellEsRendszerarchitektura}
+
+\begin{frame}{Rendszermodell és rendszerarchitektúra}
+	
+	\begin{itemize}
+		\item Vizsgáljuk meg az operációs rendszereket úgy, ahogyan a szoftvereket vizsgáljuk általában:
+		
+		\begin{enumerate}
+			\item vizsgáljuk meg a rendszer kapcsolatait a külvilággal
+			\item hogyan viselkedik a környezet szereplõivel
+			\item milyen a rendszer belsõ szerkezete
+		\end{enumerate}
+		
+	\end{itemize}
+	
+\end{frame}
+
+\subsection{Az operációs rendszerek felhasználói felülete}
+\label{sec:AzOperaciosRendszerekFelhasznaloiFelulete}
+
+\begin{frame}{Az operációs rendszer környezete}
+	
+	\begin{itemize}
+		\item Milyen ,,rendszerekkel'' áll kapcsolatban egy operációs rendszer? \pause
+		
+		\begin{itemize}
+			\item Hardver
+			\item Kezelõk, operátorok, különbözõ felhasználók
+			\item Alkalmazások, szoftverek
+		\end{itemize}
+		
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}{Az operációs rendszer környezeti (context) diagramja}
+	\begin{figure}[htbp]
+		\centering
+			\only<beamer>{\includegraphics[width=1.00\textwidth]{images/kontext_diagram.jpg}}
+			\only<article>{
+				\includegraphics[width=1.00\textwidth]{images/kontext_diagram.jpg}
+				\caption{Az operációs rendszer környezeti (context) diagramja}
+				}
+		\label{fig:kontextdiagram}
+	\end{figure}
+	
+\end{frame}
+
+\begin{frame}{Kezelõi felület -- Ember-gép kapcsolat}
+	
+	A részletesebb vizsgálatot kezdjük a Kezelõkkel!
+	\begin{itemize}
+		\item Feladatok:
+
+		\begin{itemize}
+	 		\item Folyamatosan tájékoztatni kell a felhasználót a rendszer mûködésérõl
+			\item Lehetõvé kell tenni a beavatkozást
+			\item Kezelni kell az ehhez szükséges perifériákat: képernyõ, billentyûzet, egér, esetleg hangszóró, mikrofon, stb.
+		
+		\end{itemize}
+		\item Különbözõ típusú kezelõk (felhasználók):
+		
+		\begin{enumerate}
+			\item Egyszerû felhasználók
+			\item Alkalmazásfejlesztõk (programozók)
+			\item Rendszermenedzserek (rendszergazdák)
+		\end{enumerate}
+		\item Ki hogyan használja az operációs rendszert?
+		
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}[allowframebreaks]{Egyszerû felhasználók}  
+	
+	\begin{itemize}
+		\item Leggyakoribb tevékenység: alkalmazások futtatása
+		\item Idejük nagy részében az alkalmazások felhasználói felületét használják, az operációs rendszerrel ritkán kerülnek kapcsolatba
+		\item Amikor viszont igen, akkor nem akarnak sokat tanulni ehhez, nem akarnak fejbõl tudni parancsokat
+		\item Ezért van szükség könnyen kezelhetõ, intuitív felhasználói felületekre:
+		
+		\begin{itemize}
+			\item grafikus felület
+			\item ablaktechnika
+			\item egér
+			\item menük
+			\item ikonok
+		\end{itemize}
+		
+		\framebreak
+		
+		\item Az operációs rendszer szolgáltatásai közül elsõsorban a fájlrendszert használják
+		
+		\begin{itemize}
+			\item fájlok létrehozása, másolása, törlése
+		\end{itemize}
+		
+		\item Szeretnének több alkalmazást futtatni párhuzamosan
+		
+		\item A felhasználók elvárnak megbízhatóságot, védelmet, biztonságot a rendszertõl, ezért hajlandók elviselni bizonyos kényelmetlenségeket, rendszabályokat (bejelentkezés, jogosultsági rendszer), de ezt nem meggyõzõdésbõl teszik, ha lehetõségük van rá, hajlamosak áthágni a szabályokat tudatlanul, vagy szándékosan
+		
+		\framebreak
+		
+		\item Az egyszerû felhasználó számára az operációs rendszer egy olyan virtuális gép, ami lehetõséget nyújt:
+		
+		\begin{itemize}
+			\item adat- és programfájlok védett és rendezett tárolására
+			\item alkalmazások futtatására
+		\end{itemize}
+		
+		\item Számukra a legfontosabb operációs rendszer szolgáltatások:
+		
+		\begin{itemize}
+			\item bejelentkezés
+			\item a rendelkezésre álló alkalmazások áttekintése
+			\item alkalmazások indítása
+			\item alkalmazások együttmûködése és leállítása
+			\item fájlmûveletek (másolás, mozgatás, törlés, tartalomfüggõ feldolgozás)
+		\end{itemize}
+		
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}[allowframebreaks]{Alkalmazásfejlesztõk, programozók}
+	
+	\begin{itemize}
+		\item Leggyakoribb tevékenység: programírás, tesztelés, elemzés
+		\item Ismerik az operációs rendszer programozói felületét, bizonyos mélységig a rendszer belsõ mûködését is
+		\item Egyes operációs rendszerek nyújtanak segédeszközöket a programfejlesztéshez (pl. debug módú futtatás), de legtöbbször a speciális szoftverfejlesztõ eszközöket használják (Pl. Microsoft Visual Studio, Netbeans, Eclipse)
+		\item Az alapos munkához mindenképpen szükség van az operációs rendszer speciális eszközeire:
+		
+		\begin{itemize}
+			\item erõforrás-használat figyelõ, naplózó eszközök
+			\item ezeket az információkat akkor is az operációs rendszer szolgáltatja, ha a programozó az integrált fejlesztõkörnyezettõl kapja meg
+		\end{itemize}
+		
+		\framebreak
+		
+		\item Az alkalmazásfejlesztõ számára az operációs rendszer olyan virtuális gép, ami meghívható eljárásokat biztosít, amivel
+		
+		\begin{itemize}
+			\item elfedi a hardver felépítésének és mûködésének részleteit
+			\item felmenti a programozót ezek ismerete alól
+			\item lehetõséget ad arra, hogy egymással együttmûködõ programokat írjon anélkül, hogy ismerné a másik programot
+			\item ellenõrzött eszközöket ad a programok együttmûködéséhez
+			\item megszervezi a programok együttfutását, megosztott erõforrás-használatát
+			\item megfigyelhetõvé teszi a programok futása közben kialakuló rendszerállapotokat
+		\end{itemize}
+		
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}[allowframebreaks]{Rendszermenedzserek (rendszergazdák)}
+	
+	\begin{itemize}
+		\item A rendszermenedzser feladata az operációs rendszer üzemeltetése. Ennek elemei:
+		
+		\begin{enumerate}
+			\item Rendszergenerálás: 
+			
+				\begin{itemize}
+					\item a rendszer telepítése a rendelkezésre álló hardverhez és az ellátandó feladatokhoz illesztve
+				\end{itemize}
+			
+			\item Adminisztrációs feladatok: 
+			
+				\begin{itemize}
+					\item felhasználók nyilvántartása
+					\item alkalmazások nyilvántartása
+					\item a felhasználók jogosultságainak kiosztása és nyilvántartása
+					\item a rendszer üzemeltetési, biztonsági szabályainak meghatározása, azok betartásának felügyelete
+				\end{itemize}
+			
+			\framebreak
+			
+			\item Hangolási feladatok: 
+			
+				\begin{itemize}
+					\item a rendszer paramétereinek beállítása a rendszer hatékonyságának növelése érdekében (pufferméretek, ütemezési és kiosztási algoritmusok finomhangolása)
+				\end{itemize}
+			
+			\item Rendszerfelügyelet:
+			
+				\begin{itemize}
+					\item a zavartalan munka folyamatos biztosítása
+					\item rendellenességek észlelése, elhárítása
+					\item idõszakos karbantartási feladatok elvégzése (tesztek, javítások, biztonsági mentések)
+				\end{itemize}
+			
+		\end{enumerate}
+		
+		\framebreak
+		
+		\item A rendszermenedzser részletes és alapos ismeretekkel rendelkezik az operációs rendszerrõl és a környezetérõl
+		\item Olyan beavatkozási lehetõségekre van szüksége, amelyek mások számára nem elérhetõk (rendszergazdai jogosultság)
+		\item Gyakran külön fizikai eszköz (rendszerkonzol) is rendelkezésére áll ehhez
+		
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}[allowframebreaks]{Kezelõi felületek különbözõ fajtái}
+
+	\begin{itemize}
+
+		\item A kezelõi felület kétféle lehet: szöveges, vagy grafikus
+			
+			\begin{enumerate}
+				\item grafikus:
+					
+					\begin{itemize}
+						\item könnyen áttekinthetõ
+						\item felhasználóbarát
+						\item viszont nem mindig ezek a legfontosabb szempontok
+					\end{itemize}
+					
+				\item szöveges:
+					
+					\begin{itemize}
+						\item távolról, kis sávszélességû kapcsolaton keresztül is használható
+						\item készülékfüggetlen, azaz bármilyen kompatibilis eszközön egyformán használható
+						\item lehet parancsnyelvû, vagy menürendszerû
+						\item a menürendszer nem jelent egyben grafikusat is!
+						\item a menürendszer mentesít a parancskészlet és a paraméterezés megtanulása alól
+						\item a parancsnyelv elõnye, hogy még inkább készülékfüggetlen lehet, és lehetõség van a parancsok összefûzésére (batch üzemmód) és a parancsfájlok elõre elkészítésére
+					\end{itemize}
+					
+			\end{enumerate}
+		
+		\item Napjainkban a kezelõfelületek szinte mindig interaktív mûködésûek, azaz a kezelõ parancsát a rendszer azonnali reakciója követi
+		
+		\begin{itemize}
+			\item szinkron üzemmód: a kezelõ kiad egy parancsot, a rendszer válaszol, ezután következik az újabb parancs
+			\item aszinkron üzemmód: a kezelõ kiad egy parancsot, a rendszer elkezdi feldolgozni, de közben a kezelõ kiadja a következõ parancsot
+			\item Hogyan mûködik ez Windows, Linux és Mac OS alatt?
+		\end{itemize}
+		
+		\framebreak
+		
+		\item Parancssorozatok
+			
+			\begin{itemize}
+				\item a legtöbb operációs rendszer lehetõvé teszi, hogy különbözõ parancsokat összefûzzünk egyetlen paranccsá
+				\item egy szövegfájlban egymás után felsoroljuk az egyes parancsokat
+				\item az így összeállított parancsfájlt egyetlen parancsként hajthatjuk végre
+				\item általában használhatunk különbözõ programszerkezeteket (elágazások, ciklusok), így a parancsfájlok által az operációs rendszer hasonlóan programozható, mint ahogyan a processzort programozzák a szoftverfejlesztõk
+				\item Windows alatt batch fájlnak, Linuxban shell scriptnek nevezzük ezt a lehetõséget
+				\item ezek segítségével egy hozzáértõ felhasználó elkészíthet összetett programsorozatokat, amelyeket a kevésbé hozzáértõ felhasználók is végrehajthatnak akár egy egyszerû ikonra kattintással
+			\end{itemize}
+
+		\framebreak
+		
+		\item A legtöbb operációs rendszernek többféle kezelõi feladata van, a felhasználó eldöntheti, hogy milyen legyen az alapértelmezett kezelõi felülete, de mûködés közben is választhat, akár párhuzamosan is használhat különbözõ felületeket
+		\item Például Windowsban Command Prompt (cmd parancs), Linuxban X Window alatt Terminal window
+		\item Milyen felületet használnak a különbözõ típusú felhasználók?
+		
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}{Kezelõi felületek különbözõ fajtái}
+	
+	\begin{itemize}
+		\item Milyen felületet használnak a különbözõ típusú felhasználók? 
+
+			\begin{itemize}
+				\item Egyszerû felhasználó: grafikus felület
+				\item Rendszermenedzser: szöveges felület, parancsfájlokkal, esetleg menürendszerrel támogatva
+				\item Programozó: attól függ, hogy milyen programot kell fejlesztenie, milyen eszközökkel
+			\end{itemize}
+			
+			\item Persze a rendszermenedzser és a programozó is idõnként egyszerû felhasználóként dolgozik, és az egyszerû felhasználó is idõnként rendszermenedzserré, vagy programozóvá válik
+	\end{itemize}
+	
+\end{frame}
+
+\subsection{Alkalmazás programozói felület}
+\label{sec:AlkalmazasProgramozoiFelulet}
+
+\begin{frame}[allowframebreaks]{Alkalmazás programozói felület, API}
+	
+	\begin{itemize}
+		\item Különbözõ alternatív elnevezések:
+			
+			\begin{itemize}
+				\item Application Interface
+				\item Program Interface
+				\item Application Programing Interface
+			\end{itemize}
+			
+		\item Ezen keresztül kommunikálnak az alkalmazások az operációs rendszerrel
+		\item Hogy ezt megértsük, vizsgáljuk meg, hogy mi történik, amikor programot fejlesztünk valamilyen operációs rendszer alatt?
+		
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}[allowframebreaks]{Mi történik, amikor programot fejlesztünk?}
+	
+	\begin{enumerate}
+		\item Ha a gépen nem lenne operációs rendszer
+			
+			\begin{itemize}
+				\item A processzor gépi kódban programozható
+				\item Néhány száz utasítást és beépített eljárást ismer
+				\item A programozónak ezekbõl kell felépítenie a programjait
+				\item Gépi kódban lehetetlen lenne egy igazi alkalmazást megírni
+				\item A magasszintû programozási nyelvek (pl. BASIC, Pascal, C/C++, Java) és az integrált fejlesztõ környezetek (IDE) (pl. Visual Studio, Netbeans) megkönnyítik a programozó dolgát, de a legegyszerûbb feladatokat is le kellene programoznia:
+					
+					\begin{itemize}
+						\item például ha egy szöveget ki akarunk  írni a képernyõre, akkor ismernünk kell az összes képernyõtípus alacsonyszintû programozását
+						\item a kiírás elõtt meg kell vizsgálnunk, hogy milyen típusú képernyõ csatlakozik a számítógéphez és az annak megfelelõ parancsokkal kell elvégezni a kiírást
+						\item ha a felhasználó vásárol egy új monitort, amit a programunk írásakor még nem ismertünk, akkor új változatot kell készítenünk a programból
+						\item ez minden egyes program esetében így történne
+					\end{itemize}
+					
+				\item A Windows megjelenése és elterjedése elõtt pontosan ez volt a helyzet, ha grafikus programot akartunk írni, ugyanis a DOS operációs rendszer semmilyen támogatást nem adott a grafikus programok írásához
+				\item A piacon verseny van az operációs rendszerek között, ezért az operációs rendszer gyártók igyekeznek minél jobb támogatást nyújtani a programozóknak, hogy szívesen írjanak alkalmazásokat az õ rendszerükre
+				\item Ennek eredményeként a mai korszerû operációs rendszerek lényegesen több támogatást nyújtanak a programozóknak
+				
+			\end{itemize}
+			
+			\framebreak
+			
+			\item Ha a gépen van operációs rendszer
+				
+				\begin{itemize}
+					\item Az operációs rendszer tartalmaz egy programkönyvtárat, ebben olyan eljárások találhatók, amelyek a legtöbb programban közösek, amire a legtöbb programozónak szüksége van
+					\item Ezeket az eljárásokat úgy írják meg az OS fejlesztõi, hogy minden támogatott hardver eszközön egyaránt jól mûködjenek
+					\item A fejlesztõk folyamatosan követik az új eszközök megjelenéseit, és rövid idõn belül támogatják azokat is. Ez a hardvergyártók érdeke is, ezért együttmûködnek az OS fejlesztõ cégekkel
+					\item Ez a folyamatos követés az operációs rendszer rendszeres frissítéseivel valósul meg (patch, update, service pack, stb.), többek között ezért is fontos, hogy rendszeresen frissítsük az operációs rendszerünket kézzel, vagy automatikusan
+				\end{itemize}
+				
+	\end{enumerate}
+	
+\end{frame}
+
+\begin{frame}[allowframebreaks]{Alkalmazás programozói felület, API, folytatás}
+	
+	\begin{itemize}
+		\item Ezt a most megismert programkönyvtárat nevezzük API-nak
+		\item Valójában nem egy API van, hanem sok, külön programkönyvtár a különbözõ funkciócsoportokhoz, például
+		
+		\begin{itemize}
+			\item be-/kiviteli mûveletek (input/output)
+			\item memóriakezelés
+			\item dátum- és idõkezelés
+			\item a programok együttmûködését biztosító mûveletek
+			\item grafikus funkciók
+			\item hálózatkezelés
+			\item \dots
+		\end{itemize}
+		
+		\item A mi vizsgálatunk szempontjából mindegy, hogy ezeket egy egységes, vagy több különbözõ API-nak tekintjük
+		\item Annak sincs jelentõsége, hogy ezeket mind egy cég készítette (az OS gyártója), vagy egyes részeit a hardvergyártók írták meg és integrálták az OS-be
+		\item Az API segítségével az operációs rendszer létrehoz egy virtuális számítógépet a programozó számára
+		
+			\begin{itemize}
+				\item A programozónak csak azt kell tudnia, hogy most egy Windows 7-et, egy Linuxot, vagy egy Mac OS X-et futtató számítógépre írja a programját
+				\item Azt nem kell tudnia, hogy abban a számítógépben milyen típusú és teljesítményû processzor, milyen és mennyi memória modul, milyen videókártya, egér, billentyûzet, hangkártya, stb. található
+			\end{itemize}
+			
+		\item Ez a megoldás lényegesen leegyszerûsítette és hatékonyabbá tette a programozók munkáját
+		\item Ezt a gondolatmenetet továbbfejlesztve ma már olyan fejlesztõ eszközök is léteznek, amelyeket használva már azt sem kell tudnia a programozónak, hogy milyen operációs rendszer alatt fog futni a programja
+		\item Például a Java rendszer egy olyan virtuális számítógépet hoz létre az operációs rendszerek fölött, ami lehetõvé teszi, hogy az egyszer megírt program változtatás nélkül futhasson bármilyen Windows, Linux, vagy Mac OS alatt, de akár megfelelõ mobiltelefonon, vagy ,,kávéautomatán'' is
+		\item A második félévben a Programozás alapjai 2 kurzuson ezzel a rendszerrel fognak megismerkedni, akkor majd gondoljanak vissza erre a gondolatmenetre
+		
+		\framebreak
+		
+		\item Visszatérve az operációs rendszerekhez, az API tehát kiegészíti a processzor utasításkészletét, általa egy virtuális számítógép jön létre, amire az alkalmazói program készül
+		\item Az API eljárásait úgynevezett rendszerhívások formájában tudjuk végrehajtani
+		\item Az API eljárásai és a normál alkalmazások közötti fontos különbség, hogy az API eljárásai egy speciális, védett, vagy rendszer (system) üzemmódban futnak szemben az alkalmazások felhasználói (user) üzemmódjával
+			
+			\begin{itemize}
+				\item védett, vagy rendszer üzemmódban olyan kritikus mûveletek is végrehajthatók, amelyek felhasználói módban tiltottak
+			\end{itemize}
+			
+		\framebreak
+		
+		\item A rendszerhívásokat legtöbbször úgynevezett megszakítások segítségével valósítják meg:
+			
+			\begin{itemize}
+				\item Az API dokumentációja tartalmazza, hogy az egyes API funkciók végrehajtásához milyen sorszámú megszakítást kell kérnie a programozónak és elõtte hogyan kell megadnia a szükséges adatokat, illetve hogyan kapja vissza az eredményt (regiszterek)
+				\item Így a hívó programnak semmi többet nem kell tudnia a rendszerhívás részleteirõl, ezért nem okoz gondot egy verzióváltás, vagy rendszerfrissítés, amíg az operációs rendszer kompatibilis marad a korábbi változattal, addig minden mûködni fog
+				\item A megszakításkor felfüggesztésre kerül az alkalmazói program, a rendszer átvált védett üzemmódba, végrehajtja a rendszerhívást, ezután visszavált felhasználói üzemmódba és folytatja az alkalmazói program futtatását a következõ utasítástól
+				\item Hogy az egyes megszakítások hívásakor melyik rendszerhívás hajtódjon végre, az az operációs rendszer elindulásakor dõl el, így tud az alkalmazói program minden számítógépen megfelelõképpen mûködni még akkor is, ha a program megírásakor az a számítógép konfiguráció még nem is létezett, így a programozó nem is készülhetett fel rá és nem tesztelhette rajta a programját
+			\end{itemize}
+			
+		\item Ha szabványosítani tudjuk a rendszerhívásokat, akkor a programok nagymértékben hordozhatók lehetnek, azaz módosítás nélkül futtathatók a különbözõ rendszereken
+			
+		\framebreak
+		
+		\item A POSIX$\textsuperscript{\textregistered}$-szabvány
+			
+			\begin{itemize}
+				\item A legelterjedtebb ilyen szabvány a \textbf{POSIX}$\textsuperscript{\textregistered}$ (\textbf{P}ortable \textbf{O}perating \textbf{S}ystem \textbf{I}nterface for UNI\textbf{X})
+				\item C nyelven definiálja az operációs rendszer alkalmazás programozói felületét
+				\item A C nyelvû definíció további elõnye, hogy ennek révén a C nyelvû programok forráskód szinten hordozhatók a különbözõ processzorok között, ha betartják a POSIX$\textsuperscript{\textregistered}$ szabványt
+				\item Ugyanis a POSIX$\textsuperscript{\textregistered}$ szabványnak megfelelõ API hívásokat a fordító program bármilyen processzor gépi kódjára le tudja fordítani
+				\item Mit jelent a forráskód szintû hordozhatóság?
+					
+					\begin{itemize}
+						\item Ha megvan a program forráskódja, és azt módosítás nélkül le tudjuk fordítani különbözõ rendszereken futó fordítóprogramokkal, akkor a program forráskód szinten hordozható
+					\end{itemize}
+					
+			\end{itemize}
+		
+	\end{itemize}
+	
+\end{frame}
+
+
+\subsection{Hardverfelület}
+\label{sec:Hardverfelulet}
+
+\begin{frame}[allowframebreaks]{Hardverfelület}
+	
+	\begin{itemize}
+		\item A hardver fejlõdése nagyon gyors
+		\item Csak akkor tudjuk kihasználni a hardver lehetõségeit, ha a szoftver megfelelõképpen támogatja azt
+		\item Ehhez megfelelõ operációs rendszerre és megfelelõ technikákra van szükség
+		\item Ezek alkotják a hardverfelületet
+		\item Az operációs rendszer és a hardver kapcsolata három szinten valósul meg
+		
+		\framebreak
+		
+		\item Az operációs rendszer és a hardver kapcsolatának 3 szintje:
+			
+			\begin{enumerate}
+				\item Az operációs rendszer maga is egy program, aminek az adott hardveren kell futnia
+					
+					\begin{itemize}
+						\item alkalmazkodnia kell a hardverhez
+						\item különbözõ processzorcsaládokhoz külön változat
+						\item telepítéskor választják ki a megfelelõt és illesztik a rendszerhez
+						\item modultecnnika: a hardverfüggõ részeket külön modulokba teszik, hogy könnyen lehessen cserélni
+					\end{itemize}
+					
+				\item Az operációs rendszer kezeli a hardver erõforrásait és gazdálkodik velük
+					
+					\begin{itemize}
+						\item az alkalmazások között elosztja azokat
+						\item ehhez ismernie kell a hardver elemeit és azok paramétereit, nyilván kell tartania azokat
+						\item absztrakció: a rendelkezésre álló erõforrásokat az operációs rendszer virtuális eszközökbe szervezi, és azokat bocsátja az alkalmazások rendelkezésére
+						\item pl. fizikai háttértárak $\Rightarrow$ logikai meghajtók a:, b:, c:, d:, \dots
+					\end{itemize}
+				 
+				\item Az operációs rendszernek kezelnie kell a rendszerhez kapcsolódó be-/kiviteli eszközöket
+					
+					\begin{itemize}
+						\item ezek nagyon sokfélék lehetnek, és meg is változhatnak a rendszer mûködése során sokkal gyakrabban, mint a rendszer alapelemei: processzor, memória, \dots
+						\item új, korábban ismeretlen eszközök kerülhetnek be a rendszerbe, és korábban használtak kikerülhetnek belõle
+						\item (például gondoljunk egy USB-n keresztül csatlakozó külsõ merevlemezre)
+						\item a rendszernek eközben is mûködõképesnek kell maradnia
+						\item a megoldás itt is az absztrakció: virtuális eszközök + eszközmeghajtó programok (device driver)
+						\item az operációs rendszer és az alkalmazói programok a szabványosított virtuális eszközt látják, az eszköztõl függõ speciális részleteket a device driver valósítja meg
+						
+						\framebreak
+						
+						\item pl. egy adatblokk tárolása egy külsõ lemezegységen a következõképpen történik:
+						\item[-] az alkalmazás kiküld egy \textit{,,adatblokk írása''} parancsot a d: meghajtóra
+						\item[-] az operációs rendszer továbbítja ezt az eszköznek
+						\item[-] az eszközkezelõ program (device driver) tudja, hogyan kell kezelni az eszközt
+						\item[-] megnézi, hogy milyen fordulatszámmal forog a lemez, ha nem megfelelõ, akkor felpörgeti és megvárja, amíg felpörög
+						\item[-] beállítja az író fejet a megfelelõ pozícióba és megvárja, amíg odaér
+						\item[-] bemásolja az adatokat az eszköz pufferébe (köztes tároló) és kiadja az írás parancsot
+						\item[-] ha minden rendben lezajlott, akkor visszajelez az operációs rendszernek
+						\item[-] ha valami hiba történt, akkor ezt jelzi
+						\item[-] az operációs rendszer jelzi az alkalmazásnak a mûvelet eredményét
+					\end{itemize}
+				
+			\end{enumerate}
+			
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}[allowframebreaks]{Munkamegosztás az operációs rendszer szállítók és a készülékgyártók között }
+	
+	\begin{itemize}
+		\item Egyrészt az operációs rendszer szállítója mellékeli a rendszerhez az elterjedt hardvereszközöket támogató modulokat
+		\item Másrészt a készülékgyártók elkészítik az eszközeikhez a meghajtó programokat a különbözõ operációs rendszerekhez
+		\item Mindkét oldalon készülnek különbözõ verziók részben a fejlesztések miatt, részben az észlelt hibák kijavítására
+		\item A rendszer csak akkor mûködõképes, ha léteznek megfelelõ megállapodások és szabványok, és persze mindenki betartja ezeket
+		
+		\framebreak
+		
+		\item Kettõs szabványosításra van szükség:
+		
+			\begin{enumerate}
+				\item Szabványok a hardvereszközök csatlakoztatására (pl. USB, Firewire, korábban soros port, párhuzamos port)
+				\item Szabványok az eszközök közötti kommunikációra, szoftvercsatlakoztatás
+			\end{enumerate}
+			
+		\item Az operációs rendszer eszközöket nyújt a rendszermenedzserek számára a készülékek és a kezelõprogramok csatlakoztatására
+		
+	\end{itemize}
+	
+\end{frame}
+
+
+\subsection{Belsõ szerkezet}
+\label{sec:BelsoSzerkezet}
+
+\begin{frame}{Az operációs rendszerek belsõ szerkezete}
+	
+	\begin{itemize}
+		\item Ahogyan az eddigiekben láttuk az operációs rendszerek nagy és összetett rendszerek
+		\item Hogyan épül fel egy ilyen rendszer?
+		\item Hogyan lehet ilyen rendszereket létrehozni?
+		\item Amit most megismerünk, az jól fog jönni akkor is, amikor majd mi írunk programokat (PROG1, PROG2, \dots)
+		\item Hogyan álljunk neki egy nagy program megírásának?
+		
+			\begin{itemize}
+				\item A Programozás alapjai órán megtanuljuk, hogyan kell megírni egy egyszerû, kisméretû programot?
+				\item Mit nevezünk kisméretû, egyszerû programnak?
+				\item Ha már meg tudunk írni kis programokat, hogyan írunk meg egy nagyméretû, összetett programot?
+				\item A megoldás: problémafelbontás
+				
+			\end{itemize}
+
+		\end{itemize}
+
+\end{frame}
+
+\begin{frame}[allowframebreaks]{Problémafelbontás}
+
+		\begin{itemize}
+			\item Nem csak a programozás közben használhatjuk ezt a módszert
+			\item Ha egy feladat nagyobb méretû, mint amit könnyen át tudnánk látni, akkor az elsõ feladat, hogy felbontjuk kisebb részekre
+			\item Ha egy rész már akkora méretû, amit átlátunk és meg tudunk oldani, akkor oldjuk meg
+			\item Ha még ezt sem látjuk át, akkor osszuk tovább még kisebb részekre
+			\item Ezt addig folytatjuk, amíg minden részfeladatot meg nem oldottunk
+			\item Ezután a megoldott részmegoldásokból összeépítjük a teljes megoldást
+			\item A problémafelbontást és a részmegoldások összeépítését sokféleképpen végezhetjük
+			\item Ezt a módszert mindenféle feladat megoldásánál használhatjuk
+			\item Ha programozási feladatról van szó, akkor programozási módszertanoknak nevezzük ezeket a felbontási módszereket
+			\item Sok különbözõ programozási módszertan létezik, ezek megismerése segítségünkre lesz a programozás során
+			\item Vizsgáljunk meg két felbontási módszert:
+				
+				\begin{enumerate}
+					\item Rétegekre bontás
+					\item Modulokra bontás
+				\end{enumerate}
+	
+	\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Rétegekre bontás}
+	
+	\begin{itemize}
+		\item A programot egymásra épülõ rétegekre bontjuk
+		\item Minden réteg csak az alatta lévõ réteg szolgáltatásait használhatja, és a felette lévõ réteg számára nyújt szolgáltatásokat
+		\item Elõnyei:
+			
+			\begin{itemize}
+				\item Tiszta szerkezet
+				\item Könnyen továbbfejleszthetõ, bõvíthetõ, módosítható
+			\end{itemize}
+		
+		\item Hátrányai:
+			
+			\begin{itemize}
+				\item Nehéz eldönteni, hogy mi kerüljön az egyes rétegekbe
+				\item A rétegek sorrendje nem egyértelmû
+				\item Csökkenti a teljesítményt, ha több rétegen kell átnyúlni
+			\end{itemize}
+			
+		\end{itemize}
+	
+\end{frame}
+
+\begin{frame}{Modulokra bontás}
+	
+	\begin{itemize}
+		\item Nem követeljük meg a szabályos rétegszerkezetet
+		\item Egymástól független modulokba osztjuk a programrészeket
+		\item A modulokat úgy kell kialakítani, hogy a modulokon belül maximális legyen a kapcsolat, míg a modulok között minimális
+		\item Ha jól alakítottuk ki a modulokat, akkor az egyes modulokat egymástól függetlenül készíthetjük el
+		\item Ha elkövetünk egy hibát, akkor az csak a modulon belül okozhat problémát, nem befolyásolja a többi modul mûködését
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}[allowframebreaks]{Az operációs rendszerek belsõ szerkezete}
+	
+		\begin{itemize}
+			\item Térjünk vissza az operációs rendszerekhez!
+			\item Az operációs rendszerek nagy méretû szoftverrendszerek, vizsgálatuk sok programozási tanulsággal szolgál
+			\item A korai operációs rendszerek (pl. OS/360) úgynevezett monolitikus szerkezetûek voltak, azaz nem rendelkeznek belsõ szerkezettel, nem bonthatók kisebb részekre
+			\item Ez azt eredményezi, hogy bármilyen módosítás a programban hatással lehet a teljes programra
+			\item Ennek köszönhetõ a sok hiba az OS/360 operációs rendszerben, és ez okozza azt is, hogy minden javítás sok újabb hibát eredményezett
+			\item Mit lehet tenni ez ellen?
+			\item Részekre kell bontani a rendszert
+			\item Leggyakrabban a két látott módszert kombináltan használjuk
+			\item Kialakítunk néhány réteget és több funkcionális modult
+			\item Tipikus rétegek:
+				
+				\begin{itemize}
+					\item a hardverfüggõ részek egy alsó, hardverközeli rétegbe kerülnek
+					\item az operációs rendszer alapfunkciói a rendszermagban (kernel) valósulnak meg
+					\item a feltétlen szükségest meghaladó kényelmi szolgáltatások
+					\item a felhasználói programokból érkezõ rendszerhívások fogadó felületét megvalósító 
+réteg
+				\end{itemize}
+				
+			\framebreak
+			
+			\item Tipikus modulok:
+				
+				\begin{itemize}
+					\item folyamatkezelés
+					\item tárkezelés
+					\item fájlkezelés
+					\item be-/kivitel kezelése
+					\item háttértár kezelése
+					\item hálózatkezelés
+					\item védelmi és biztonsági rendszer
+					\item parancsértelmezés
+					\item felhasználóbarát kezelõi felületek
+				\end{itemize}
+				
+			\item A következõ órákon részekre szedjük az operációs rendszert, és sorban megvizsgáljuk az egyes részeket, rétegeket és modulokat
+		\end{itemize}
+	
+\end{frame}
+
+\section{Befejezés}
+\label{sec:Befejezes}
+
+%\subsection{Összefoglalás}\normalfont
+%\label{sec:Osszefoglalas}
+
+\subsection{Emlékeztetõ kérdések}
+\label{sec:EmlekeztetoKerdesek}
+
+\begin{frame}[allowframebreaks]{Emlékeztetõ kérdések}
+	
+	\begin{enumerate}
+		\item Milyen rendszerekkel áll kapcsolatban egy operációs rendszer?
+		\item Milyen felhasználó típusokat különböztetünk meg az operációs rendszerekkel kapcsolatban?
+		\item Mire használják leggyakrabban az operációs rendszert a különbözõ típusú felhasználók?
+		\item Milyen felhasználói felületet várnak el a különbözõ típusú felhasználók?
+		\item Milyen OS szolgáltatásokat használnak leggyakrabban a különbözõ típusú felhasználók?
+		\item Milyen különbözõ fajta kezelõi felületei lehetnek az operációs rendszereknek?
+		\item Milyen kezelõi felületet szeretnek használni a különbözõ típusú felhasználók? Miért?
+		\item Mit jelent az API rövidítés?
+		\item Miben tér el a programozás operációs rendszerrel és nélküle?
+		\item Mit jelent a védett üzemmód?
+		\item Mit jelent a megszakítás?
+		\item Mit jelent a POSIX$\textsuperscript{\textregistered}$?
+		\item Mit jelent a forráskód szintû hordozhatóság?
+		\item Hogyan kezeli az operációs rendszer a különbözõ perifériákat?
+		\item Mi történik az operációs rendszerben, amikor egy külsõ eszközt használunk egy felhasználói programban? Hogyan valósul meg mindez?
+		\item Hogyan tudunk megoldani nagyméretû problémákat?
+		\item Mit jelent a rétegekre bontás?
+		\item Milyen elõnyei és hátrányai vannak?
+		\item Mit értünk modulokra bontás alatt?
+		\item Miért lehetett olyan sok hiba az OS/360 operációs rendszerben?
+		\item Milyen tipikus rétegekbõl és modulokból épülnek fel az operációs rendszerek?
+	\end{enumerate}
+	
+\end{frame}
+
+\begin{frame}{Befejezés}
+
+\begin{block}{}
+	
+	\begin{center}
+	\vspace{1cm}
+	\LARGE{Köszönöm a figyelmet!}
+	\vspace{1cm}
+	\end{center}
+	
+\end{block}
+
+\end{frame}
+
+\end{document}
+
+
+
+

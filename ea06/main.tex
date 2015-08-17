@@ -1,0 +1,603 @@
+% $Header: /cvsroot/latex-beamer/latex-beamer/solutions/conference-talks/conference-ornate-20min.en.tex,v 1.7 2007/01/28 20:48:23 tantau Exp $
+
+% Version for PROJECTOR (Vetíthetõ változat)
+% Uncomment the next line (A vetíthetõ változathoz vedd ki a % jelet a következõ sor elejérõl)
+%\documentclass{beamer}
+% End of version for PROJECTOR (A vetíthetõ változat vége)
+
+% PRINTABLE version (Nyomtatható változat):
+% Uncomment the next two lines (vedd ki a % jelet a következõ 2 sor elejérõl)
+%\documentclass{article}
+%\usepackage{beamerarticle}
+% End of PRINTABLE version (A nyomtatott változat beállításának vége)
+
+
+% This file is a solution template for:
+
+% - Talk at a conference/colloquium.
+% - Talk length is about 20min.
+% - Style is ornate.
+
+
+
+% Copyright 2004 by Till Tantau <tantau@users.sourceforge.net>.
+%
+% In principle, this file can be redistributed and/or modified under
+% the terms of the GNU Public License, version 2.
+%
+% However, this file is supposed to be a template to be modified
+% for your own needs. For this reason, if you use this file as a
+% template and not specifically distribute it as part of a another
+% package/program, I grant the extra permission to freely copy and
+% modify this file as you see fit and even to delete this copyright
+% notice. 
+
+
+\mode<presentation>
+{
+	\usetheme{Warsaw}
+	% or ...
+	
+	\setbeamercovered{transparent}
+	% or whatever (possibly just delete it)
+}
+
+% Magyar szöveg
+\usepackage[magyar]{babel}		% a Babel csomagot a magyar nyelvvel használjuk
+\usepackage[latin2]{inputenc}		% Latin-2-es kódolású ez a forrás
+\usepackage{t1enc}			% a belsõ ábrázolás és a kimeneti font-kódolás
+% a T1 kódolás
+\usepackage{indentfirst}		% az elsõ bekezdés is behúzott legyen, ne csak a 2-tól
+\frenchspacing				% a mondatköz ugyanakkora nagy, mint a szóköz
+\setlength{\parskip}{\smallskipamount}	% bekezdések közötti távolság beállítása
+% (gumi-méret: 3pt plus 1pt minus 1 pt)
+% Magyar szöveg vége
+
+
+% Angol szöveg
+%\usepackage[english]{babel}
+%\usepackage[latin1]{inputenc}
+%\usepackage{times}
+%\usepackage[T1]{fontenc}
+% Angol szöveg vége
+
+
+% Or whatever. Note that the encoding and the font should match. If T1
+% does not look nice, try deleting the line with the fontenc.
+
+\def\screenshotsize{0.70}
+\def\screenshotsizeB{0.50}
+\def\maintitle{Operációs rendszerek 1. -- 6. elõadás \\ A virtuális gép hardvereszközei}
+\def\shorttitle{OPRE1 -- 6 - Hardvereszközök}
+\def\longdate{}
+\def\shortdate{}
+
+
+\usepackage{graphicx}
+\usepackage{amsfonts}
+
+\only<beamer>{
+	%Insert frame number to footline
+	%Tested with the next themes: Warsaw, Berlin, Szeged, ...
+	\newcommand*\oldmacro{}%
+	\let\oldmacro\insertshorttitle%
+	\renewcommand*\insertshorttitle{%
+		\oldmacro\hfill%
+		\insertframenumber\,/\,\inserttotalframenumber}
+	%End of frame number to footline
+}
+
+\title[\shorttitle] % (optional, use only with long paper titles)
+{\maintitle}
+
+\author[Soós Sándor] % (optional, use only with lots of authors)
+{Soós Sándor}
+% - Give the names in the same order as the appear in the paper.
+% - Use the \inst{?} command only if the authors have different
+%   affiliation.
+
+\institute[NYME SKK INGA] % (optional, but mostly needed)
+{
+	%  \inst{1}%
+	Nyugat-magyarországi Egyetem\\
+	Simonyi Károly Mûszaki, Faanyagtudományi és Mûvészeti Kar\\
+	Informatikai és Gazdasági Intézet\\
+	\vspace{0.3cm}
+	E-mail: soossandor@inf.nyme.hu
+}
+% - Use the \inst command only if there are several affiliations.
+% - Keep it simple, no one is interested in your street address.
+
+\date[\shortdate] % (optional, should be abbreviation of conference name)
+{\longdate}
+% - Either use conference name or its abbreviation.
+% - Not really informative to the audience, more for people (including
+%   yourself) who are reading the slides online
+
+% Delete this, if you do not want the table of contents to pop up at
+% the beginning of each subsection:
+\AtBeginSubsection[]
+{
+	\begin{frame}<beamer>{Hol tartunk?}
+		\tableofcontents[currentsection,currentsubsection]
+	\end{frame}
+}
+
+
+% If you wish to uncover everything in a step-wise fashion, uncomment
+% the following command: 
+
+%\beamerdefaultoverlayspecification{<+->}
+
+\begin{document}
+	
+	
+	\only<article>{
+		\begin{titlepage}
+			
+			\begin{center}
+				
+				%\vspace*{1cm}
+				\Large
+				\textsc{\maintitle}\\
+				
+				\vspace{5cm}
+				
+				%\LARGE
+				\textsc{Soós Sándor}\\
+				
+				\vspace{3cm}
+				
+				Nyugat-magyarországi Egyetem\\
+				Simonyi Károly Mûszaki, Faanyagtudományi és Mûvészeti Kar\\
+				Informatikai és Gazdasági Intézet\\
+				\vspace{0.3cm}
+				E-mail: soossandor@inf.nyme.hu
+				%\textsc{\today}\\ %%Date - better you write it yourself.
+				\textsc{\longdate}\\
+				
+			\end{center}
+			
+		\end{titlepage}
+	}
+	
+	% If you have a file called "university-logo-filename.xxx", where xxx
+	% is a graphic format that can be processed by latex or pdflatex,
+	% resp., then you can add a logo as follows:
+	
+	\only<beamer>{
+		\pgfdeclareimage[height=1cm]{university-logo}{images/nyme_skk}
+		\logo{\pgfuseimage{university-logo}}
+	}
+	
+	%\only<beamer>{\subject{Practical Computer Science}}
+	% This is only inserted into the PDF information catalog. Can be left
+	% out. 
+	
+	
+	\only<beamer>{
+		\begin{frame}{}
+			\titlepage
+		\end{frame}
+	}
+	
+	\begin{frame}{Tartalomjegyzék}
+		\tableofcontents
+		% You might wish to add the option [pausesections]
+	\end{frame}
+	
+	
+
+
+\section{Ismétlés}
+\label{sec:Ismetles}
+
+\subsection{Emlékeztetõ az elõzõ órákról}
+\label{sec:EmlekeztetoAzElozoOrakrol}
+
+\begin{frame}{Klasszikus konkurens problémák}
+	
+	\begin{itemize}
+		\item Termelõ-fogyasztó probléma
+		\item Írók-olvasók problémája
+		\item Étkezõ filozófusok problémája
+		\item Adatfolyamok illesztése
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}{Nyelvi eszközök a folyamatok programozására}
+	
+	\begin{itemize}
+		\item Precedenciagráf
+		\item Fork-join utasításpár
+		\item Parbegin-parend utasításpár
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}{}  %Ismétlés vége
+	
+\begin{block}{}
+	
+	\begin{center}
+	\vspace{1cm}
+	\LARGE{Ismétlés vége}
+	\vspace{1cm}
+	\end{center}
+	
+\end{block}
+
+\end{frame}
+
+\section{A virtuális gép eszközei}
+\label{sec:AVirtualisGepEszkozei}
+
+\subsection{Tárak}
+\label{sec:Tarak}
+
+\begin{frame}{A virtuális gép további eszközei}
+	
+	\begin{itemize}
+		\item Mielõtt elkezdjük:
+			
+			\begin{itemize}
+				\item FIGYELEM! Jegyzetelés!!!
+				\item Jövõ héten zárthelyi!
+				\item Legyen-e konzultáció? Mikor? \\
+			\end{itemize}
+			
+	\end{itemize}
+
+	\begin{itemize}
+		\item Az elmúlt órákon megismerkedtünk a virtuális gépeken futó folyamatokkal és az azokat futtató processzorokkal
+		\item Most megvizsgáljuk, hogyan kezeli az operációs rendszer a virtuális gép további eszközeit
+		\item Kezdjük azzal, hogy hogyan tároljuk az adatokat!
+	\end{itemize}
+	
+\end{frame}
+
+
+
+\begin{frame}[allowframebreaks]{Tárak, tárhierarchia,} 
+	
+	\begin{itemize}
+		\item A tárak hierarchikus rendbe szervezettek:
+		
+	\begin{table}[htbp]
+		\centering
+			\begin{tabular}{|c|}
+				\hline
+				külsõ tárak, harmadlagos tárolók \\ \hline
+				háttértárak, másodlagos tárolók \\ \hline
+				operatív tár, memória \\ \hline
+				a processzor regiszterei \\ \hline
+			\end{tabular}
+	\end{table}
+
+		\item A tárak jellemzõi hierarchia szintek szerint:
+		
+			\begin{itemize}
+				\item Minél magasabb szinten van egy tároló:
+				
+					\begin{itemize}
+						\item annál nagyobb méretû
+						\item annál lassabb mûködésû
+						\item annál nagyobb egységekben címezhetõ
+						\item annál hosszabb a tárolási idõ
+					\end{itemize}
+					
+			\end{itemize}
+
+		\framebreak
+		
+		\item Alapvetõ ellentmondás:
+			
+			\begin{itemize}
+				\item A különbözõ tárolási szintek hatékony kezelése a rendszer teljesítményének egyik kulcsa
+				\item A mûveletek elvégzéséhez az adatoknak a processzor regisztereiben kell lenniük. (Miért?)
+				\item Az összes szükséges adat szinte soha nem fér el a regiszterekben, sokszor a memóriában sem, néha még a háttértárakon sem
+				\item \textbf{A megoldás}: az adatokat rendszeresen mozgatni kell a tárolási szintek között
+				\item Hogyan?
+					
+					\begin{itemize}
+						\item regiszterek $\leftrightarrow$ memória: processzor
+						\item memória $\leftrightarrow$ háttértár: fájlmûveletek
+						\item háttértár $\leftrightarrow$ külsõ tárak: felhasználói beavatkozás
+					\end{itemize}
+					
+			\end{itemize}
+			
+		\framebreak
+		
+		\item Adatok elérése, címzés a különbözõ tárolószinteken:
+			
+			\begin{itemize}
+				\item \textbf{regiszterek}: minden regiszternek külön neve van, bizonyos mûveletek csak bizonyos regiszterekkel végezhetõk el
+				\item \textbf{memória}: minden memóriarekesz külön-külön címezhetõ
+				\item \textbf{háttértár}: fájlonként, azon belül rekordonként, blokkonként címezhetõ
+				\item \textbf{külsõ tár}: médiánként címezhetõ, melyik CD/DVD lemezen, szalagon található a keresett adat
+			\end{itemize}
+	
+		\item Az adatok mozgatása kétféleképpen történhet:
+			
+			\begin{enumerate}
+				\item \textbf{Explicit}: (világosan kifejezett) pl. egy utasítással betöltünk egy fájlt a memóriába
+				\item \textbf{Implicit}: (rejtett, közvetett) a rendszer végzi a háttérben a kényelem fokozása, vagy a hatékonyság növelése érdekében
+			\end{enumerate}
+			
+		\framebreak
+		
+		\item A rejtett adatmozgatás tipikus fajtái:
+			
+			\begin{enumerate}
+				\item \textbf{Virtualizálás}
+					
+					\begin{itemize}
+						\item Az alacsonyabb szinten lévõ tár címzési módját kiterjesztjük a magasabb szintre
+						\item Ezzel megnöveljük az alacsonyabb szintû tár méretét (látszólag), de lassabban mûködik
+						\item Példa: virtuális memória, lemezen tárolódik, de memória módjára kezeljük, nem fájlként
+					\end{itemize}
+					
+				\item \textbf{Gyorsítótár (cache)}
+					
+					\begin{itemize}
+						\item Magasabb szintû elérési módon kezelünk egy alacsonyabb szintû tárat
+						\item Sokkal gyorsabb 
+						\item De a mérete sokkal kisebb, mint a szimulált tár szokásos mérete
+						\item Kulcsfontosságú az adatmozgatás szervezése
+						\item \textbf{Lokalitási elv}: ha egy adatra szükség van, akkor nagy valószínûséggel a környezetében lévõ adatokra is szükség lesz
+						\item Ezt használjuk ki a gyorsítótárak adatokkal való feltöltésekor
+						\item Megfelelõ adatcserélési algoritmusokkal és a gyorsítótárak megfelelõ méretezésével $80-99\%$-os találati arány is elérhetõ
+					\end{itemize}
+					
+			\end{enumerate}
+
+		\item Jellegzetes gyorsítótárak:
+			
+			\begin{itemize}
+				\item Processzorba épített hardver-gyorsítótárak (utasítás- és adatcache), a memóriában lévõ adatok aktuális részét teszik gyorsabban elérhetõvé a processzor számára
+				\item A memóriában kialakított átmeneti tárterületek (buffer-cache) az éppen használatban lévõ fájlok adatai egy részének tárolására
+				\item Memóriában kialakított virtuális diszk (RAM-diszk, elektronikus diszk)
+				\item A harmadlagos tárak fájlrendszereit tároló mágneslemez területek
+			\end{itemize}
+			
+		\item Mire kell vigyázni a virtuális tárakkal kapcsolatban?
+			
+			\begin{itemize}
+				\item Mi történik, ha szabálytalanul állítjuk le az operációs rendszert?
+				\item A memóriában lévõ adatok váratlanul elvesznek
+				\item A rejtett adatmozgatások félbeszakadnak
+				\item A háttértárakon lévõ adatok inkonzisztens állapotban maradnak
+				\item A mágneslemezeken lévõ adatokat nem tudjuk elérni a hagyományos eszközökkel, ha azok adminisztrációja nem hibátlan
+			\end{itemize}
+
+		\framebreak
+		
+		\item Hogyan tudunk védekezni az ilyen hibák ellen?
+			
+			\begin{itemize}
+				\item Szünetmentes tápegység, akkumulátoros táplálás, notebook
+				\item \textbf{Vigyázat!} Nem csak áramszünet miatt állhat le szabálytalanul az operációs rendszer!
+				\item Biztonságos szoftvermegoldások (pl. naplózó fájlrendszer, minden végrehajtott mûveletet naplóz a rendszer, így rendszerhiba esetén visszaállítható a korábbi állapot
+			\end{itemize}
+		
+	\end{itemize}
+	
+\end{frame}
+
+\subsection{Tárkezelés az operációs rendszerben}
+\label{sec:TarkezelesAzOperaciosRendszerben}
+
+\begin{frame}{Tárkezelés az operációs rendszerben}
+	
+	\begin{itemize}
+		\item A tárkezelés területén az operációs rendszer feladata a következõ eszközök kezelése:
+			
+			\begin{itemize}
+				\item Operatív tár (memória)
+				\item Háttértárak és külsõ tárak (fájlrendszerek)
+				\item Virtuális memória
+				\item Fájlrendszer-gyorsítótárak (buffer-cache)
+			\end{itemize}
+			
+	\end{itemize}
+	
+\end{frame}
+
+
+
+\begin{frame}{Operatív tár}
+	
+	\begin{itemize}
+		\item A korai operációs rendszerek közvetlenül kezelték a memóriát
+		\item A programok a valóságos fizikai memóriacímekre hivatkoztak
+		\item A program csak egy adott gépkonfiguráción tudott futni
+		\item Javítás: a program betöltésekor a betöltõprogram (loader) beállította a fizikai címeket, ezután indította el a programot
+		\item A mai operációs rendszerekben minden folyamat kap egy úgynevezett logikai memóriát, ami a fizikai memória (operatív tár) egy elválasztott része 
+		\item A folyamat nem tudja, hogy a fizikai memóriában ténylegesen hol fut, nem is kell tudnia, sõt ez meg is változhat
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}[allowframebreaks]{Logikai memória,}
+	
+	\begin{itemize}
+		\item A megkapott memóriát a folyamat RAM, vagy PRAM-modell szerint mûködõnek látja
+		\item Ezt a memóriát nem egy egységes, folytonos memóriának kezeli, hanem három önálló részt különít el:
+			
+			\begin{enumerate}
+				\item Kódterület:
+					
+					\begin{itemize}
+						\item általában csak olvassák a folyamatok
+						\item nem okoz gondot a közös használat
+						\item mérete elõre ismert és nem változik
+					\end{itemize}
+					
+				\item Adatterület:
+					
+					\begin{itemize}
+						\item a változókat tárolja
+						\item a folyamatok írják és olvassák
+						\item a mérete általában nem változik
+					\end{itemize}
+					
+				\framebreak
+				
+				\item Verem (stack):
+					
+					\begin{itemize}
+						\item változókat tárol
+						\item dinamikusan változik a mérete, nõhet és csökkenhet is
+						\item speciális esetben túlnõhet minden határon (pl. rekurzió), kinõheti a fizikai memóriát
+						\item fel kell készülni a verem-túlcsordulás kezelésére
+						\item (Mit jelent a rekurzió?)
+						\item (Hogyan mûködik az eljáráshívás?)
+					\end{itemize}
+					
+			\end{enumerate}
+			
+	\end{itemize}
+	
+\end{frame}
+
+\subsection{Fájlkezelés az operációs rendszerben}
+\label{sec:FajlkezelesAzOperaciosRendszerben}
+
+\begin{frame}{Háttértárak kezelése}
+	
+	\begin{itemize}
+		\item A memória tartalma addig él, amíg a számítógép mûködik
+		\item A folyamat szempontjából a memóriában lévõ adatok addig élnek, amíg a folyamat fut
+		\item Ha valamilyen adatot meg akar õrizni, akkor háttértárra kell menteni
+		\item A háttértárra írandó adatokat fájlokba kell szervezni
+		\item A felhasználó szempontjából az operációs rendszer legfontosabb feladata a fájlok kezelése (DOS-Disk Operating System)
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}{Fájlkezelés}
+	
+	\begin{itemize}
+		\item A másodlagos és harmadlagos tárolókon csak fájlokban lehet adatokat tárolni
+		\item A fájlok kezelése az operációs rendszer feladata
+		\item Két szint:
+			
+			\begin{enumerate}
+				\item A fájlok, mint tárolási egységek kezelése (egyben)
+					
+					\begin{itemize}
+						\item Fájlnév
+						\item Hierarchikus könyvtárszerkezet
+						\item Egy, vagy több gyökér (root)
+						\item Katalógusfájl (directory)
+						\item Kötetek (volume)
+						\item Mount
+						\item A fájl azonosítása: elérési út + fájlnév
+					\end{itemize}
+					
+				\item A fájlokban lévõ adatok kezelése
+					
+					\begin{itemize}
+						\item Fájlmodellek
+						\item Fájlmûveletek
+					\end{itemize}
+					
+			\end{enumerate}
+			
+	\end{itemize}
+	
+\end{frame}
+
+
+
+\begin{frame}{Fájlmodellek}
+	
+	\begin{itemize}
+		\item A fájlban lévõ adatok elérésére háromféle fájlmodell használatos:
+			
+			\begin{enumerate}
+				\item Soros elérésû (szekvenciális, sequential) fájl
+					
+					\begin{itemize}
+						\item mint a mágnesszalag
+						\item csak sorban lehet írni és olvasni
+						\item fájlpointer
+					\end{itemize}
+					
+				\item Közvetlen elérésû (direct) fájl
+					
+					\begin{itemize}
+						\item bármelyik adatelem bájt, vagy rekord elérhetõ a sorszáma alapján
+					\end{itemize}
+					
+				\item Indexelt, index-szekvenciális elérésû (index sequential access method, ISAM) fájl
+					
+					\begin{itemize}
+						\item adatrekordok, adatmezõk
+						\item kulcsmezõ(k) alapján lehet elérni az adatokat
+						\item indextábla, indexfájl, rendezett kulcsok, mutató az adatra
+						\item adatbázis
+					\end{itemize}
+					
+			\end{enumerate}
+			
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}{Fájlmûveletek}
+		
+	\begin{enumerate}
+		\item Megnyitás (open)
+		\item Lezárás (close)
+		\item Végrehajtás (execution)
+		\item Létrehozás (create)
+		\item Törlés (delete)
+		\item Adatelérés, írás, olvasás (write, read)
+		\item Hozzáírás, hozzáfûzés (append)
+		\item Pozícionálás (seek)
+	\end{enumerate}
+	
+\end{frame}
+
+\section{Befejezés}
+\label{sec:Befejezes}
+
+\subsection{Emlékeztetõ kérdések}
+\label{sec:EmlekeztetoKerdesek}
+
+\begin{frame}{Emlékeztetõ kérdések}
+	
+	\begin{enumerate}
+		\item Hogyan csoportosíthatjuk a számítógépben lévõ különbözõ tárakat?
+		\item Mi jellemzi ezeket a kategóriákat?
+		\item Milyen módokon mozgatjuk az adatokat a tárhierarchia szintjei között?
+		\item Mit nevezünk cache-nek?
+		\item Milyen veszélyei vannak a virtuális tárkezelésnek?
+		\item Hogyan kezelik a memóriát a különbözõ operációs rendszerek?
+		\item Hogyan kezelik a fájlokat az operációs rendszerek?
+		\item Mutassa be a három jellemzõ fájlmodellt!
+		\item Hasonlítsa össze ezeket?
+		\item Milyen fájlmûveleteket valósítanak meg az operációs rendszerek?
+	\end{enumerate}
+	
+\end{frame}
+
+\begin{frame}{Befejezés}
+
+\begin{block}{}
+	
+	\begin{center}
+	\vspace{1cm}
+	\LARGE{Köszönöm a figyelmet!}
+	\vspace{1cm}
+	\end{center}
+	
+\end{block}
+
+\end{frame}
+
+\end{document}
+

@@ -1,0 +1,1688 @@
+% $Header: /cvsroot/latex-beamer/latex-beamer/solutions/conference-talks/conference-ornate-20min.en.tex,v 1.7 2007/01/28 20:48:23 tantau Exp $
+
+% Version for PROJECTOR (Vetíthetõ változat)
+% Uncomment the next line (A vetíthetõ változathoz vedd ki a % jelet a következõ sor elejérõl)
+%\documentclass{beamer}
+% End of version for PROJECTOR (A vetíthetõ változat vége)
+
+% PRINTABLE version (Nyomtatható változat):
+% Uncomment the next two lines (vedd ki a % jelet a következõ 2 sor elejérõl)
+%\documentclass{article}
+%\usepackage{beamerarticle}
+% End of PRINTABLE version (A nyomtatott változat beállításának vége)
+
+
+% This file is a solution template for:
+
+% - Talk at a conference/colloquium.
+% - Talk length is about 20min.
+% - Style is ornate.
+
+
+
+% Copyright 2004 by Till Tantau <tantau@users.sourceforge.net>.
+%
+% In principle, this file can be redistributed and/or modified under
+% the terms of the GNU Public License, version 2.
+%
+% However, this file is supposed to be a template to be modified
+% for your own needs. For this reason, if you use this file as a
+% template and not specifically distribute it as part of a another
+% package/program, I grant the extra permission to freely copy and
+% modify this file as you see fit and even to delete this copyright
+% notice. 
+
+
+\mode<presentation>
+{
+	\usetheme{Warsaw}
+	% or ...
+	
+	\setbeamercovered{transparent}
+	% or whatever (possibly just delete it)
+}
+
+% Magyar szöveg
+\usepackage[magyar]{babel}		% a Babel csomagot a magyar nyelvvel használjuk
+\usepackage[latin2]{inputenc}		% Latin-2-es kódolású ez a forrás
+\usepackage{t1enc}			% a belsõ ábrázolás és a kimeneti font-kódolás
+% a T1 kódolás
+\usepackage{indentfirst}		% az elsõ bekezdés is behúzott legyen, ne csak a 2-tól
+\frenchspacing				% a mondatköz ugyanakkora nagy, mint a szóköz
+\setlength{\parskip}{\smallskipamount}	% bekezdések közötti távolság beállítása
+% (gumi-méret: 3pt plus 1pt minus 1 pt)
+% Magyar szöveg vége
+
+
+% Angol szöveg
+%\usepackage[english]{babel}
+%\usepackage[latin1]{inputenc}
+%\usepackage{times}
+%\usepackage[T1]{fontenc}
+% Angol szöveg vége
+
+
+% Or whatever. Note that the encoding and the font should match. If T1
+% does not look nice, try deleting the line with the fontenc.
+
+\def\screenshotsize{0.70}
+\def\screenshotsizeB{0.50}
+\def\maintitle{Operációs rendszerek 1. -- 3. elõadás \\ Az operációs rendszer mûködése}
+\def\shorttitle{OPRE1 -- 3 - Mûködés}
+\def\longdate{}
+\def\shortdate{}
+
+
+\usepackage{graphicx}
+\usepackage{amsfonts}
+
+\only<beamer>{
+	%Insert frame number to footline
+	%Tested with the next themes: Warsaw, Berlin, Szeged, ...
+	\newcommand*\oldmacro{}%
+	\let\oldmacro\insertshorttitle%
+	\renewcommand*\insertshorttitle{%
+		\oldmacro\hfill%
+		\insertframenumber\,/\,\inserttotalframenumber}
+	%End of frame number to footline
+}
+
+\title[\shorttitle] % (optional, use only with long paper titles)
+{\maintitle}
+
+\author[Soós Sándor] % (optional, use only with lots of authors)
+{Soós Sándor}
+% - Give the names in the same order as the appear in the paper.
+% - Use the \inst{?} command only if the authors have different
+%   affiliation.
+
+\institute[NYME SKK INGA] % (optional, but mostly needed)
+{
+	%  \inst{1}%
+	Nyugat-magyarországi Egyetem\\
+	Simonyi Károly Mûszaki, Faanyagtudományi és Mûvészeti Kar\\
+	Informatikai és Gazdasági Intézet\\
+	\vspace{0.3cm}
+	E-mail: soossandor@inf.nyme.hu
+}
+% - Use the \inst command only if there are several affiliations.
+% - Keep it simple, no one is interested in your street address.
+
+\date[\shortdate] % (optional, should be abbreviation of conference name)
+{\longdate}
+% - Either use conference name or its abbreviation.
+% - Not really informative to the audience, more for people (including
+%   yourself) who are reading the slides online
+
+% Delete this, if you do not want the table of contents to pop up at
+% the beginning of each subsection:
+\AtBeginSubsection[]
+{
+	\begin{frame}<beamer>{Hol tartunk?}
+		\tableofcontents[currentsection,currentsubsection]
+	\end{frame}
+}
+
+
+% If you wish to uncover everything in a step-wise fashion, uncomment
+% the following command: 
+
+%\beamerdefaultoverlayspecification{<+->}
+
+\begin{document}
+	
+	
+	\only<article>{
+		\begin{titlepage}
+			
+			\begin{center}
+				
+				%\vspace*{1cm}
+				\Large
+				\textsc{\maintitle}\\
+				
+				\vspace{5cm}
+				
+				%\LARGE
+				\textsc{Soós Sándor}\\
+				
+				\vspace{3cm}
+				
+				Nyugat-magyarországi Egyetem\\
+				Simonyi Károly Mûszaki, Faanyagtudományi és Mûvészeti Kar\\
+				Informatikai és Gazdasági Intézet\\
+				\vspace{0.3cm}
+				E-mail: soossandor@inf.nyme.hu
+				%\textsc{\today}\\ %%Date - better you write it yourself.
+				\textsc{\longdate}\\
+				
+			\end{center}
+			
+		\end{titlepage}
+	}
+	
+	% If you have a file called "university-logo-filename.xxx", where xxx
+	% is a graphic format that can be processed by latex or pdflatex,
+	% resp., then you can add a logo as follows:
+	
+	\only<beamer>{
+		\pgfdeclareimage[height=1cm]{university-logo}{images/nyme_skk}
+		\logo{\pgfuseimage{university-logo}}
+	}
+	
+	%\only<beamer>{\subject{Practical Computer Science}}
+	% This is only inserted into the PDF information catalog. Can be left
+	% out. 
+	
+	
+	\only<beamer>{
+		\begin{frame}{}
+			\titlepage
+		\end{frame}
+	}
+	
+	\begin{frame}{Tartalomjegyzék}
+		\tableofcontents
+		% You might wish to add the option [pausesections]
+	\end{frame}
+	
+	
+
+\section{Ismétlés}
+\label{sec:Ismetles}
+
+\subsection{Emlékeztetõ az elõzõ órákról}
+\label{sec:EmlekeztetoAzElozoOrakrol}
+
+\begin{frame}{Az operációs rendszer környezeti (context) diagramja}
+	\begin{figure}[htbp]
+		\centering
+			\only<beamer>{\includegraphics[width=1.00\textwidth]{images/kontext_diagram.jpg}}
+			\only<article>{
+				\includegraphics[width=1.00\textwidth]{images/kontext_diagram.jpg}
+				\caption{Az operációs rendszer környezeti (context) diagramja}
+				}
+		\label{fig:kontextdiagram}
+	\end{figure}
+	
+\end{frame}
+
+\begin{frame}{Különbözõ felhasználók}
+	
+	\begin{itemize}
+		\item Egyszerû felhasználó
+		
+			\begin{itemize}
+				\item Programokat futtat
+			\end{itemize}
+			
+		\item Alkalmazásfejlesztõ
+		
+			\begin{itemize}
+				\item Programokat ír
+			\end{itemize}
+			
+		\item Rendszermenedzser
+		
+			\begin{itemize}
+				\item A rendszert üzemelteti
+			\end{itemize}
+			
+	\end{itemize}
+	
+\end{frame}
+	
+\begin{frame}{Az operációs rendszerek belsõ szerkezete}
+	
+	\begin{itemize}
+		\item Ahogyan az eddigiekben láttuk, az operációs rendszerek nagy és összetett rendszerek
+		\item Hogyan épül fel egy ilyen rendszer?
+		\item Hogyan lehet ilyen rendszereket létrehozni?
+		\item Amit most megismerünk, az jól fog jönni akkor is, amikor majd mi írunk programokat (PROG1, PROG2, \dots)
+		\item Hogyan álljunk neki egy nagy program megírásának?
+		
+			\begin{itemize}
+				\item A Programozás alapjai órán megtanuljuk, hogyan kell megírni egy egyszerû, kisméretû programot?
+				\item Mit nevezünk kisméretû, egyszerû programnak?
+				\item Ha már meg tudunk írni kis programokat, hogyan írunk meg egy nagyméretû, összetett programot?
+				\item A megoldás: problémafelbontás
+				
+			\end{itemize}
+
+		\end{itemize}
+
+\end{frame}
+
+\begin{frame}[allowframebreaks]{Problémafelbontás,}
+
+		\begin{itemize}
+			\item Nem csak a programozás közben használhatjuk ezt a módszert
+			\item Ha egy feladat nagyobb méretû, mint amit könnyen át tudnánk látni, akkor az elsõ feladat, hogy felbontjuk kisebb részekre
+			\item Ha egy rész már akkora méretû, amit átlátunk és meg tudunk oldani, akkor oldjuk meg
+			\item Ha még ezt sem látjuk át, akkor osszuk tovább még kisebb részekre
+			\item Ezt addig folytatjuk, amíg minden részfeladatot meg nem oldottunk
+			\item Ezután a megoldott részmegoldásokból összeépítjük a teljes megoldást
+			\item A problémafelbontást és a részmegoldások összeépítését sokféleképpen végezhetjük
+			\item Ezt a módszert mindenféle feladat megoldásánál használhatjuk
+			\item Ha programozási feladatról van szó, akkor programozási módszertanoknak nevezzük ezeket a felbontási módszereket
+			\item Sok különbözõ programozási módszertan létezik, ezek megismerése segítségünkre lesz a programozás során
+			\item Vizsgáljunk meg két felbontási módszert:
+				
+				\begin{enumerate}
+					\item Rétegekre bontás
+					\item Modulokra bontás
+				\end{enumerate}
+	
+	\end{itemize}
+
+\end{frame}
+
+\begin{frame}[allowframebreaks]{Az operációs rendszerek belsõ szerkezete,}
+	
+		\begin{itemize}
+			\item Az operációs rendszerek nagy méretû szoftverrendszerek, vizsgálatuk sok programozási tanulsággal szolgál
+			\item A korai operációs rendszerek (pl. OS/360) úgynevezett monolitikus szerkezetûek voltak, azaz nem rendelkeznek belsõ szerkezettel, nem bonthatók kisebb részekre
+			\item Ez azt eredményezi, hogy bármilyen módosítás a programban hatással lehet a teljes programra
+			\item Ennek köszönhetõ a sok hiba az OS/360 operációs rendszerben, és ez okozza azt is, hogy minden javítás sok újabb hibát eredményezett
+			\item Mit lehet tenni ez ellen?
+			\item Részekre kell bontani a rendszert
+			\item Leggyakrabban a két látott módszert kombináltan használjuk
+			\item Kialakítunk néhány réteget és több funkcionális modult
+			\item Tipikus rétegek:
+				
+				\begin{itemize}
+					\item a hardverfüggõ részek egy alsó, hardverközeli rétegbe kerülnek
+					\item az operációs rendszer alapfunkciói a rendszermagban (kernel) valósulnak meg
+					\item a feltétlen szükségest meghaladó kényelmi szolgáltatások
+					\item a felhasználói programokból érkezõ rendszerhívások fogadó felületét megvalósító 
+réteg
+				\end{itemize}
+				
+			\framebreak
+			
+			\item Tipikus modulok:
+				
+				\begin{itemize}
+					\item folyamatkezelés
+					\item tárkezelés
+					\item fájlkezelés
+					\item be-/kivitel kezelése
+					\item háttértár kezelése
+					\item hálózatkezelés
+					\item védelmi és biztonsági rendszer
+					\item parancsértelmezés
+					\item felhasználóbarát kezelõi felületek
+				\end{itemize}
+				
+			\item A következõ órákon részekre szedjük az operációs rendszert, és sorban megvizsgáljuk az egyes részeket, rétegeket és modulokat
+		\end{itemize}
+	
+\end{frame}
+
+
+\begin{frame}{}  %Ismétlés vége
+	
+\begin{block}{}
+	
+	\begin{center}
+	\vspace{1cm}
+	\LARGE{Ismétlés vége}
+	\vspace{1cm}
+	\end{center}
+	
+\end{block}
+
+\end{frame}
+
+
+
+
+
+
+
+
+
+
+\section{Mûködés}
+\label{sec:Mukodes}
+
+\subsection{Az operációs rendszer mûködése}
+\label{sec:AzOperaciosRendszerMukodese}
+
+\begin{frame}{A szoftverek mûködése}
+	
+	\begin{itemize}
+		\item Hogyan mûködik egy hagyományos program? (Például, amit az utolsó Programozás alapjai gyakorlaton írtunk)
+			
+			\begin{itemize}
+				\item Sorban egymás után hajtódnak végre az utasítások
+				\item A program elindul
+				\item Sorban végrehajtja az utasításokat
+				\item A program befejezõdik
+			\end{itemize}
+			
+		\item Minden esetben így történik?
+			
+			\begin{itemize}
+				\item NEM!
+				\item Közbeléphet egy megszakítás 
+			\end{itemize}
+			
+		\item Mit jelent a megszakítás?
+		
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}{Megszakítási rendszer}
+	
+	\begin{itemize}
+		\item Annak érdekében, hogy a számítógép idõben reagálni tudjon a legkülönbözõbb eseményekre, a processzorokat úgy alakítják ki, hogy a normál mûködés közben is fogadni tudjon speciális jelzéseket
+		\item Ezeket nevezzük megszakításnak
+		\item Ha egy megszakítás érkezik a processzorhoz, akkor félbeszakítja az éppen végrehajtás alatt álló programot
+		\item Megjegyez minden információt, ami a folytatáshoz szükséges
+		\item Elugrik a beállított megszakításkezelõ programrészhez
+		\item Végrehajtja a megszakításkezelõ programot
+		\item Visszatér a megszakított programhoz
+		\item Folytatja a program futtatását
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}{Milyen megszakítások léteznek?}
+	
+	\begin{itemize}
+		\item A programozó által szándékosan kiváltott megszakítás
+		\item Valamilyen külsõ eszköz küld jelzést (signal) -- A külsõ most a processzorhoz képest értendõ. Pl.
+		
+			\begin{itemize}
+				\item egy eszköz befejezte a processzor által elindított tevékenységét, felpörgött a lemezegység, az író/olvasó fej elérte a kívánt pozíciót, egy memóriablokk írása befejezõdött
+				\item Az órajel generátor küldi a következõ idõjelzést. Ez szabályos idõközönként bekövetkezik, és vezérli az összes áramköri elem munkáját (karmester)
+			\end{itemize}
+		
+		\item Valamilyen hiba történt. A hibák különbözõ jellegûek lehetnek:
+			
+			\begin{itemize}
+				\item szoftveres hiba, pl. nullával való osztás történt a programban
+				\item hardverhiba, valamelyik eszköz hibás mûködést észlelt, pl. nem sikerül beolvasni a lemez tartalmát
+			\end{itemize}
+				
+	\end{itemize}
+	
+\end{frame}
+
+
+
+
+\begin{frame}[allowframebreaks]{Az operációs rendszer mûködése,}
+	
+Vizsgáljuk meg, hogyan mûködik az operációs rendszer egy alkalmazás végrehajtása közben!
+			
+	\begin{itemize}
+		\item Sorban végrehajtódnak az alkalmazás utasításai
+		\item Az operációs rendszer ilyenkor várakozik. ,,Nem csinál semmit ebben a pillanatban''
+		\item Meddig tarthat ez legfeljebb?
+		\item Hogyan léphet mûködésbe az operációs rendszer?
+			
+			\begin{enumerate}
+				\item A futó program rendszerhívást hajt végre
+				\item A processzor külsõ megszakításkérést fogad
+				\item Hibamegszakítás (exception) következik be
+			\end{enumerate}
+			
+		\framebreak
+			
+		\item A legtöbb számítógéprendszerben mindhárom esetet a megszakítási rendszer segítségével valósítják meg
+		\item Ezért mondhatjuk, hogy az operációs rendszer mindig megszakítások útján lép mûködésbe
+			
+	\end{itemize}
+			
+	
+\end{frame}
+
+
+
+
+
+
+\begin{frame}[allowframebreaks]{Rendszerhívások,}
+	
+	\begin{itemize}
+		\item A futó alkalmazás kér valamilyen szolgáltatást az operációs rendszertõl
+		\item Az OS végrehajtja, és általában visszaadja a vezérlést a hívó programnak
+		\item Vannak azonban olyan speciális esetek, amikor nem kerül vissza a vezérlés a hívóhoz
+		\item Ezek nagyon fontos esetek, ezekkel külön kell foglalkoznunk:
+			
+			\begin{itemize}
+				\item A program befejezõdését jelzõ rendszerhívás. A vezérlés visszakerül az operációs rendszerhez, vagy indulhat egy parancsfájl következõ parancsa
+				\item Erõforrás-igénylés történt, amit a rendszer nem tud azonnal kielégíteni, a hívó programnak várakoznia kell
+				\item Várakozás egy másik program jelzésére, vagy üzenetére, de az még nem érkezett meg
+				\item Adott idõtartamú késleltetés, vagy adott idõpontra való várakozás
+				\item Újraütemezés kérése, azaz a futó program lemond a futásról más programok javára
+				\item Input/output (bemenet/kimenet) mûvelet indítása, aminek végrehajtása alatt a hívó várakozik
+			\end{itemize}
+			
+		\item Amikor egy rendszerhívás következtében egy program várakozásra kényszerül, akkor az OS elmenti az állapotát és átvált egy másik program végrehajtására
+		\item A hívó program ezt úgy érzékeli, hogy a rendszerhívás lassan hajtódik végre (szinkronmûvelet)
+		\item Egyes rendszerek lehetõvé teszik az aszinkron rendszerhívást is. Ilyenkor a program továbbfuthat, amíg a rendszerhívás végrehajtódik, majd egy jelzést kap, amikor a rendszerhívás befejezõdött
+		\item Más rendszerekben arra van lehetõség, hogy a programozó megadjon egy belépési pontot, ahova a rendszer átadhatja a vezérlést az aszinkron rendszerhívás befejezõdése után, azaz egy megszakításkezelés jellegû programrészt építsen be a programba
+		\item A három lehetséges vezérlési utat a következõ ábrákon láthatjuk:
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}{Szinkron rendszerhívás}
+
+	\begin{figure}[htbp]
+		\centering
+			\only<beamer>{\includegraphics[height=0.60\textheight]{images/szinkron_rendszerhivas.jpg}}
+			\only<article>{
+				\includegraphics[width=1.00\textwidth]{images/szinkron_rendszerhivas.jpg}
+				\caption{Szinkron rendszerhívás}
+				}
+		\label{fig:szinkronRendszerhivas}
+	\end{figure}
+	
+\end{frame}
+
+\begin{frame}{Aszinkron rendszerhívás várakozással}
+
+	\begin{figure}[htbp]
+		\centering
+			\only<beamer>{\includegraphics[height=0.60\textheight]{images/aszinkron_rendszerhivas_varakozassal.jpg}}
+			\only<article>{
+				\includegraphics[width=1.00\textwidth]{images/aszinkron_rendszerhivas_varakozassal.jpg}
+				\caption{Aszinkron rendszerhívás várakozással}
+				}
+		\label{fig:AszinkronRendszerhivasVarakozassal}
+	\end{figure}
+	
+\end{frame}
+
+\begin{frame}{Aszinkron rendszerhívás eseménykezeléssel}
+
+	\begin{figure}[htbp]
+		\centering
+			\only<beamer>{\includegraphics[height=0.60\textheight]{images/aszinkron_rendszerhivas_esemenykezelessel.jpg}}
+			\only<article>{
+				\includegraphics[width=1.00\textwidth]{images/aszinkron_rendszerhivas_esemenykezelessel.jpg}
+				\caption{Aszinkron rendszerhívás eseménykezeléssel}
+				}
+		\label{fig:AszinkronRendszerhivasEsemenykezelessel}
+	\end{figure}
+	
+\end{frame}
+
+\subsection{Az operációs rendszer mint virtuális gép}
+\label{sec:AzOperaciosRendszerMintVirtualisGep}
+
+\begin{frame}{Az operációs rendszer mint virtuális gép}
+	
+	\begin{itemize}
+		\item A korábbiakban megállapítottuk, hogy az operációs rendszer egyik fõ feladata, hogy megvalósítson egy virtuális gépet a felhasználói és a programozói felületen
+		\item Most vizsgáljuk meg ezt a virtuális gépet belülrõl
+		\item Elõször vizsgáljuk meg a folyamatokat:
+			
+			\begin{itemize}
+				\item A folyamat fogalma
+				\item A folyamatokból álló rendszerek
+				\item Független, versengõ és együttmûködõ folyamatok
+				\item Folyamatok születése és halála
+				\item Folyamatok együttmûködése
+				\item Folyamatok szinkronizációja
+				\item Folyamatok kommunikációja
+				\item Holtpont
+				\item Éhezés, kiéheztetés
+				\item Klasszikus konkurens problémák
+			\end{itemize}
+			
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}{A folyamat fogalma}
+	
+	\begin{itemize}
+		\item Eddig különbözõ típusú számítógépes rendszereket vizsgáltunk: kötegelt, idõosztásos, valósidejû, multiprogramozott, stb.
+		\item Ezekben a rendszerekben a feldolgozás egységeire különbözõ elnevezéseket használunk: feladat, task, munka, job, program, felhasználói munkamenet, session, \dots
+		\item Az operációs rendszer szintjén azonban nagyon hasonló feladatokkal találkozunk, ezeket együtt fogjuk vizsgálni, és ennek során folyamatnak nevezzük a feldolgozás egységeit
+		\item Alternatív elnevezések:
+			
+			\begin{itemize}
+				\item folyamat, process, job, task, \dots
+			\end{itemize}
+
+		\item Ezek alatt ugyanazt fogjuk érteni: 
+			
+			\begin{itemize}
+				\item Folyamat: Meghatározott sorrendben végrehajtott mûveletek sorozata
+				\item A számítógépes terminológiában: A folyamat egy végrehajtás alatt álló program
+			\end{itemize}
+
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}{A szál fogalma}
+	
+	\begin{itemize}
+		\item A folyamatokhoz kapcsolódó fogalom a szál (thread)
+			
+			\begin{itemize}
+				\item Egymás utáni mûveletek fûzére
+				\item Párhuzamos végrehajtású, közös memóriát használó programrészek a folyamatokon belül
+				\item Saját logikai processzoruk van, de közös logikai memóriát használnak
+				\item Az operációs rendszer gyorsabban tud váltani a szálak, mint a folyamatok között
+			\end{itemize}
+			
+		\item A szálak és a folyamatok megkülönböztetésére szokás használni a következõ elnevezéseket is:
+			
+			\begin{itemize}
+				\item Folyamat: ,,Nehézsúlyú (heavyweight) folyamat''
+				\item Szál: ,,Pehelysúlyú (lightweight) folyamat''
+			\end{itemize}
+			
+	\end{itemize}
+	
+\end{frame}
+
+
+
+\begin{frame}{Vezérlési szál}
+	
+	\begin{itemize}
+		\item Ha egy adott programot többször végrehajtunk ugyanabban a környezetben, nem kapunk azonos eredményt minden alkalommal
+		\item Ennek oka, hogy elágazások lehetnek a kódban, amelyek eredménye minden indításkor eltérõ lehet
+		\item A programkód alapján elõállítható a program összes lehetséges végrehajtása
+		\item Felépíthetünk egy irányított gráfot, aminek csomópontjai az utasítások, az élek pedig a végrehajtás lehetséges sorrendjében kötik össze az utasításokat
+		\item A program egy lefutása megfelel a gráfban egy útvonalnak a starttól egy végcsomópontig, ezt nevezzük vezérlési szálnak
+	\end{itemize}
+	
+\end{frame}
+
+
+
+\begin{frame}[allowframebreaks]{Folyamatmodell,}
+	
+	\begin{itemize}
+		\item A folyamatok vizsgálatára felállítunk egy modellt a következõképpen:
+			
+			\begin{itemize}
+				\item Minden folyamathoz tartozik egy logikai processzor és egy logikai memória
+				\item A memória tartalmazza a programokat, a konstansokat és a változókat
+				\item A processzor hajtja végre a programot
+				\item A programkódban szereplõ utasítások és a végrehajtó processzor utasításkészlete megfelelnek egymásnak 
+				\item Egy utasítás végrehajtását általában oszthatatlannak tekintjük, azaz a folyamat állapotát csak olyankor vizsgáljuk, amikor egy utasítás már befejezõdött, a következõ pedig még nem kezdõdött el
+				\item  A programvégrehajtás egy vezérlési szál mentén, szekvenciálisan történik, alapvetõen az utasítások elhelyezkedésének sorrendjében, ettõl speciális utasítások esetén van eltérés
+				\item  A processzornak vannak saját állapotváltozói (programszámláló, veremmutató, regiszterek, jelzõbitek stb.), amelyek értéke befolyásolja a következõ utasítás végrehajtásának eredményét
+			\end{itemize}
+			
+		\item A memória a RAM-modell szerint mûködik, azaz
+			
+			\begin{itemize}
+				\item tárolórekeszekbõl áll
+				\item egy dimenzióban, rekeszenként címezhetõ
+				\item csak rekeszenként, írás és olvasás mûveletekkel érhetõ el
+				\item az írás a teljes rekesztartalmat felülírja az elõzõ tartalomtól független új értékkel
+				\item az olvasás nem változtatja meg a rekesz tartalmát, tehát tetszõleges számú, egymást követõ olvasás az olvasásokat megelõzõen utoljára beírt értéket adja vissza
+			\end{itemize}
+
+		\item A folyamatot egy adott pillanatban leíró információk a következõk (ezt nevezzük a folyamat állapotterének):
+			
+			\begin{itemize}
+				\item a memória tartalma (a programkód és a változók pillanatnyi értéke)
+				\item a végrehajtó processzor állapota (a program számláló és a többi regiszter és jelzõbit értéke)
+			\end{itemize}
+			
+		\framebreak
+		
+		\item Az operációs rendszer feladata, hogy a fizikai eszközökön (fizikai processzor és memória) egymástól elkülönítetten (védetten) létrehozza és mûködtesse a folyamatoknak megfelelõ logikai processzorokat és memóriákat
+		\item Ez a modell alkalmazható egy- és többprocesszoros gépeken egyaránt
+		\item Egyprocesszoros rendszerek esetén minden logikai processzort ugyanazon a fizikai processzoron kell megvalósítani
+		\item Multiprocesszoros rendszerekben a logikai processzorok szétoszthatók különbözõ processzorokra, vagy futhatnak azonoson is
+			
+%		\framebreak
+		
+		\item Szálak esetében az a különbség, hogy minden szálnak saját logikai processzora van, a memóriájuk viszont közös, azaz a programkódjuk és a változóik azonosak
+
+		
+	\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}{Folyamatokból álló rendszerek}
+	
+	\begin{itemize}
+		\item Egy számítógéprendszerben szinte mindig több folyamat van jelen egyidõben
+		\item Vannak olyan operációs rendszerek, amelyek saját hatáskörben kezelik ezeket a folyamatokat elsõsorban a hatékony erõforrás-kihasználás érdekében
+		\item Más rendszerek a felhasználóknak is lehetõséget adnak folyamatok és szálak kezelésére, ezeket nevezzük multitaszkos rendszereknek
+		\item Napjainkban a legtöbb operációs rendszer ilyen
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}[allowframebreaks]{Miért használunk folyamatokat?}
+	
+	\begin{itemize}
+		\item \textbf{Hatékonyabb erõforrás-kihasználás}: a processzorkihasználás javításának általánosítása
+		\item \textbf{A feladat-végrehajtás gyorsítása}: az erõforrások hatékonyabb kihasználása önmagában is gyorsítja a feladatok megoldását, de további gyorsítást eredményezhet, ha a feladatokat párhuzamosan futó részekre bonthatjuk
+		\item (Ismerünk olyan feladatot, amit érdemes párhuzamosítva megoldani?)
+		\item \textbf{Többféle feladat egyidejû végrehajtása}: növeljük a felhasználók komfortérzetét, és munkájuk hatékonyságát, ha egyidõben több célra is használhatják a számítógépet. Pl. egy hosszú számítás közben szöveget szerkeszthetnek miközben kedvenc zenéjüket hallgathatják
+		\item \textbf{Rendszerstrukturálás}: bizonyos feladatokra könnyebb és hatékonyabb olyan programot készíteni, amiben több folyamat mûködik párhuzamosan. Tipikusan ilyenek a valós idejû rendszerek, amelyeknek több különbözõ eseményre kell reagálniuk egyidõben. Ebben az esetben az a legnyilvánvalóbb megoldás, hogy minden esemény bekövetkezésekor elindítunk egy válaszfolyamatot egymástól függetlenül, amelyek lekezelik az adott eseményt. Minden más megoldás feleslegesen bonyolítja a rendszer mûködését
+		\item \textbf{Negatívum}: egy folyamatokból álló rendszer kifejlesztése és tesztelése nehezebb feladat, mint egy szekvenciális programé. Korábban láttuk, hogy egy szekvenciális program összes lehetséges lefutása elõállítható, és sorban megvizsgálható, tesztelhetõ. Ezzel szemben egy párhuzamos folyamatokból felépülõ rendszer viselkedése sokkal nehezebben áttekinthetõ, elméletben sem állítható elõ az összes lehetséges állapot. Az észlelt hibák reprodukálása sokkal nehezebb, sokszor nem is lehetséges
+	\end{itemize}
+	
+\end{frame}
+
+
+\begin{frame}[allowframebreaks]{Független, versengõ és együttmûködõ folyamatok,}
+Egy rendszer folyamatai egymáshoz való viszonyukat tekintve háromfélék lehetnek:
+	
+	\begin{enumerate}
+		\item \textbf{Független folyamatok}: 
+			
+			\begin{itemize}
+				\item Egymás mûködését semmiképpen nem befolyásolják
+				\item Végrehajtásuk teljes mértékben aszinkron
+				\item Párhuzamosan és egymás után is végrehajtódhatnak tetszõleges sorrendben
+				\item Külön-külön, önálló programokként vizsgálhatók
+			\end{itemize}
+			
+		\item \textbf{Versengõ folyamatok}: 
+			
+			\begin{itemize}
+				\item Nem ismerik egymást, de közös erõforrásokon kell osztozniuk
+				\item Ilyen folyamatok alakulnak ki például az egymást nem ismerõ felhasználói jobok feldolgozásakor
+				\item Nem kell tudniuk arról, hogy egy multiprogramozott rendszerben fognak futni, programkódjuk ugyanolyan, mintha egy soros feldolgozást végzõ rendszerre írták volna
+				\item A folyamatok helyes és hatékony futtatását az operációs rendszernek kell megoldania, pl.
+					
+					\begin{itemize}
+						\item minden folyamatnak külön memóriaterülete legyen
+						\item a nyomtatások ne gabalyodjanak össze
+						\item hatékonyan használjuk az erõforrásokat
+					\end{itemize}
+					
+				\item Ezeket a feladatokat gyakran együttmûködõ folyamatokkal oldja meg az operációs rendszer
+					
+					\begin{itemize}
+						\item Például ha egy folyamat nyomtatni akar a rendszerhez kapcsolt nyomtatóra, amikor egy másik folyamat nyomtat, akkor meg kell várnia, amíg a másik folyamat befejezi a nyomtatást
+					\end{itemize}
+					
+				\item Az operációs rendszer saját belsõ folyamatait \textit{rendszerfolyamatnak}, a felhasználók folyamatait \textit{felhasználói folyamatnak} nevezzük
+			\end{itemize}
+			
+		\item \textbf{Együttmûködõ folyamatok}: 
+			
+			\begin{itemize}
+				\item Ismerik egymást
+				\item Együtt dolgoznak egy feladat megoldásán
+				\item Információt cserélnek egymással
+				\item Egy programozó, vagy egy programozó csapat írta meg az egyes folyamatokat, tudatosan alakította ki az egyes folyamatokat
+				\item A folyamatok kooperatívan (együttmûködve) futnak
+				\item A párhuzamosan futó folyamatok lehetnek szálak is
+				\item Az együttmûködés mûveletei a programkódban is megjelennek, a logikai processzor utasításkészletében szerepelnie kell ezeknek a mûveleteknek:
+					
+					\begin{itemize}
+						\item folyamat/szál elindítása
+						\item erõforrások kizárólagos használatának kérése, befejezése
+						\item üzenetküldés egy másik folyamatnak
+					\end{itemize}
+					
+				\item Az együttmûködõ folyamatok üzenetküldés segítségével hangolják össze mûködésüket
+			\end{itemize}
+			
+	\end{enumerate}
+	
+\end{frame}
+
+
+\begin{frame}[allowframebreaks]{Folyamatok születése és halála,}
+	Hogyan jönnek létre és szûnnek meg a folyamatok?
+	
+	\begin{itemize}
+		\item Amikor bekapcsoljuk a számítógépet, elindul egy rendszerépítési folyamat (boot, inicializálás)
+		\item Ez egy õsfolyamat, amelyik létrehozza a rendszer alapfolyamatait
+		\item A rendszerépítés végén létrejön egy kész operációs rendszer, ami több folyamatból áll (rendszerfolyamatok)
+		\item Minden terminálhoz tartozik egy rendszerfolyamat, amelyik fogadja a felhasználói parancsokat és végrehajtja azokat, szükség esetén elindít újabb folyamatokat (felhasználói folyamatok)
+		\item Ha a rendszer megengedi, akkor a felhasználói folyamatok is elindíthatnak újabb folyamatokat (fork, create mûvelet)
+		\item Egy folyamat befejezõdhet azért mert az utasítássor végére ért (exit mûvelet), vagy megszüntetheti egy másik folyamat, például hiba miatt (kill mûvelet)
+		\item \textbf{Statikus rendszer}: Csak a rendszer elindulásakor jönnek létre és a leállásakor szûnnek meg folyamatok, mûködés közben nem
+		\item \textbf{Dinamikus rendszer}: A rendszer mûködése közben bármikor születhetnek és megszûnhetnek folyamatok
+		\item \textbf{Folyamat fa}: Ha egy folyamat elindít egy másik folyamatot, akkor szülõ, illetve gyermekfolyamatnak nevezzük õket. Ennek alapján egy fába rendezhetjük a folyamatokat. Ezt nevezzük \textbf{folyamat fá}nak.
+		\framebreak
+		\item \textbf{Hierarchikus erõforrás-gazdálkodás}: minden folyamat csak addig létezhet, amíg a szülõje létezik. A gyerek folyamat csak a szülõ erõforrásaiból gazdálkodhat
+		\item \textbf{Globális erõforrás-gazdálkodás}: minden folyamat egyenrangú az összes többivel, versenyezhet a rendszerben lévõ összes erõforrásért
+		\item Az operációs rendszerek egy része hierarchikus, más része globális erõforrás-gazdálkodást valósít meg
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}{Folyamatok együttmûködése}
+	
+	\begin{itemize}
+		\item Információátadással valósul meg
+		\item Az információátadás történhet:
+			
+			\begin{itemize}
+				\item közös memórián keresztül
+				\item üzenetváltással
+			\end{itemize}
+			
+		\item Az átadott információ az 1 bittõl a tetszõleges méretû adatbázisokig terjedhet
+	\end{itemize}
+	
+\end{frame}
+
+
+\begin{frame}{Folyamatok együttmûködése közös memórián}
+	
+	\begin{itemize}
+		\item A együttmûködõ folyamatok mindegyike a saját memória címtartományában lát egy közös memóriaterületet
+		\item Valamilyen adatátviteli rendszer biztosítja, hogy minden folyamat helyesen el tudja végezni az olvasás és írás mûveleteket a közös memórián
+		\item A folyamatok párhuzamos futása miatt elõfordulhat, hogy a közös memóriát egy idõben több folyamat is írhatja, vagy olvashatja
+		\item A RAM-modell szerint mûködõ memória erre nincsen felkészítve
+		\item Ezért a memóriát az ún. PRAM-modell szerint kezeljük
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}[allowframebreaks]{PRAM memória-modell,}
+	
+	\begin{itemize}
+		\item PRAM-modell -- Pipelined Random Access Memory
+		\item A RAM-modellt kiegészíti a következõ tulajdonságokkal:
+			
+			\begin{itemize}
+				\item \textbf{olvasás-olvasás ütközés}: Ha két folyamat egyszerre akarja olvasni a közös memóriarekeszt, akkor mindkettõ ugyanazt az értéket kapja és az megegyezik a memóriarekesz tartalmával
+				\item \textbf{olvasás-írás ütközés}: Ha az egyik folyamat írni, a másik ugyanakkor olvasni akarja a közös rekesz tartalmát, akkor az felülíródik a beírni szándékozott adattal, az olvasás eredménye vagy a rekesz régi, vagy az új tartalma lesz, más érték nem lehet
+				\item \textbf{írás-írás ütközés}: Ha két folyamat egyidõben akarja írni a közös rekeszt, akkor valamelyik mûvelet hatása érvényesül, a rekesz új tartalma a kettõ közül valamelyik lesz, harmadik érték nem alakulhat ki
+			\end{itemize}
+			
+		\item Azaz az egyidejû mûveletek nem interferálhatnak, nem lehet közöttük zavaró kölcsönhatás
+		\item Hatásuk olyan, mintha egy elõre nem meghatározható sorrendben, de egymás után hajtódnának végre
+		\item Erre utal az elnevezés: pipeline = csõvezeték
+		\item Másképp fogalmazva az írás és olvasás mûveletek oszthatatlanok (atomiak)
+		\item A közös memóriával történõ adatcseréhez tehát PRAM-modell szerint mûködõ memóriát használunk, és emellett össze kell hangolni a folyamatok mûködését, szinkronizálni kell a folyamatokat
+		\item Például ha át akarunk adni adatokat a közös memórián keresztül, akkor biztosítanunk kell, hogy a fogadó azután olvassa el a közös memóriát, miután a küldõ elhelyezte ott az információt. Ehhez van szükség a folyamatok szinkronizációjára. Ennek megvalósítási lehetõségeivel késõbb foglalkozunk
+	
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}{Folyamatok együttmûködése közös memórián}
+	\begin{figure}[htbp]
+		\centering
+			\only<beamer>{\includegraphics[width=0.80\textwidth]{images/egyuttmukodes_kozos_memorian.jpg}}
+			\only<article>{
+				\includegraphics[width=1.00\textwidth]{images/egyuttmukodes_kozos_memorian.jpg}
+				\caption{Folyamatok együttmûködése közös memórián}
+				}
+		\label{fig:kozosmemoria}
+	\end{figure}
+	
+\end{frame}
+\begin{frame}{Folyamatok együttmûködése üzenetváltással}
+	
+	\begin{itemize}
+		\item Nincsen közös memória
+		\item Az adatátviteli rendszer a logikai processzorokat kapcsolja össze
+		\item Két új utasítás a logikai processzorok utasításkészletében:
+			
+			\begin{itemize}
+				\item Küld -- Send
+					
+					\begin{itemize}
+						\item \textit{Küld(<cím>, <folyamat>)}: a küldõ folyamat a \textit{<cím>} címen lévõ adatokat elküldi a \textit{<folyamat>} folyamatnak
+					\end{itemize}
+					
+				\item Fogad -- Receive
+					
+					\begin{itemize}
+						\item \textit{Fogad(<cím>, <folyamat>)}: a fogadó folyamat a \textit{<folyamat>} folyamattól kapott adatokat eltárolja a saját \textit{<cím>} memóriacímén
+					\end{itemize}
+					
+			\end{itemize}
+			
+		\item A \textit{<cím>} alatt egyszerûen érthetünk változókat!
+	\end{itemize}
+	
+\end{frame}
+\begin{frame}{Folyamatok együttmûködése üzenetváltással}
+	\begin{figure}[htbp]
+		\centering
+			\only<beamer>{\includegraphics[width=0.80\textwidth]{images/egyuttmukodes_uzenetvaltassal.jpg}}
+			\only<article>{
+				\includegraphics[width=1.00\textwidth]{images/egyuttmukodes_uzenetvaltassal.jpg}
+				\caption{Folyamatok együttmûködése üzenetváltással}
+				}
+		\label{fig:uzenetvaltas}
+	\end{figure}
+	
+\end{frame}
+
+
+
+
+\subsection{Folyamatok szinkronizációja}
+\label{sec:folyamatokSzinkronizacioja}
+
+\begin{frame}{Folyamatok szinkronizációja}
+	
+	\begin{itemize}
+		\item A folyamatok bizonyos esetekben egymástól függetlenül futhatnak
+		\item Máskor szükség van arra, hogy korlátozzuk az egyes folyamatok ,,szabadonfutását'' 
+		\item A mûveletek végrehajtására vonatkozó idõbeli korlátozásokat nevezzük szinkronizációnak
+		\item A korlátozások alapesetei a következõk:
+			
+			\begin{itemize}
+				\item Kölcsönös kizárás (mutual exclusion)
+				\item Egyidejûség (randevú)
+				\item Elõírt sorrend (precedencia)
+			\end{itemize}
+			
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}[allowframebreaks]{Kölcsönös kizárás (mutual exclusion),}
+	
+	\begin{itemize}
+		\item Kritikus szakasz
+			\begin{itemize}
+				\item A különbözõ folyamatokban lehetnek olyan utasítássorozatok  amelyek egyidejû (konkurens) végrehajtása nem megengedett, azaz ezek a kritikus szakaszok kölcsönösen ki kell, hogy zárják egymást
+				\item Tipikusan ilyen esetek a közösen használt erõforrásokon végzett oszthatatlan mûveletek végrehajtása
+				\item Például nyomtatás, adatbázisokon végrehajtott tranzakciók
+				\item \textbf{Formális definíció}: A $K$ kritikus szakasz folyamatok végrehajtási szakaszainak (utasítás-sorozatainak) olyan $S_{k}$ halmaza, amelynek bármely két $s_{k,i}$ és $s_{k,j}$ elemét tilos átlapolva végrehajtani
+				\item Ha egy folyamat $s_{k,i}\in S_{k}$ szakaszának végrehajtása megkezdõdik, azt mondjuk, hogy a folyamat \textit{belépett} a kritikus szakaszba, hasonlóan $s_{k,i}$ befejezõdésekor azt mondjuk, hogy a folyamat \textit{kilépett} a kritikus szakaszból
+				\item Bármely folyamat csak akkor léphet be egy $K$ kritikus szakaszba, ha abban egyetlen más folyamat sem tartózkodik, ellenkezõ esetben várakoznia kell
+				\item Amikor egy folyamat elhagyja a kritikus szakaszt, akkor a várakozók közül egy beléphet
+				\item Egy rendszerben lehet több kritikus szakasz is, ezek függetlenek egymástól
+				\item Egy folyamat tartózkodhat egyszerre több kritikus folyamatban is, például akkor, ha több kölcsönös kizárást igénylõ közös erõforrást használ egyszerre
+				\framebreak
+				\item A kritikus szakaszokat a folyamatokat író programozók definiálják, a belépési szándékot és a kilépést speciális utasításokkal jelölik, pl. \textit{Lefoglal(nyomtató), Felszabadít(nyomtató)}. Ezek az utasítások rendszerhívások, és a program futásakor az operációs rendszer dönti el, hogy a folyamat beléphet a kritikus szakaszba, vagy várakoztatja
+				\item Versengõ folyamatok esetén ezt mindenképpen az operációs rendszernek kell megvalósítania, Együttmûködõ folyamatok esetében a programozók bármilyen egyeztetett megoldást alkalmazhatnak
+			\end{itemize}
+		
+		
+	\end{itemize}
+	
+
+
+
+\end{frame}
+
+
+
+
+\begin{frame}{Egyidejûség (randevú)}
+	
+	\begin{itemize}
+		\item Bizonyos esetekben szükség van arra, hogy két, vagy több folyamat egyidõben tartózkodjon tevékenységének egy adott szakaszában
+		\item A pontos egyidejûség nehezen definiálható, valójában arról van szó, hogy egyik folyamat sem léphet túl egy adott szakaszon, amíg a többi be nem lépett ebbe a szakaszba
+		\item Tipikusan ez a helyzet az átmeneti tároló nélküli kommunikáció esetén, amikor Küld és Fogad jellegû mûveleteket hajtanak végre a folyamatok köztes tároló nélkül
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}{Elõírt sorrend (precedencia)}
+	
+	\begin{itemize}
+		\item Gyakran elõfordul olyan eset, hogy az egyik folyamat elõállít egy olyan adatot, amit a másik felhasznál
+		\item Ilyenkor garantálni kell, hogy az elõállító folyamat elõbb hajtódjon végre, mint a fogyasztó folyamat
+		\item Legyen a $P_1$ folyamat egy utasítása $S_1$, $P_2$-é pedig $S_2$
+		\item Ekkor az $S_1\Rightarrow S_2$ precedencia elõírása azt jelenti, hogy $S_1$ végrehajtásának be kell fejezõdnie mielõtt $S_2$ elindulna
+		\item Ha $P_1$ és $P_2$ úgy hajtódna végre, hogy $S_2$ hamarabb kerülne sorra, mint $S_1$, akkor $P_2$-nek meg kell várnia, amíg $P_1$-ben $S_1$ végrehajtása befejezõdik
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}[allowframebreaks]{PRAM alapú szoftveres megoldások szinkronizációra,}
+	
+	\begin{itemize}
+		\item Manapság már a processzorba épített hardveres megoldásokkal kezeljük a szinkronizációt
+		\item Korábban a hardver nem nyújtott ilyen támogatást, különbözõ szoftveres megoldásokat dolgoztak ki
+		\item Mivel a leggyakrabban úgyis közös memóriával mûködnek a folyamatok, kézenfekvõ volt, hogy a kölcsönös kizárást is ennek segítségével valósítsuk meg a PRAM-modell felhasználásával
+		
+		\framebreak
+		
+		\item Elvárások a lehetséges megoldásokkal szemben
+			
+			\begin{itemize}
+				\item Minden esetben biztosítsa a kölcsönös kizárást (ne legyen kijátszható a rendszer)
+				\item Csak azokat a folyamatokat érintse az adminisztráció, amelyek érdekeltek a kizárásban, a többi folyamatnak ne kelljen foglalkoznia ezzel
+				\item Lehetõleg véges idõn belül sorra kerüljön minden várakozó folyamat, kerüljük el a kiéheztetést (ettõl a feltételtõl idõnként eltekintünk)
+			\end{itemize}
+		
+	\end{itemize}
+		
+\end{frame}
+
+
+\begin{frame}[allowframebreaks, fragile]{Foglaltságjelzõ bit használata,}
+	
+	\begin{itemize}
+		\item Minden kritikus szakasz elõtt helyezzünk el egy foglaltságjelzõ bitet
+		\item A jelzõnek két lehetséges értéke van: \textbf{szabad}, \textbf{foglalt}, az egyiket jelentse a 0, másikat az 1 érték
+		\item A jelzõbit kezdõértéke legyen \textbf{szabad}
+		\item Ha egy folyamat be akar lépni a kritikus szakaszba, akkor megvizsgálja a jelzõbitet:
+			
+			\begin{itemize}
+				\item ha az értéke \textbf{szabad}, akkor \textbf{foglalt}ra állítja és belép a kritikus szakaszba. A kritikus szakasz elhagyásakor \textbf{szabad}ra állítja a bitet
+				\item ha a bit értéke \textbf{foglalt}, akkor addig várakozik, amíg \textbf{szabad} nem lesz
+			\end{itemize}
+			
+	\end{itemize}
+
+\framebreak
+
+\textbf{Pszeudo kód} (Mit jelent ez?)
+
+\begin{verbatim}
+  var jelzõ : {foglalt, szabad} := szabad
+\end{verbatim}
+Minden folyamat esetén a kritikus szakasz használatakor:
+\begin{verbatim}
+...
+belépés:
+  olvas(jelzõ)
+  if jelzõ = foglalt then goto belépés
+  ír( jelzõ, foglalt )
+<kritikus szakasz>
+  ír( jelzõ, szabad )
+...
+\end{verbatim}
+	
+Helyes ez az algoritmus?
+	\framebreak
+
+\begin{itemize}
+	\item Minden esetben jól mûködik ez az algoritmus?
+	\item NEM!
+		
+		\begin{itemize}
+			\item Mivel a jelzõbit a közös memóriában található, elõfordulhat, hogy két folyamat egyszerre vizsgálja meg a jelzõbitet. Ha ekkor \textbf{szabad} a jelzõ, akkor mindkét folyamat belép a kritikus szakaszba
+			\item Ez nyilvánvalóan hibás
+			\item Mi a helyzet akkor, ha valójában egyprocesszoros rendszeren futnak a folyamatok?
+				
+				\begin{itemize}
+					\item Ekkor ki van zárva az egyidejû olvasás
+					\item Ekkor is elõfordulhat, hogy a kiolvasás és a visszaírás között olvas a másik folyamat
+				\end{itemize}
+				
+			\item Szükség van tehát jobb megoldásra
+				
+		\end{itemize}
+		
+\end{itemize}
+	
+\end{frame}
+
+
+\begin{frame}{Peterson-algoritmus, 1981}
+
+Alapötlet:
+
+\begin{itemize}
+	\item Ez a megoldás csak két folyamatra mûködik: $P_1, P_2$
+	\item Mindkét folyamatnak legyen egy jelzõje (tömb), amivel jelzi a belépési szándékát
+	\item Legyen egy közös változó, ami jelzi, hogy egyidejû belépési szándék esetén melyik folyamat a kedvezményezett
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[allowframebreaks, fragile, plain]{Peterson-algoritmus pszeudo kód,}
+
+\begin{verbatim}
+var jelzõ: array[1..2] of {foglal, szabad} := szabad
+    következõ: {1, 2}
+\end{verbatim}
+$P_1$ folyamat:
+
+\begin{verbatim}
+ír( jelzõ[1], foglal )
+ír( következõ, 2 )
+belépés1:
+  olvas( jelzõ[2] )
+  if jelzõ[2] = szabad then goto belép1
+  olvas( következõ )
+  if következõ = 2 then goto belépés1
+belép1:
+  <kritikus szakasz>
+kilép1:
+  ír( jelzõ[1], szabad )
+\end{verbatim}
+
+\framebreak
+
+$P_2$ folyamat:
+
+\begin{verbatim}
+ír( jelzõ[2], foglal )
+ír( következõ, 1 )
+belépés2:
+  olvas( jelzõ[1] )
+  if jelzõ[1] = szabad then goto belép2
+  olvas( következõ )
+  if következõ = 1 then goto belépés2
+belép2:
+  <kritikus szakasz>
+kilép2:
+  ír( jelzõ[2], szabad )
+\end{verbatim}
+
+\framebreak
+
+Hogyan mûködik az algoritmus?
+
+\begin{itemize}
+	\item Hogyan tudjuk megvizsgálni egy algoritmus mûködését?
+	
+		\begin{itemize}
+			\item Kövessük nyomon lépésrõl-lépésre!
+			\item Közben jegyezzük fel a változók aktuális értékeit!
+			\item Figyeljük, hogy az egyes folyamatok mikor tartózkodnak a kritikus szakaszban!
+		\end{itemize}
+
+	\item Ugyanezt tesszük, amikor nyomkövetéssel vizsgálunk egy programot a fejlesztõ környezetben
+	\item Sajnos ez az egyszerû algoritmus csak két folyamattal mûködik
+	\item Hogyan lehetne több folyamatra is alkalmas megoldás szerkeszteni?
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Bakery-algoritmus, (Lamport, 1974)}
+Alapötlet
+	
+	\begin{itemize}
+		\item Sorbanállás az üzletben
+		\item Mindenki sorszámot kér, és annak sorrendjében jutnak be
+		\item bakery = pékség
+		\item $n$ darab folyamatot fogunk kezelni
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}[allowframebreaks, fragile, plain]{Bakery-algoritmus pszeudo kód,}
+	
+Adatszerkezetek közös tárban:
+
+\begin{verbatim}
+var számot_kap : array[0..n-1] of boolean := false
+    sorszám : array[0..n-1] of integer := 0
+\end{verbatim}
+
+
+\begin{itemize}
+	\item \textit{számot\_kap} tömb: jelzi, hogy egy folyamat éppen sorszámot kap
+	\item \textit{sorszám} tömb: tárolja a sorszámokat
+\end{itemize}
+
+\framebreak
+
+$P_i$ folyamat:
+
+\begin{verbatim}
+// Sorszámot kér:
+  számot_kap[i] := true
+  sorszám[i] := max(sorszám) + 1
+  számot_kap[i] := false
+	
+// Belépés:
+// Amíg van nála kisebb sorszámú, várakozik
+  for j := 0 to n-1 do begin
+    while számot_kap[j] do üres_utasítás
+    while sorszám[j] <> 0 
+          and (sorszám[j], j) < (sorszám[i], i) 
+          do üres_utasítás
+  endfor
+	<kritikus szakasz>
+\end{verbatim}
+
+\framebreak
+
+\begin{verbatim}
+// Kilépés:
+  sorszám[i] := 0
+\end{verbatim}
+
+Hogy mûködik az algoritmus?
+\begin{itemize}
+	\item A belépni szándékozó folyamatok sorszámot kérnek
+	\item Ez nem atomi mûvelet, ezért megakadályozza, hogy egy másik folyamat megkérdezze a sorszámot mialatt a számítás folyik
+	\item Elõfordulhat, hogy két folyamat azonos sorszámot kap, mert egyidõben számítja ki
+	\item A sorbanálló folyamatok figyelik a sorszámokat, és ha az övé a legkisebb, akkor belép a kritikus szakaszba
+	\item Ha egy folyamat éppen kéri a sorszámot, akkor megvárja amíg befejezi
+	\item Ha talál egy kisebb sorszámú folyamatot, akkor megvárja, amíg elhagyja a kritikus szakaszt
+	\item A \textbf{for} ciklus végére érve biztosan beléphet a kritikus szakaszba, mert minden kisebb sorszámú folyamat végrehajtását kivárta, és ha közben újabb folyamat kért sorszámot, az már csak nála nagyobbat kaphatott
+	\item Mivel elõfordulhatnak azonos sorszámok, ezért a folyamatok sorszámával kiegészítve hasonlítjuk össze, így mindig van egyértelmû gyõztes
+\end{itemize}
+
+\begin{itemize}
+	\item Hogyan lehetne egyszerûbb megoldást megvalósítani?
+	\item Az elsõ (foglaltságjelzõ bites) megoldás nagyon egyszerû volt, de párhuzamos környezetben nem mûködik jól
+	\item Hogyan lehetne megjavítani a bonyolultság növelése nélkül?
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{A PRAM-modell kiterjesztése}
+	
+	\begin{itemize}
+		\item A foglaltságjelzõ bit esetében az okozza a problémát, hogy több folyamat is kiolvashatja a bitet, mielõtt az elsõ olvasó foglaltra állítaná
+		\item Ha el tudjuk érni, hogy az olvasás és írás egymás utáni végrehajtása atomi mûvelet legyen, akkor megoldódna a probléma
+		\item Vezessünk be egy új mûveletet OlvasÉsÍr (TestAndSet) mûveletet a modellben (A gyakorlatban ez azt jelenti, hogy a processzorba építenek be hardveresen egy ilyen mûveletet)
+		\item Az OlvasÉsÍr mûvelet kiolvassa és visszaadja a változó értékét, majd foglaltra állítja. Mindezt oszthatalanul teszi, azaz közben nem hajtódhat végre semmilyen más mûvelet
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}[fragile]{Kölcsönös kizárás OlvasÉsÍr mûvelettel}
+
+\begin{verbatim}
+var közös_jelzõ : {foglalt, szabad} := szabad
+\end{verbatim}
+Minden folyamat esetében:
+
+\begin{verbatim}
+belépés: 
+  OlvasÉsÍr( közös_jelzõ, foglalt )
+  if közös_jelzõ = foglalt then goto belépés
+  <kritikus szakasz>
+	
+kilépés:
+  ír( közös_jelzõ, szabad )
+\end{verbatim}
+
+\end{frame}
+
+\begin{frame}[allowframebreaks, fragile, plain]{Kölcsönös kizárás Csere mûvelettel}
+	
+	\begin{itemize}
+		\item Hasonlóan megoldható a feladat, ha bevezetünk egy oszthatalan Csere (Swap) mûveletet
+		\item A Csere utasítás oszthatatlan módon megcseréli a memória két rekeszének tartalmát, az egyik rekesz a közös memóriában van, míg a másik a folyamat saját memóriaterületén
+		\item Hogyan tudjuk megcserélni két memóriarekesz (változó) tartalmát?
+	\end{itemize}
+	
+	\framebreak
+	
+\begin{verbatim}
+var közös_jelzõ : {foglalt, szabad} := szabad
+\end{verbatim}
+Minden folyamat esetében:
+
+\begin{verbatim}
+var saját_jelzõ : {foglalt, szabad}
+...
+saját_jelzõ := foglalt
+belépés: 
+  Csere( közös_jelzõ, saját_jelzõ )
+  Olvas( saját_jelzõ )
+  if saját_jelzõ = foglalt then goto belépés
+  <kritikus szakasz>
+	
+kilépés:
+  ír( közös_jelzõ, szabad )
+\end{verbatim}
+
+\end{frame}
+
+\begin{frame}[allowframebreaks]{A szoftveres megoldások értékelése}
+	
+	\begin{itemize}
+		\item Napjainkban a processzorok utasításkészletének része vagy a \textit{Csere}, vagy a \textit{OlvasÉsÍr} mûvelet
+		\item Ezek megvalósítása olyan, hogy többprocesszoros rendszerben is garantálja az oszthatatlan végrehajtást
+		\item Milyen elvárást nem teljesítenek ezek a megoldások?
+			
+			\begin{itemize}
+				\item Nem garantálják, hogy a kritikus szakaszba belépni szándékozó folyamatok véges idõn belül bejutnak
+				\item A problémát az okozza, hogy az algoritmusok nem határozzák meg a kritikus szakaszba való bejutás sorrendjét
+				\item Ha az egyes folyamatokra bízzuk a kölcsönös kizárás megvalósítását, akkor nem tudjuk garantálni, hogy mindenki bejut véges idõn belül
+			\end{itemize}
+			
+		\item Mi lehet a megoldás?
+		
+		\framebreak
+		
+		\item A megoldás:
+			
+			\begin{itemize}
+				\item Központilag tartsuk nyilván a belépési igényeket
+				\item Központilag ütemezzük a folyamatokat
+				\item De ez még nem elegendõ, egyértelmûen meghatározottá kell tenni az ütemezési döntést, ne a véletlenen múljon
+				\item Ekkor készíthetõ olyan ütemezõ algoritmus, ami ,,igazságosan'', ,,tisztességesen'' sorolja be a folyamatokat
+				\item Ez a központi ütemezõ az operációs rendszer
+			\end{itemize}
+		
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}{Szinkronizációs eszközök az operációs rendszer szintjén}
+	
+	\begin{itemize}
+		\item Három eszközt fogunk megvizsgálni
+		\item Mindhárom a kiterjesztett PRAM-modellen alapul
+			
+			\begin{enumerate}
+				\item Szemafor
+				\item Erõforrás
+				\item Esemény
+			\end{enumerate}
+			
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}[allowframebreaks, fragile]{Szemafor}
+	
+	\begin{itemize}
+		\item Dijkstra javasolta elõször 1965-ben
+		\item Szemafor -- vasúti jelzõ
+		\item Szemafor az informatikában
+			
+			\begin{itemize}
+				\item Speciális változó
+				\item Csak a hozzá tartozó két oszthatatlan mûvelettel lehet kezelni, másképp nem érhetõ el
+				\item Az általános szemafor esetében a változó típusa egész (integer, int)
+				\item A két mûveletet többféleképpen nevezhetjük: \textit{Belép-Kilép, Vár-Jelez, Wait-Signal}
+				\item Legtöbbször a holland eredeti alapján $P$ és $V$ mûveletnek szoktuk nevezni
+			\end{itemize}
+			
+		\framebreak
+		
+		\item A szemafor mûveletek általános formája:
+			\begin{itemize}
+				\item $P(s)$ (Probieren - ellenõrzés)
+							\begin{verbatim}
+							while s < 1 do üres_utasítás
+							s := s - 1
+							\end{verbatim}		
+				\item $V(s)$ (Verhogen - felszabadítás)
+					\begin{verbatim}
+					s := s + 1
+					\end{verbatim}		
+			\end{itemize}
+
+		\item Mindkét mûvelet oszthatatlan
+		\item Semmilyen más úton nem érhetõ el a szemafor
+		\item A véletlenre bízza, hogy a várakozók közül melyik folyamat fog bejutni a kritikus szakaszba
+		
+		\framebreak
+		
+		\item Különbözõ szemafor típusok:
+			
+			\begin{itemize}
+				\item \textbf{Általános szemafor:}
+					
+					\begin{itemize}
+						\item Ha az $s$ szemafornak $k$ kezdõértéket adunk, akkor $k$ darab folyamatot enged be egyszerre
+						\item Ha $k$ darab folyamat bejutott, akkor a következõ csak akkor léphet be, ha elõbb egy bentlévõ folyamat kilépett, azaz végrehajtott egy $V(s)$ mûveletet
+						\item Ezzel olyan \textbf{általánosított kritikus szakaszt} hozhatunk létre, amelyben egyszerre $k$ darab folyamat tartózkodhat
+					\end{itemize}
+					
+			\framebreak
+			
+				\item \textbf{Bináris szemafor:}
+					
+					\begin{itemize}
+						\item A szemafor csak $0$, vagy $1$ értéket vehet fel
+						\item $1$ kezdõértékkel lehet megvalósítani a \textbf{kölcsönös kizárást}, a kritikus szakaszba belépni kívánó folyamat $P$ mûveletet hajt végre, a kilépõ pedig $V$ mûveletet
+						\item $0$ kezdõértékkel lehet megvalósítani a \textbf{precedenciát} (meghatározott sorrend), az elsõként végrehajtandó folyamat befejezéskor végrehajt egy $V$ mûveletet, a második folyamat pedig $P$ mûvelettel kezdi a végrehajtást
+					\end{itemize}
+					
+			\end{itemize}
+
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}{Erõforrás}
+	
+	\begin{itemize}
+		\item Az erõforrás egy logika objektum
+		\item Bármelyik folyamat lefoglalhatja és felszabadíthatja
+		\item Egyszerre csak egy folyamat használhatja az erõforrást, azaz egy erõforrás használatára kölcsönös kizárás valósul meg
+		\item Az erõforrásokat névvel, vagy sorszámmal azonosítjuk
+		\item A \textit{Lefoglal(<erõforrás>)} és \textit{Felszabadít(<erõforrás>)} mûveletek egyenértékûek egy bináris szemaforra kiadott $P$ és $V$ mûveletekkel
+		\item A \textit{Lefoglal(<erõforrás>)} és \textit{Felszabadít(<erõforrás>)} mûveletek oszthatatlanok
+		\item A szemaforhoz hasonlóan itt is a véletlenen múlik, hogy a várakozó folyamatok közül melyik tudja lefoglalni az erõforrást
+		\item Csak az garantált, hogy legfeljebb egy folyamat foglalhatja le az erõforrást
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}[allowframebreaks]{Esemény}
+	
+	\begin{itemize}
+		\item Az esemény egy pillanatszerû történés a rendszerben, amelyre folyamatok várakozhatnak
+		\item Az esemény bekövetkezése az összes rá várakozó folyamatot továbbindítja
+		\item Így egy \textbf{összetett precedencia} valósítható meg, amivel több különbözõ mûveletre (amelyek különbözõ folyamatokban lehetnek) ugyanazt az elõzményt írhatjuk elõ
+		\item Két folyamat esetén az esemény jelzése és az arra való várakozás egyenértékû egy szemaforra kiadott $V$, illetve $P$ mûvelettel
+		\item Több folyamat esetén azonban lényeges különbség, hogy a szemafor esetében csak egy várakozó folyamat indulhat el, ezzel szemben az esemény esetében az összes várakozó továbbindul
+		\item Fontos különbség a szemafor, az erõforrás és az esemény között:
+			
+			\begin{itemize}
+				\item A \textbf{szemafor} és az \textbf{erõforrás} felszabadítása megõrzõdik az objektum állapotában, egy késõbb érkezõ folyamat beléphet
+				\item Ezzel szemben az \textbf{esemény} esetében nem õrzõdik meg az állapot, ha éppen nincs várakozó folyamat, akkor nem történik semmi, a késõbb érkezõ folyamat várakozni kényszerül a következõ eseményig
+			\end{itemize}
+			
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}[allowframebreaks]{A várakozási sorok kezelése}
+	
+	\begin{itemize}
+		\item A megvizsgált módszerek nem határozzák meg, hogy a várakozó folyamatok milyen sorrendben léphetnek be a kritikus szakaszba
+		\item Miért baj ez?
+			
+			\begin{itemize}
+				\item Nem lehet megjósolni a folyamatok sorrendjét. Ez vagy okoz problémát, vagy nem
+				\item Lehet, hogy szeretnénk prioritást rendelni a folyamatokhoz, vannak fontosabb és kevésbé fontos folyamatok, ez a módszer ezt nem tudja érvényesíteni
+				\item Az viszont komoly probléma, hogy nem lehet garantálni, hogy minden várakozó folyamat véges idõ alatt beléphet
+			\end{itemize}
+			
+		\item Mi lehet a megoldás?
+			
+			\begin{itemize}
+				\item A várakozó folyamatok sorbaállítása
+				\item Várakozási sorokat rendelünk a szemaforokhoz és az erõforrásokhoz
+				\item Ezeket a sorokat meghatározott algoritmus szerint kezeli a rendszer
+				\item Lehetséges sorrendek:
+					
+					\begin{itemize}
+						\item \textbf{FIFO} (First In -- First Out): Az elõször sorbaálló lép tovább elõször, más szóval érkezési sorrend
+						\item \textbf{LIFO} (Last IN -- First Out): Az utoljára érkezõ mehet tovább elõször (verem). Ebben az esetben ez nem célszerû
+						\item \textbf{Prioritás szerint}: Minden folyamathoz rendelünk egy fontossági szintet (prioritás). Ha két folyamat várakozik, akkor a magasabb prioritású (fontosabb) léphet tovább elõször
+					\end{itemize}
+					
+			\end{itemize}
+			
+	\end{itemize}
+	
+\end{frame}
+
+\subsection{Folyamatok kommunikációja}
+\label{sec:Kommunikacio}
+
+\begin{frame}{Folyamatok kommunikációja}
+	
+	\begin{itemize}
+		\item A folyamatok együttmûködésének egyik formája a közös memória használata -- \textit{ezt vizsgáltuk eddig}
+		\item A másik módszer az üzenetváltásos együttmûködés, azaz a folyamatok közötti kommunikáció -- \textit{ezt vizsgáljuk most}
+		\item Akkor került elõtérbe, amikor realitássá vált a számítógépek közötti kommunikáció (hálózatok) 
+		\item Amíg egy gépen fut a két folyamat, addig egyszerûbb közös memórián keresztül kommunikálni, ha külön gépen futnak, akkor ez már nem lehetséges
+		\item A folyamatok közötti kommunikáció alapsémája a következõ ábrán látható
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}{A kommunikáció alapsémája}
+
+	\begin{figure}[htbp]
+		\centering
+			\only<beamer>{\includegraphics[width=1.00\textwidth]{images/kommunikacio_direkt_megnevezessel.jpg}}
+			\only<article>{
+				\includegraphics[width=1.00\textwidth]{images/kommunikacio_direkt_megnevezessel.jpg}
+				\caption{A kommunikáció alapsémája}
+				}
+		\label{fig:kommunikacioAlapSema}
+	\end{figure}
+	
+\end{frame}
+
+\begin{frame}{A kommunikáció alapkérdései}
+	
+Tudjuk, hogy a logikai processzornak van két mûvelete: \textit{Küld} és \textit{Fogad}, ezek mûködése azonban felvet néhány fontos kérdést:
+	\begin{itemize}
+		\item Hogyan nevezzük meg a partnert?
+		\item A partnert látjuk, vagy egy közvetítõt, csatornát, postaládát?
+		\item Egyszerre egy partner kapja meg az üzenetünket, vagy több is?
+		\item Csak egy partnertõl várhatunk üzenetet egy adott pillanatban, vagy többektõl is?
+		\item Hogyan mûködik a \textit{Küld} mûvelet? Amikor befejezõdött a küldés, akkor meg is érkezett a célhoz, vagy csak egy közbülsõ tárolóba került (postaláda)
+		\item Honnan tudjuk meg, hogy megérkezett-e (nyugtázás)?
+		\item Hogyan mûködik a \textit{Fogad} mûvelet?
+		\item Kell-e visszaigazolást küldenünk, vagy elintézi a rendszer automatikusan?
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}{A partner megnevezése}
+	
+A partner megnevezése szempontjából a következõ alaptípusokat különböztetjük meg:
+
+\begin{enumerate}
+	\item közvetlen (direkt)
+	\item közvetett (indirekt)
+	\item asszimetrikus
+	\item csoportkijelölés
+	\item üzenetszórás
+\end{enumerate}
+	
+\end{frame}
+
+\begin{frame}[allowframebreaks]{Közvetlen (direkt) kommunikáció}
+	
+	\begin{itemize}
+		\item Két folyamat között zajlik
+		\item Mind a \textit{Küld}, mind a \textit{Fogad} mûvelet megnevezi a partner folyamatot
+		\item Például
+			
+			\begin{itemize}
+				\item $P_1$ elküldi a saját címtartományában tárolt $x$ változót $P_2$-nek
+				\item $P_2$ eltárolja a kapott értéket a saját $y$ változójában
+				\item ha a változók közös címtartományban lennének, akkor ez megfelelne az $y:=x$ értékadásnak, így azonban kommunikációs mûveletekre van szükség
+			\end{itemize}
+			
+	\end{itemize}
+	
+	\framebreak
+	
+	\begin{figure}[htbp]
+		\centering
+			\only<beamer>{\includegraphics[width=1.00\textwidth]{images/kommunikacio_direkt_megnevezessel.jpg}}
+			\only<article>{
+				\includegraphics[width=1.00\textwidth]{images/kommunikacio_direkt_megnevezessel.jpg}
+				\caption{Közvetlen (direkt) kommunikáció}
+				}
+		\label{fig:KozvetlenDirektKommunikacio}
+	\end{figure}
+	
+\end{frame}
+
+\begin{frame}[allowframebreaks]{Közvetett (indirekt) kommunikáció}
+	
+	\begin{itemize}
+		\item Két folyamat között zajlik
+		\item De a felek nem egymást nevezik meg, hanem egy közvetítõ közeget (pl. postaládát, vagy csatornát)
+		\item A \textbf{postaláda} egy általában véges, de elméletileg esetleg korlátlan befogadóképességû, az üzenetek sorrendjét megtartó (FIFO) tároló, amely a \textit{Küld-Fogad} (betesz-kivesz) mûveletpárral kezelhetõ
+		\item A \textit{Küld(<cím>, <postaláda>)} mûvelet a saját memóriában lévõ üzenetet a postaláda következõ szabad tárolóhelyére másolja. Ha a postaláda tele van, akkor várakozik
+		\item A \textit{Fogad(<cím>, <postaláda>)} mûvelet a postaládában legrégebben várakozó üzenetet kimásolja a saját memóriában lévõ címre és felszabadítja a helyét
+		\item A \textbf{csatorna} olyan kommunikációs objektum, amelyik két folyamatot kapcsol össze
+		\item A csatorna lehet:
+			
+			\begin{itemize}
+				\item egyirányú (szimplex)
+				\item osztottan kétirányú (félduplex), azaz egyidejûleg egyirányú, de az irány változtatható
+				\item kétirányú (duplex)
+			\end{itemize}
+			
+		\item A csatorna tartalmazhat $0$, véges, vagy végtelen kapacitású átmeneti tárolót
+		
+		\item A postaláda és a csatorna lazítja a folyamatok közötti csatolást
+		\item Olyan folyamatok is kommunikálhatnak egymással, amelyek nem ismerik egymást
+		\item Idõben is eltávolodhatnak egymástól a kommunikáló folyamatok
+	\end{itemize}
+	
+	\framebreak
+	
+	\begin{figure}[htbp]
+		\centering
+			\only<beamer>{\includegraphics[width=1.00\textwidth]{images/kommunikacio_indirekt_megnevezessel.jpg}}
+			\only<article>{
+				\includegraphics[width=1.00\textwidth]{images/kommunikacio_indirekt_megnevezessel.jpg}
+				\caption{Közvetett (indirekt) kommunikáció}
+				}
+		\label{fig:KozvetettIndirektKommunikacio}
+	\end{figure}
+	
+\end{frame}
+
+\begin{frame}[allowframebreaks]{Asszimetrikus kommunikáció}
+	
+	\begin{itemize}
+		\item Az egyik folyamat (az adó, vagy a vevõ) megnevezi, hogy melyik folyamattal akar kommunikálni, a másik viszont egy saját be-/kimeneti kaput (port) használ
+		\item Ha csak egy portja van, akkor nem is kell megnevezni
+		\item Ha a vevõ használ bemeneti kaput, akkor a mûveletek alakja: \textit{Küld(<cím>, <folyamat>), Fogad(<cím>)}
+		\item Ez akkor hasznos, ha a fogadó nem ismeri a küldõt, de a küldõ ismeri a fogadót. Például egy ügyfél küld egy kérést egy szolgáltató folyamatnak (kliens-szerver modell)
+		\item Az ellentétes irányú asszimetriára példa lehet egy feladatokat generáló és az azokért versengõ végrehajtó folyamatokból álló rendszer (farmer-worker modell)
+	\end{itemize}
+	
+	\framebreak
+	
+	\begin{figure}[htbp]
+		\centering
+			\only<beamer>{\includegraphics[width=1.00\textwidth]{images/kommunikacio_asszimetrikus_megnevezessel.jpg}}
+			\only<article>{
+				\includegraphics[width=1.00\textwidth]{images/kommunikacio_asszimetrikus_megnevezessel.jpg}
+				\caption{Asszimetrikus kommunikáció}
+				}
+		\label{fig:AsszimetrikusKommunikacio}
+	\end{figure}
+	
+\end{frame}
+
+
+\begin{frame}[allowframebreaks]{Csoportkommunikáció és üzenetszórás}
+	
+	\begin{itemize}
+		\item Az üzenet küldõje folyamatok egy csoportját nevezi meg
+		\item Egyetlen üzenetküldõ mûvelettel a csoport összes tagja megkapja az üzenetet
+		\item Az üzenetszórás ennek speciális esete, amikor az üzenet a rendszer összes tagjához eljut, címzés nélkül
+		\item Lényegesen egyszerûsíti a kommunikációt, amikor több címzetthez kell eljuttatni az üzenetet
+		\item Vannak olyan fizikai kommunikációs közegek, ahol a csoportkommunikáció nagyon hatékonyan megvalósítható, pl. sín-topológiák, rádiókommunikáció
+	\end{itemize}
+	
+	\framebreak
+	
+	\begin{figure}[htbp]
+		\centering
+			\only<beamer>{\includegraphics[width=1.00\textwidth]{images/kommunikacio_uzenetszorassal.jpg}}
+			\only<article>{
+				\includegraphics[width=1.00\textwidth]{images/kommunikacio_uzenetszorassal.jpg}
+				\caption{ kommunikáció}
+				}
+		\label{fig:Uzenetszoras}
+	\end{figure}
+	
+\end{frame}
+
+\begin{frame}[allowframebreaks]{A kommunikáció és a szinkronizáció kapcsolata}
+	
+	\begin{itemize}
+		\item Milyen kapcsolat van a folyamatok szinkronizációja és kommunikációja között?
+		\item A kommunikáció megkövetel bizonyos szintû szinkronizációt, hiszen csak azok a folyamatok tudnak kommunikálni egymással, amelyek valamilyen mértékben össze vannak hangolva
+		\item A kommunikáció típusa meghatározza, hogy milyen szigorú szinkronizációra van szükség:
+			
+			\begin{itemize}
+				\item \textbf{Tárolás nélküli átvitel} esetén 
+					
+					\begin{itemize}
+						\item szigorú szinkronizációra van szükség (egyidejûség)
+						\item a \textit{Küld} és \textit{Fogad} mûveletek randevúja történik
+					\end{itemize}
+					
+				\framebreak
+				
+				\item \textbf{Véges kapacitású tároló}
+					
+					\begin{itemize}
+						\item bizonyos határok között kiegyenlíti a küldõ és fogadó folyamatok sebességingadozásait
+						\item a fogadó folyamat várakozik, ha üres a tároló
+						\item a küldõ folyamat várakozik, ha megtelt a tároló
+						\item egy adott üzenet elküldése meg kell, hogy elõzze a fogadását, ezért egy sorrendi szabály (precedencia) érvényesül a két folyamat között
+						\item a tároló egy adott elemének kezelésére kölcsönös kizárás vonatkozik
+					\end{itemize}
+					
+				\item \textbf{Végtelen kapacitású tároló}
+					
+					\begin{itemize}
+						\item csak a modellben létezik, valóságban nem
+						\item a küldõ folyamatnak soha nem kell várakoznia
+						\item ezenkívül a véges tárolónál elmondottak érvényesek
+					\end{itemize}
+					
+			\end{itemize}
+			
+	\end{itemize}
+	
+\end{frame}
+
+
+\section{Befejezés}
+\label{sec:Befejezes}
+
+\subsection{Emlékeztetõ kérdések}
+\label{sec:EmlekeztetoKerdesek}
+
+\begin{frame}[allowframebreaks]{Emlékeztetõ kérdések}
+	
+	\begin{enumerate}
+		\item Mit jelent a megszakítás? Mire használjuk, hogyan mûködik?
+		\item Milyen megszakítások léteznek?
+		\item Mit nevezünk rendszerhívásnak? Hogyan mûködik?
+		\item Hogyan mûködnek a szinkron és aszinkron rendszerhívások?
+		\item Mit jelent a folyamat és a szál? Mi a hasonlóság és mi a különbség közöttük?
+		\item Mit nevezünk vezérlési szálnak?
+		\item Mi az a folyamatmodell?
+		\item Hogyan modellezzük a folyamatokat?
+		\item Mit nevezünk RAM-modellnek?
+		\item Mit nevezünk a folyamat állapotterének?
+		\item Miért használunk folyamatokat?
+		\item Mi a hátránya a folyamatok használatának?
+		\item Milyen kapcsolatban állhatnak egymással a különbözõ folyamatok?
+		\item Hogyan jönnek létre és szûnnek meg a folyamatok?
+		\item Milyen rendszereket nevezünk statikusnak, illetve dinamikusnak?
+		\item Mit nevezünk folyamat fának?
+		\item Mit nevezünk hierarchikus, illetve globális erõforrás-gazdálkodásnak?
+		\item Hogyan mûködhetnek együtt a folyamatok?
+		\item Hogyan mûködnek együtt a folyamatok közös memória segítségével, illetve üzenetküldéssel?
+		\item Mit nevezünk PRAM-modellnek?
+		\item Mi értünk folyamatok szinkronizációja alatt?
+		\item Mi az a kölcsönös kizárás?
+		\item Mit nevezünk kritikus szakasznak?
+		\item Mit nevezünk randevúnak (a folyamatok esetében)?
+		\item Mit nevezünk precedenciának?
+		\item Hogy mûködik a foglaltságjelzõ bit? Mire használjuk?
+		\item Mit csinál a Peterson-algoritmus? Hogyan mûködik?
+		\item Mit csinál a Bakery-algoritmus? Hogyan mûködik?
+		\item Mit nevezünk kiterjesztett PRAM-modellnek?
+		\item Mit nevezünk szemafornak? Hogyan mûködik?
+		\item Hogy mûködik az erõforrás és az esemény, mint szinkronizációs eszköz?
+		\item Hogyan kezelhetjük a várakozási sorokat?
+		\item Mit nevezünk a folyamatok közötti kommunikáció alapsémájának?
+		\item Milyen alapkérdéseket kell megválaszolni a folyamatok közötti kommunikáció megértéséhez?
+		\item Milyen kommunikációs alaptípusokat különböztetünk meg a partnerek megkülönböztetése szempontjából?
+		\item Mi jellemzi ezeket?
+		\item Milyen kapcsolat áll fenn a folyamatok közötti kommunikáció és szinkronizáció között?
+	\end{enumerate}
+	
+\end{frame}
+
+\begin{frame}{Befejezés}
+
+\begin{block}{}
+	
+	\begin{center}
+	\vspace{1cm}
+	\LARGE{Köszönöm a figyelmet!}
+	\vspace{1cm}
+	\end{center}
+	
+\end{block}
+
+\end{frame}
+
+\end{document}
+

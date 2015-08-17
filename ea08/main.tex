@@ -1,0 +1,1318 @@
+% $Header: /cvsroot/latex-beamer/latex-beamer/solutions/conference-talks/conference-ornate-20min.en.tex,v 1.7 2007/01/28 20:48:23 tantau Exp $
+
+% Version for PROJECTOR (Vetíthetõ változat)
+% Uncomment the next line (A vetíthetõ változathoz vedd ki a % jelet a következõ sor elejérõl)
+%\documentclass{beamer}
+% End of version for PROJECTOR (A vetíthetõ változat vége)
+
+% PRINTABLE version (Nyomtatható változat):
+% Uncomment the next two lines (vedd ki a % jelet a következõ 2 sor elejérõl)
+%\documentclass{article}
+%\usepackage{beamerarticle}
+% End of PRINTABLE version (A nyomtatott változat beállításának vége)
+
+
+% This file is a solution template for:
+
+% - Talk at a conference/colloquium.
+% - Talk length is about 20min.
+% - Style is ornate.
+
+
+
+% Copyright 2004 by Till Tantau <tantau@users.sourceforge.net>.
+%
+% In principle, this file can be redistributed and/or modified under
+% the terms of the GNU Public License, version 2.
+%
+% However, this file is supposed to be a template to be modified
+% for your own needs. For this reason, if you use this file as a
+% template and not specifically distribute it as part of a another
+% package/program, I grant the extra permission to freely copy and
+% modify this file as you see fit and even to delete this copyright
+% notice. 
+
+
+\mode<presentation>
+{
+	\usetheme{Warsaw}
+	% or ...
+	
+	\setbeamercovered{transparent}
+	% or whatever (possibly just delete it)
+}
+
+% Magyar szöveg
+\usepackage[magyar]{babel}		% a Babel csomagot a magyar nyelvvel használjuk
+\usepackage[latin2]{inputenc}		% Latin-2-es kódolású ez a forrás
+\usepackage{t1enc}			% a belsõ ábrázolás és a kimeneti font-kódolás
+% a T1 kódolás
+\usepackage{indentfirst}		% az elsõ bekezdés is behúzott legyen, ne csak a 2-tól
+\frenchspacing				% a mondatköz ugyanakkora nagy, mint a szóköz
+\setlength{\parskip}{\smallskipamount}	% bekezdések közötti távolság beállítása
+% (gumi-méret: 3pt plus 1pt minus 1 pt)
+% Magyar szöveg vége
+
+
+% Angol szöveg
+%\usepackage[english]{babel}
+%\usepackage[latin1]{inputenc}
+%\usepackage{times}
+%\usepackage[T1]{fontenc}
+% Angol szöveg vége
+
+
+% Or whatever. Note that the encoding and the font should match. If T1
+% does not look nice, try deleting the line with the fontenc.
+
+\def\screenshotsize{0.70}
+\def\screenshotsizeB{0.50}
+\def\maintitle{Operációs rendszerek 1. -- 8. elõadás \\ Multiprogramozott operációs rendszerek}
+\def\shorttitle{OPRE1 -- 8 - Multiprogramozott op. rendszerek}
+\def\longdate{}
+\def\shortdate{}
+
+
+\usepackage{graphicx}
+\usepackage{amsfonts}
+
+\only<beamer>{
+	%Insert frame number to footline
+	%Tested with the next themes: Warsaw, Berlin, Szeged, ...
+	\newcommand*\oldmacro{}%
+	\let\oldmacro\insertshorttitle%
+	\renewcommand*\insertshorttitle{%
+		\oldmacro\hfill%
+		\insertframenumber\,/\,\inserttotalframenumber}
+	%End of frame number to footline
+}
+
+\title[\shorttitle] % (optional, use only with long paper titles)
+{\maintitle}
+
+\author[Soós Sándor] % (optional, use only with lots of authors)
+{Soós Sándor}
+% - Give the names in the same order as the appear in the paper.
+% - Use the \inst{?} command only if the authors have different
+%   affiliation.
+
+\institute[NYME SKK INGA] % (optional, but mostly needed)
+{
+	%  \inst{1}%
+	Nyugat-magyarországi Egyetem\\
+	Simonyi Károly Mûszaki, Faanyagtudományi és Mûvészeti Kar\\
+	Informatikai és Gazdasági Intézet\\
+	\vspace{0.3cm}
+	E-mail: soossandor@inf.nyme.hu
+}
+% - Use the \inst command only if there are several affiliations.
+% - Keep it simple, no one is interested in your street address.
+
+\date[\shortdate] % (optional, should be abbreviation of conference name)
+{\longdate}
+% - Either use conference name or its abbreviation.
+% - Not really informative to the audience, more for people (including
+%   yourself) who are reading the slides online
+
+% Delete this, if you do not want the table of contents to pop up at
+% the beginning of each subsection:
+\AtBeginSubsection[]
+{
+	\begin{frame}<beamer>{Hol tartunk?}
+		\tableofcontents[currentsection,currentsubsection]
+	\end{frame}
+}
+
+
+% If you wish to uncover everything in a step-wise fashion, uncomment
+% the following command: 
+
+%\beamerdefaultoverlayspecification{<+->}
+
+\begin{document}
+	
+	
+	\only<article>{
+		\begin{titlepage}
+			
+			\begin{center}
+				
+				%\vspace*{1cm}
+				\Large
+				\textsc{\maintitle}\\
+				
+				\vspace{5cm}
+				
+				%\LARGE
+				\textsc{Soós Sándor}\\
+				
+				\vspace{3cm}
+				
+				Nyugat-magyarországi Egyetem\\
+				Simonyi Károly Mûszaki, Faanyagtudományi és Mûvészeti Kar\\
+				Informatikai és Gazdasági Intézet\\
+				\vspace{0.3cm}
+				E-mail: soossandor@inf.nyme.hu
+				%\textsc{\today}\\ %%Date - better you write it yourself.
+				\textsc{\longdate}\\
+				
+			\end{center}
+			
+		\end{titlepage}
+	}
+	
+	% If you have a file called "university-logo-filename.xxx", where xxx
+	% is a graphic format that can be processed by latex or pdflatex,
+	% resp., then you can add a logo as follows:
+	
+	\only<beamer>{
+		\pgfdeclareimage[height=1cm]{university-logo}{images/nyme_skk}
+		\logo{\pgfuseimage{university-logo}}
+	}
+	
+	%\only<beamer>{\subject{Practical Computer Science}}
+	% This is only inserted into the PDF information catalog. Can be left
+	% out. 
+	
+	
+	\only<beamer>{
+		\begin{frame}{}
+			\titlepage
+		\end{frame}
+	}
+	
+	\begin{frame}{Tartalomjegyzék}
+		\tableofcontents
+		% You might wish to add the option [pausesections]
+	\end{frame}
+	
+	
+%\section{Ismétlés}
+%\label{sec:Ismetles}
+%
+%\subsection{Emlékeztetõ az elõzõ órákról}
+%\label{sec:EmlekeztetoAzElozoOrakrol}
+%
+		%
+	%\begin{enumerate}
+		%\item Megnyitás (open)
+		%\item Lezárás (close)
+		%\item Végrehajtás (execution)
+		%\item Létrehozás (create)
+		%\item Törlés (delete)
+		%\item Adatelérés, írás, olvasás (write, read)
+		%\item Hozzáírás, hozzáfûzés (append)
+		%\item Pozícionálás (seek)
+	%\end{enumerate}
+	%
+%\end{frame}
+%
+%
+%
+%
+%\begin{frame}{}  %Ismétlés vége
+	%
+%\begin{block}{}
+	%
+	%\begin{center}
+	%\vspace{1cm}
+	%\LARGE{Ismétlés vége}
+	%\vspace{1cm}
+	%\end{center}
+	%
+%\end{block}
+%
+%\end{frame}
+
+
+\section{Multiprogramozott operációs rendszerek}
+\label{sec:MultiprogramozottOperaciosRendszerek}
+
+\subsection{Multiprogramozás}
+\label{sec:Multiprogramozas}
+
+\begin{frame}[allowframebreaks]{Multiprogramozás,}
+	
+A multiprogramozás fogalma:
+
+	\begin{itemize}
+		\item Mikor alakult ki?
+		\item Miért alakult ki?
+		\item Mi a lényege?
+		\item Milyen feltételei vannak?
+		\item Manapság használjuk?
+
+		\framebreak
+		
+		\item A számítógépek 3. generációjának idején alakult ki az igény és a technikai lehetõség
+		\item Használjuk ki a gyors processzort akkor is, amikor a lassú perifériás mûveletek zajlanak
+		\item Több program futtatása ,,egyszerre''
+		\item Mit jelent az idézõjel?
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}{A multiprogramozás mûködési elve}
+	
+	\begin{itemize}
+		\item Egyszerre több program futhat (virtuálisan)
+		\item Egy processzor egy adott pillanatban azonban csak egy feladaton dolgozhat
+		\item (Napjainkban a többmagú processzorok ebbõl a szempontból több processzornak számítanak)
+		\item Egy folyamat addig fut a processzoron, amíg várakozásra nem kényszerül, vagy le nem telik a számára kiosztott idõszelet (preemptív rendszer)
+		\item Ilyenkor a folyamat állapota mentésre kerül
+		\item Amelyik folyamatnak teljesül a továbbfutási feltétele, az bekerül a választhatók listájába
+		\item A processzor kiválasztja valamelyik folyamatot a listából, visszaállítja az eltárolt adatait, és továbbindítja
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}{Mit kell megvalósítani ehhez?}
+	
+	\begin{itemize}
+		\item Választani kell a folyamatok közül $\Rightarrow$ \textbf{CPU-ütemezés}
+		\item Több program osztozkodik a táron $\Rightarrow$ \textbf{Tárgazdálkodás}
+		\item Meg kell osztani a rendszer erõforrásait a folyamatok között, szükség esetén garantálni kell az idõbeli korlátok betartását (kölcsönös kizárás, randevú, sorrend), kezelni kell a holtponthelyzeteket $\Rightarrow$ \textbf{Erõforrás-gazdálkodás}
+		\item Biztosítani kell, hogy a folyamatok ne zavarják egymást és a rendszer mûködését $\Rightarrow$ \textbf{Védelem}
+		\item El kell rejteni a rendszer fizikai részleteit, felhasználóbarát kezelhetõség $\Rightarrow$ \textbf{Virtuális gép}
+		\item Kommunikációs felület más számítógépek és programok felé $\Rightarrow$ \textbf{Hálózatkezelés}
+	\end{itemize}
+
+\textsl{Mivel nem foglalkoztunk még ezek közül: }
+\begin{center}
+\textbf{CPU-ütemezés}
+\end{center}
+
+\end{frame}
+
+
+\subsection{Processzorütemezés}
+\label{sec:Processzorutemezes}
+
+\begin{frame}{Folyamatkezelés (emlékeztetõ)}
+	
+	\begin{itemize}
+		\item Folyamatmodell:
+			
+			\begin{itemize}
+				\item Minden folyamatnak saját processzora és saját memóriája van
+			\end{itemize}
+			
+		\item A valós helyzet:
+			
+			\begin{itemize}
+				\item Egyetlen processzor és egyetlen memória van a számítógépben
+			\end{itemize}
+			
+		\item Az operációs rendszer feladata:
+			
+			\begin{itemize}
+				\item A valóságos környezet felhasználásával virtuális környezet biztosítása a folyamatok számára
+				\item logikai processzor
+				\item logikai memória
+			\end{itemize}
+			
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}{Logikai memória}
+	
+	\begin{itemize}
+		\item Amikor fut a folyamat, megkapja a fizikai memória egy részét
+		\item Ebben helyezkedik el a kód és az adatok egy része, amennyi elfér
+		\item A többi a háttértáron marad
+		\item Amikor szükség van rá, akkor betöltõdik a memóriába, de mivel ez sokáig tarthat, a folyamatnak várakoznia kell, közben más futhat helyette
+		\item Kérdés: 
+			
+			\begin{itemize}
+				\item Hogyan oldjuk meg ezeket a cseréket, mi kerüljön ki és mi töltõdjön be? 
+				\item Errõl rendelkeznek a lapcserélési algoritmusok
+			\end{itemize}
+		
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}{Logikai processzor}
+	
+	\begin{itemize}
+		\item Párhuzamos futtatás
+			
+			\begin{itemize}
+				\item A fizikai processzor felváltva futtatja a logikai processzorokat
+				\item Ha elég gyakran és gyorsan történik a váltás, akkor úgy tûnik, mintha párhuzamosan mûködnének a logikai processzorok, és így futnának a folyamatok
+			\end{itemize}
+			
+		\item Megvalósítás:
+			
+			\begin{itemize}
+				\item A valós processzorhoz kapcsolunk egy várakozási sort
+				\item Amikor felszabadul a processzor, akkor ebbõl a sorból választjuk ki a következõ futó folyamatot valamilyen algoritmus szerint
+			\end{itemize}
+			
+		\item Kérdések: 
+			
+			\begin{itemize}
+				\item Meddig futhat egy folyamat?
+				\item Hogyan válasszuk ki a következõt?
+				\item Errõl rendelkeznek a CPU-ütemezõ algoritmusok
+			\end{itemize}
+			
+	\end{itemize}
+	
+\end{frame}
+
+
+
+
+\begin{frame}{A folyamatok felépítése}
+	
+	\begin{itemize}
+		\item A folyamatok futása során kétféle tevékenység váltakozik
+			
+			\begin{enumerate}
+				\item \textbf{Processzorlöket (CPU-burst)}: processzor által végrehajtandó utasítássorozat
+				\item \textbf{Be-/kiviteli löket (I/O-burst)}: a processzor nélkül, a perifériák által végrehajtandó utasítássorozat
+			\end{enumerate}
+			
+		\item Amikor a folyamat I/O-lökethez ér, elindíthatunk egy másik folyamatot
+			
+		\item Az egyes folyamatok eltérõ arányban tartalmazzák a löketeket, vannak CPU-intenzív és I/O intenzív folyamatok
+		\item A rendszer eredõ teljesítménye akkor a legjobb, ha a kétféle folyamat nagyjából egyelõ arányban fordul elõ
+		\item Általában ezt nem tudjuk befolyásolni, de ha van rá mód, akkor érdemes figyelni erre
+
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}{Állapotmodell}
+	
+	\begin{itemize}
+		\item Állapotmodell
+			
+			\begin{itemize}
+				\item A folyamatok minden pillanatban három különbözõ állapot valamelyikében lehetnek:
+					
+					\begin{enumerate}
+						\item Fut (mindig csak egy folyamat lehet ebben az állapotban)
+						\item Futásra kész
+						\item Várakozik
+					\end{enumerate}
+					
+			\end{itemize}
+			
+		\item Az állapotok meghatározott rend szerint válthatják egymást
+		\item Ezt a rendet az állapot-átmenet diagrammal tudjuk ábrázolni
+		\item Ezt az eszközt más esetekben is használhatjuk, pl. programozás közben
+			
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}[allowframebreaks]{Állapot-átmenet diagram,}
+
+	\begin{figure}[htbp]
+		\centering
+			\only<beamer>{\includegraphics[width=1.00\textwidth]{images/allapotatmenetdiagram.jpg}}
+			\only<article>{
+				\includegraphics[width=1.00\textwidth]{images/allapotatmenetdiagram.jpg}
+				\caption{Állapot-átmenet diagram}
+				}
+		\label{fig:allapotatmenetdiagram}
+	\end{figure}
+	
+	\framebreak
+	
+	\begin{itemize}
+		\item Állapotátmenetek:
+			
+			\begin{itemize}
+				\item \textbf{Létrejön}
+					
+					\begin{itemize}
+						\item Elindul a folyamat, megkapja a logikai memóriát, betöltõdik a kezdéshez szükséges kód és az adatok
+						\item A folyamat futásra kész állapotba kerül
+					\end{itemize}
+					
+				\item \textbf{CPU-t kap}
+					
+					\begin{itemize}
+						\item Az ütemezõ kiválasztotta a folyamatot, megkezdõdik a végrehajtás
+						\item A folyamat futó állapotba kerül
+					\end{itemize}
+					
+				\item \textbf{CPU-t elveszik, vagy lemond}
+					
+					\begin{itemize}
+						\item Letelt a folyamat számára engedélyezett idõszelet, vagy önként lemond a futásról, de bármikor folytatható a futása
+						\item A rendszer elmenti a folyamat állapotát
+						\item A folyamat futásra kész állapotba kerül
+					\end{itemize}
+			
+				\framebreak
+				
+				\item \textbf{Várakozásra vezetõ rendszerhívás}
+					
+					\begin{itemize}
+						\item A folyamat végrehajtott egy olyan rendszerhívást, ami várakozást eredményez
+						\item A rendszer elmenti a folyamat állapotát
+						\item A folyamat várakozó állapotba kerül
+					\end{itemize}
+					
+				\item \textbf{A várt esemény bekövetkezik}
+					
+					\begin{itemize}
+						\item Véget ért a várakozást kiváltó tevékenység
+						\item A folyamat futásra kész állapotba kerül
+					\end{itemize}
+					
+				\item \textbf{Befejezõdik}
+					
+					\begin{itemize}
+						\item A folyamat befejezõdött
+						\item Végrehajtja az ekkor szükséges rendszerhívást
+					\end{itemize}
+					
+			\end{itemize}
+
+		\item Ez egy alapmodell, ennél bonyolultabb rendszerek is léteznek, több állapottal és átmenettel
+			
+	\end{itemize}
+		
+\end{frame}
+
+
+
+\begin{frame}[allowframebreaks]{Processzorütemezés,}
+	
+	\begin{itemize}
+		\item A kernel része
+		\item Állandóan a memóriában van
+		\item Nagyon gyorsnak kell lennie, mert nagyon gyakran futnia kell
+		\item Kétféle ütemezõ létezik:
+			
+			\begin{itemize}
+				\item \textbf{Preemptív}: Megszakíthat egy éppen futó folyamatot
+				\item \textbf{Nem preemptív}: Futó folyamatot nem szakíthat meg, a folyamat csak maga függesztheti fel magát
+			\end{itemize}
+			
+		\framebreak
+		
+		\item Mikor történik ütemezés?
+			
+			\begin{itemize}
+				\item Az éppen futó folyamat befejezõdik
+				\item Az éppen futó folyamat várakozó állapotba kerül
+				\item Egy folyamat futásra kész állapotba kerül
+				\item A futó folyamat újraütemezést kér, vagy preemptív ütemezés esetén elveszti a futási jogot
+			\end{itemize}
+			
+		\framebreak
+		
+		\item Milyen elvárásaink vannak az ütemezõvel szemben?
+			
+			\begin{itemize}
+				\item Kezeljen prioritásokat
+				\item Ne legyen éhezés
+				\item Bármekkora terhelés esetén garantáljon felsõ korlátokat bizonyos paraméterekre, pl. várakozási idõ, átfutási
+				\item Engedje elõre a nem használt erõforrásokat igénylõ folyamatokat
+				\item Minél kevesebb adminisztrációra legyen szükség
+				\item Elegáns visszaesés (graceful degradation): a terhelés növekedésével legfeljebb lineárisan csökkenjen a teljesítmény, ne omoljon össze a rendszer
+			\end{itemize}
+			
+		\item Ezek a követelmények ellentmondanak egymásnak, nem lehet egyszerre kielégíteni ezeket
+		\item Ezért van sok különbözõ ütemezési algoritmus a piacon
+
+		\framebreak
+	
+		\item Teljesítményelemzés, milyen szempontok szerint minõsítjük az ütemezõ algoritmusokat?
+			
+			\begin{itemize}
+				\item Processzor kihasználtság:
+					$$\frac{hasznos\_ido}{osszes\_ido}\times 100 \ [\%]$$
+					\begin{itemize}
+						\item $hasznos\_ido$: A teljes idõ és a tétlenül töltött idõ (adminisztráció és egyéb járulékos tevékenységek, overhead) különbsége
+						\item Ma tipikusan $40-90\%$ között van
+					\end{itemize}
+					
+				\item Átbocsátóképesség:
+					$$\frac{elvegzett\_munkak\_szama}{ido} \ \left[\frac{1}{s}, \frac{1}{min}, \frac{1}{h}\right]$$
+										
+					\begin{itemize}
+						\item Értéke tág határok között mozog
+					\end{itemize}
+					
+				\framebreak
+				
+				\item Körülfordulási (átfutási) idõ:
+					$$vegrehajtasi\_ido + varakozasi\_ido$$
+					
+				\item Várakozási idõ:
+					
+					\begin{center}
+					$utemezesek\_ideje\ + $ \\ $felfuggesztes\_ideje\ +$ \\ $futasra\_kesz\_allapot\_ideje\ + $ \\ $varakozas\_ideje\ + $ \\ $egyeb\_nem\_hasznos\_idok$
+					\end{center}
+					
+					\begin{itemize}
+						\item Mivel a végrehajtás ideje egy adott rendszerben állandó, ezért elég ezt figyelni
+					\end{itemize}
+
+				\item Válaszidõ:
+					
+					\begin{itemize}
+						\item Idõosztásos rendszerekben egy kezelõi parancs kiadásától a válasz megérkezéséig eltelt idõ
+					\end{itemize}
+					
+			\end{itemize}
+
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}[allowframebreaks]{Egyszerû ütemezések,}
+	
+	\begin{itemize}
+		\item Legrégebben várakozó (\textbf{FCFS - First Come First Served})
+			
+			\begin{itemize}
+				\item Nem preemptív
+				\item Nagyon egyszerûen implementálható
+				\item Nagy lehet az átlagos várakozási idõ
+					
+					\begin{itemize}
+						\item Konvoj hatás: egy hosszú folyamatot végig kell várni a többieknek a processzornál és a perifériáknál is
+						\item Példa: csekkbefizetés a postán
+					\end{itemize}
+					
+			\end{itemize}
+			
+		\item Körbeforgó (\textbf{RR - Round Robin})
+			
+			\begin{itemize}
+				\item Preemptív
+				\item A folyamat legfeljebb egy adott ideig futhat, utána a sor végére állítjuk
+				\item Kritikus kérdés az idõszelet hosszának beállítása
+					
+					\begin{itemize}
+						\item Ha túl hosszú: gyakorlatilag FCFS-sé válik
+						\item Ha túl rövid: túl sok környezetváltás
+						\item Gyakorlati ökölszabály: a folyamatok $80\%$-a legyen rövidebb az idõszeletnél
+					\end{itemize}
+					
+			\end{itemize}
+			
+		\framebreak
+		
+		\item \textbf{Prioritásos} ütemezések
+			
+			\begin{itemize}
+				\item A várakozók közül a legfontosabb (legmagasabb prioritású) folyamatot választjuk
+				\item A prioritás lehet:
+					
+					\begin{itemize}
+						\item \textbf{külsõ} (a kezelõ adja), vagy \textbf{belsõ} (a rendszer adja)
+						\item \textbf{statikus} (idõben állandó), vagy \textbf{dinamikus} (idõben változhat)
+					\end{itemize}
+					
+				\item A következõ prioritásos algoritmusok esetében a processzorlöket hossza lesz a belsõ prioritási szempont
+				
+			\end{itemize}
+
+			\begin{itemize}
+				\item Legrövidebb löketidejû (\textbf{SJF - Shortest Job First})
+				
+				\begin{itemize}
+					\item Nem preemptív
+					\item A legrövidebb becsült löketidejû folyamatot választja a várakozók közül
+					\item Becslésen alapszik a korábbi adatok, vagy a felhasználó állítása alapján
+					\item Kiküszöböli a konvojhatást, az átlagos várakozási idõ és a körülfordulási idõ is optimális
+				\end{itemize}
+		
+			\end{itemize}
+			
+			\framebreak
+			
+			\item \textbf{Prioritásos} ütemezések (folytatás)
+			
+			\begin{itemize}
+				\item Legrövidebb hátralévõ idejû (\textbf{SRTF - Shortest Remaining Time First})
+					
+					\begin{itemize}
+						\item Preemptív SJF
+						\item Mikor egy folyamat felébred, újraütemez, és a legrövidebbet választja (figyelembevéve a környezetváltás plusz idõigényét)
+					\end{itemize}
+					
+			\end{itemize}
+			
+			\begin{itemize}
+				\item Legjobb válaszarány (\textbf{HRR - Highest Response Ratio})
+					
+					\begin{itemize}
+						\item A prioritás meghatározása:
+							$$\frac{loketido + k\times varakozasi\_ido}{loketido}$$
+							
+							\begin{center}
+							$k$ egy alkalmas konstans
+							\end{center}
+							
+						\item Öregíti a régebb óta várakozó folyamatokat, így elkerülve az éhezést
+							
+					\end{itemize}
+					
+			\end{itemize}
+			
+	\end{itemize}
+	
+\end{frame}
+
+
+\begin{frame}[allowframebreaks]{Többszintû ütemezések,}
+	
+	\begin{itemize}
+		\item A különbözõ prioritási szintekhez külön-külön sorokat definiálhatunk
+		\item Az egyes sorok más-más stratégiával mûködhetnek
+	\end{itemize}
+	
+	\begin{itemize}
+		\item Statikus többszintû sorok (\textbf{SMQ - Static Multilevel Queues})
+			
+			\begin{itemize}
+				\item A folyamatok induláskor bekerülnek valamelyik várakozási sorba, és végig ott is maradnak
+				\item Gond az éhezés!
+			\end{itemize}
+			
+	\end{itemize}
+	
+	\framebreak
+	
+	\begin{itemize}
+		\item Visszacsatolt többszintû sorok (\textbf{MFQ - Multilevel Feedback Queues})
+			
+			\begin{itemize}
+				\item Az éhezés kiküszöbölésére dinamikus prioritásokat használ, így a folyamatok mozoghatnak a sorok között
+				\item A magasabb prioritású sorok egyre kisebb idõszeletû RR (robin Round) ütemezést használnak, a legkisebb pedig FCFS-t
+				\item Az új folyamatok a legnagyobb prioritású sorba kerülnek, de ha átlépik az idõszeletet, akkor egy szinttel lejjebb kerülnek
+				\item Késõbb feljebb is kerülhetnek pl. az átlagos löketidõ alapján
+				\item A régóta bentlévõ folyamatok prioritása növelhetõ
+			\end{itemize}
+			
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}{Többprocesszoros ütemezések}
+	
+	\begin{itemize}
+		\item Két különbözõ eset: heterogén, vagy homogén processzorok
+			
+			\begin{itemize}
+				\item Heterogén (eltérõ felépítésû) processzorok
+					
+					\begin{itemize}
+						\item Minden folyamat csak a neki megfelelõ processzoron futhat, másikon nem
+						\item Ilyenkor egymás mellett futó egyprocesszoros rendszerekrõl van szó
+					\end{itemize}
+					
+				\item Homogén (azonos) processzorok
+					
+					\begin{itemize}
+						\item Bármelyik processzoron futhatnak a folyamatok
+						\item Közös várakozási sor kezeli az összes processzort és folyamatot
+						\item Hogyan kezeljük ezt a közös sort?
+							
+						\item[] \textbf{Aszimmetrikus} rendszerekben van egy kitüntetett processzor, amelyik futtatja az ütemezést, szétosztja a feladatokat
+						\item[] \textbf{Szimmetrikus} rendszerekben mindegyik processzoron fut ütemezés, a várakozási sort kölcsönös kizárással kezelik
+							
+					\end{itemize}
+					
+			\end{itemize}
+			
+	\end{itemize}
+	
+\end{frame}
+
+\subsection{Tárkezelés}
+\label{sec:Tarkezeles} 
+
+\begin{frame}[allowframebreaks]{Tárkezelés,}
+	
+	\begin{itemize}
+		\item Eddig a processzorokkal foglalkoztunk
+		\item Ahhoz, hogy a processzor futtatni tudjon egy programot, annak kódját és a hozzá tartozó adatokat a memóriában kell tartani
+		\item Multiprogramozás esetén több programnak is a memóriában kell lennie egyidõben
+		\item Problémák:
+			
+			\begin{enumerate}
+				\item A memória túl kicsi ahhoz, hogy mindig minden szükséges adat elférjen benne
+				\item A leggyorsabb háttértár (merevlemez) is nagyságrendekkel lassabb, mint a memória
+			\end{enumerate}
+			
+		\framebreak
+		
+		\item Megoldás:
+			
+			\begin{itemize}
+				\item \textsl{,,Dolgozzunk a processzor keze alá''}
+				\item Oldjuk meg azt, hogy mindig a szükséges adatok legyenek a memóriában, a már/még nem szükségeseket töröljük ki onnan
+				\item Mindezt úgy oldjuk meg, hogy a processzornak ne kelljen várakoznia
+			\end{itemize}
+			
+		\item Milyen részfeladatokat kell megoldanunk ehhez
+			
+			\begin{itemize}
+				\item Társzervezés
+					
+					\begin{itemize}
+						\item Az a mód, ahogyan a memóriát megosztjuk a felhasználók között
+					\end{itemize}
+					
+				\item Tárkialakítási módszerek
+					
+					\begin{itemize}
+						\item Hogyan szervezzük a memóriát?
+					\end{itemize}
+					
+				\item Virtuális tárkezelés
+					
+					\begin{itemize}
+						\item A felhasználó elõl elrejtjük, hogy mekkora a fizikai memória
+					\end{itemize}
+					
+			\end{itemize}
+			
+	\end{itemize}
+	
+	
+\end{frame}
+
+\begin{frame}[allowframebreaks]{Társzervezés,}
+	
+	\begin{itemize}
+		\item A társzervezés az a mód, ahogyan a memóriát megosztjuk a felhasználók között
+		\item A következõ kérdésekre keresünk választ:
+			
+			\begin{itemize}
+				\item Hány felhasználó férhet hozzá, egy vagy több?
+				\item Több felhasználó esetén egyforma, vagy különbözõ méretû részeket (partíciókat) kapnak?
+				\item A partíció mérete futás közben változhat-e?
+				\item A terület egybefüggõ, vagy darabokból állhat?
+			\end{itemize}
+			
+	\end{itemize}
+	
+	\framebreak
+	
+	
+	\begin{itemize}
+		\item Egypartíciós rendszer
+			
+			\begin{itemize}
+				\item Csak egy felhasználói folyamat lehet a memóriában
+				\item A folyamat az elsõ szabad címtõl kezdõdõen helyezkedhet el
+				\item Az operációs rendszer védelme
+					
+					\begin{itemize}
+						\item Egy regiszter mutatja a program által használható memória határát, ennek értéke csak rendszermódban változtatható
+					\end{itemize}
+					
+				\item Folyamatok váltása
+					
+					\begin{itemize}
+						\item Tárcserével (swapping)
+					\end{itemize}
+					
+				\item Probléma:
+					
+					\begin{itemize}
+						\item Nem hatékony a multiprogramozás megvalósítása
+					\end{itemize}
+					
+			\end{itemize}
+		
+		\framebreak
+		
+		\item Többpartíciós rendszer
+			
+			\begin{itemize}
+				\item Rögzített méretû partíciók
+					
+					\begin{itemize}
+						\item Különbözõ, de rögzített méretû partíciók vannak a rendszerben
+						\item Minden partíciót csak egy folyamat birtokolhat
+						\item Csak olyan partícióba kerülhet bele a folyamat, amiben elfér
+						\item A multiprogramozás fokát a partíciók száma korlátozza
+						\item A folyamatok a nekik megfelelõ méretû partíciókhoz rendelt várakozási sorokban várakoznak
+						\item Védelem: alsó és felsõ határregiszter
+						\item Probléma: belsõ tördelõdés (nem használt terület a partíciók végén)
+					\end{itemize}
+			
+				\framebreak
+				
+				\item Változó méretû partíciók
+					
+					\begin{itemize}
+						\item Nincsenek elõre rögzített partíciók
+						\item Amikor betöltünk egy folyamatot, akkor kap egy megfelelõ méretû partíciót, nem nagyobbat, így nincsen belsõ tördelõdés
+						\item Probléma: külsõ tördelõdés (a partíciók közötti nem használt terület)
+						\item Megoldás: szemétgyûjtés (garbage collection), azaz a szabad területek egyesítése (Lásd PROG2: Java)
+						\item Probléma: a szemétgyûjtés nagyon idõ- és erõforrásigényes
+						\item Másik megoldás: ügyes tárfoglalási stratégiák
+					\end{itemize}
+					
+			\end{itemize}
+			
+	\end{itemize}
+	
+	\framebreak
+	
+	Tárfoglalási stratégiák
+	
+	\begin{itemize}
+		
+		\item A feladat:
+			
+			\begin{itemize}
+				\item Egy adott pillanatban hogy néz ki a memória?
+				\item Foglalt és szabad területek váltakoznak
+				\item Mindegyik eltérõ hosszúságú
+				\item Ekkor kell helyet találni a következõ folyamat számára
+				\item Különbözõ szempontok alapján választhatunk
+			\end{itemize}
+
+		\framebreak
+		
+		\item Elsõ megfelelõ (\textbf{First Fit})
+			
+			\begin{itemize}
+				\item Gyors, de átlagosan a memória $30\%$-a kihasználatlan marad
+			\end{itemize}
+			
+		\item Következõ megfelelõ (\textbf{Next Fit})
+			
+			\begin{itemize}
+				\item Hasonló hatásfokú, mint a First Fit
+			\end{itemize}
+			
+		\item Legjobban megfelelõ (\textbf{Best Fit})
+			
+			\begin{itemize}
+				\item A lyukakat próbálja minimalizálni, de lassabb
+			\end{itemize}
+			
+		\item Legkevésbé megfelelõ (\textbf{Worst Fit})
+			
+			\begin{itemize}
+				\item A fennmaradó szabad területet maximalizálja
+				\item A legrosszabb eredményt adja, az összmemória kb. fele kihasználatlan marad
+			\end{itemize}
+			
+	\end{itemize}
+	
+\end{frame}
+
+
+\begin{frame}[allowframebreaks]{Tárcsere,}
+
+	\begin{itemize}
+		\item Adatmozgatás a memória és a háttértár között (swapping)
+		\item Egy folyamat teljes memóriaterületét kiírjuk a háttértárra, így helyet biztosítunk mások számára
+		\item Vagy betöltjük a háttértárról egy szabad területre
+		\item Idõigényes, mert sok adatot kell mozgatni a gyors memória és a lassú háttértár között
+		\item Optimalizálni kell a mûveletet, minimalizálni kell a lapcserék számát
+	\end{itemize}
+	
+	\framebreak
+	
+	\begin{itemize}
+		\item Optimalizálási lehetõségek:
+			
+			\begin{itemize}
+				\item Olyan folyamatot válasszunk a futásra készek közül, amelyik éppen a memóriában van
+				\item Ha olyan folyamatot írunk ki a háttértárra, aminek a memóriaképe nem változott a háttértárhoz képest, akkor nem kell másolni, elég törölni. Ehhez folyamatosan adminisztrálni kell a módosításokat
+				\item Átlapolt lapcsere:
+					
+					\begin{itemize}
+						\item A lapcserével ne várjuk meg, amíg véget ér az elõzõ folyamat 
+						\item Miközben még fut a folyamat, írjunk ki egy másikat a háttértárra és olvassunk be egy másikat
+					\end{itemize}
+					
+			\end{itemize}
+			
+	\end{itemize}
+	
+	
+\end{frame}
+
+
+
+\begin{frame}[allowframebreaks]{Tárkialakítási módszerek,}
+	
+	\begin{enumerate}
+		\item Szegmensszervezés
+			
+			\begin{itemize}
+				\item A program különbözõ logikai részeit (szegmenseit) egy-egy blokknak feleltetjük meg (kódszegmens(ek), adatszegmens(ek), veremszegmens, stb.
+				\item A szegmensek különbözõ méretûek lehetnek, ezért nincs belsõ tördelõdés
+				\item Blokktábla tárolja az egyes blokkok adatait:
+					
+					\begin{itemize}
+						\item a blokk mérete
+						\item egy bit mutatja, hogy a memóriában van-e
+						\item hozzáférési információk, ki írhatja, olvashatja, hajthatja végre
+					\end{itemize}
+					
+			\end{itemize}
+			
+		\framebreak
+		
+		\item Lapszervezés
+			
+			\begin{itemize}
+				\item Azonos méretû blokkokra (lap) osztjuk a memóriát
+				\item Nincsen külsõ tördelõdés, viszont van belsõ, átlagosan fél lap / folyamat
+				\item A folyamatokat egy vagy több lapba töltjük a méretétõl függõen
+				\item A laptáblában tartjuk nyilván a lapok adatait:
+					
+					\begin{itemize}
+						\item melyik folyamathoz tartozik
+						\item memóriában van-e
+						\item hozzáférési információk
+					\end{itemize}
+					
+				\item Mekkora legyen a lap mérete?
+					
+					\begin{itemize}
+						\item Ha nagy, akkor nagy a belsõ veszteség
+						\item Ha kicsi, akkor csökken a veszteség, de nagyobb a laptábla, lassabb a címzés, és lassabb az adatmozgatás (mert kisebb blokkokban történik)
+						\item A lap mérete mindig $2$ hatvány, 512 bájt és 16 kilobájt között
+					\end{itemize}
+					
+			\end{itemize}
+			
+		\framebreak
+		
+		\item Kombinált szervezés
+			
+			\begin{itemize}
+				\item Szegmensszervezés és lapszervezés együtt
+				\item A szegmensekhez lapokat rendelünk
+				\item A szegmenstábla laptáblák címeit tartalmazza
+				\item A laptábla tartalmazza a lapok címeit
+				\item Nincsen külsõ tördelõdés
+				\item Belsõ tördelõdés szegmensenként van
+			\end{itemize}
+			
+			
+	\end{enumerate}
+	
+\end{frame}
+
+
+\begin{frame}[allowframebreaks]{Virtuális tárkezelés,}
+	
+	\begin{itemize}
+		\item Az operációs rendszer gondoskodik róla, hogy a folyamatoknak csak az éppen szükséges része tartózkodjon a memóriában, mégis lehessen hivatkozni az egészre
+		\item Az operációs rendszer megoldja, hogy ilyenkor automatikusan betöltésre kerüljenek a szükséges dolgok
+		\item Miért van lehetõség erre?
+			
+			\begin{itemize}
+				\item A programoknak vannak ritkán, vagy soha nem futó részeik
+				\item A programozó gyakran a szükségesnél nagyobb memóriaterületet foglal
+				\item Az egyes programrészek más-más idõpontban futnak, nincs rájuk egyszerre szükség
+				\item Lokalitási elv:
+					
+					\begin{itemize}
+						\item Egy rövidebb idõintervallumban általában egymáshoz közeli utasításokra és adatokra van szükség
+					\end{itemize}
+					
+			\end{itemize}
+			
+			\framebreak
+			
+			\item Miért jó a virtuális tárkezelés?
+			
+				\begin{itemize}
+					\item A fizikai memóriánál nagyobb programok is futtathatók
+					\item Nõ a multiprogramozás foka, ezzel nõ a rendszer teljesítménye
+					\item Gyorsabb lehet a rendszer, mert egyszerre kevesebb adatot kell mozgatni
+				\end{itemize}
+
+			\item Hogyan mûködik a virtuális tárkezelés?
+				
+				\begin{itemize}
+					\item Ha olyan címre hivatkozik a folyamat, ami nincs a memóriában, akkor hibamegszakítás történik (hardvertámogatás)
+					\item A rendszer felfüggeszti a folyamatot, elmenti az állapotát
+					\item Ha a virtuális memória okozta a megszakítást, akkor elindítja a szükséges terület betöltését (ha kell, elõtte helyet csinál)
+					\item Újraütemez
+					\item A betöltés végén ismét megszakítás történik
+					\item Preemptív rendszer esetén azonnal, egyébként késõbb újraütemez
+				\end{itemize}
+
+	\end{itemize}
+	
+\end{frame}
+				
+\begin{frame}[plain]{A laphiba kezelésének folyamata}
+				
+	\begin{figure}[htbp]
+		\centering
+			\only<beamer>{\includegraphics[height=1.00\textheight]{images/laphiba.jpg}}
+			\only<article>{
+				\includegraphics[width=1.00\textwidth]{images/laphiba.jpg}
+				\caption{Laphiba kezelésének folyamata}
+				}
+		\label{fig:laphiba}
+	\end{figure}
+				
+\end{frame}
+			
+
+\begin{frame}[allowframebreaks]{A virtuális tárkezelés mûködése,}
+	
+	\begin{itemize}
+		\item Eldöntendõ kérdések
+			
+			\begin{itemize}
+				\item Mikor melyik lapot hozzuk be?
+				\item Melyik lap helyére hozzuk be?
+				\item Hány lapot kapjon egy folyamat?
+			\end{itemize}
+			
+	\end{itemize}
+	
+	\framebreak
+	
+	\begin{itemize}
+		\item Mikor melyik lapot hozzuk be?
+			
+			\begin{itemize}
+				\item \textbf{Igény szerinti lapozás}: csak a kért lapot hozzuk be
+					
+					\begin{itemize}
+						\item egyszerû
+						\item gyors
+						\item nem hoz be felesleges lapot
+						\item gyakoribb a laphiba
+					\end{itemize}
+					
+				\item \textbf{Elõretekintõ lapozás}: több lapot hoz be jóslás alapján
+					
+					\begin{itemize}
+						\item bonyolultabb
+						\item több lapot mozgat
+						\item felesleges lapokat is behozhat
+						\item ritkább lehet a laphiba
+					\end{itemize}
+					
+			\end{itemize}
+			
+		\framebreak
+		
+		\item Melyik lapot vigyük ki?
+			
+			\begin{itemize}
+				\item Amelyik a legkevésbé fog kelleni
+				\item Amelyikre a legkésõbb lesz újra szükség
+				\item Ötletek:
+					
+					\begin{itemize}
+						\item Ha olyan lapot viszünk ki, akkor nem kell írni, elég törölni. Ezt jelzi a Modified bit
+						\item Ha egy lap nemrég használatban volt, akkor valószínû, hogy újra szükség lesz rá. Ezt jelzi a Referenced bit. Ezt bizonyos esetekben törölni kell (egy idõ után)
+					\end{itemize}
+					
+			\end{itemize}
+			
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}[allowframebreaks]{Lapcsere algoritmusok,}
+	
+	\begin{itemize}
+		\item \textbf{Optimális algoritmus}
+			
+			\begin{itemize}
+				\item A ténylegesen legkésõbb szükséges lapot választja ki
+				\item Így lenne legkisebb a laphibák száma
+				\item A gyakorlatban megvalósíthatatlan, mert elõre végre kellene hajtani a programot
+				\item Összehasonlítási alapnak jó, ehhez hasonlíthatjuk a gyakorlati algoritmusokat
+			\end{itemize}
+			
+		\item \textbf{Legrégebbi lap algoritmus} (FIFO - First In First Out)
+			
+			\begin{itemize}
+				\item A legrégebben behozott lapot viszi ki
+				\item[$\oplus$] egyszerû
+				\item[$\ominus$] a gyakran használt lapokat is kiviszi
+			\end{itemize}
+			
+		\framebreak
+		
+		\item \textbf{Újabb esély algoritmus} (SC - Second Chance)
+			
+			\begin{itemize}
+				\item FIFO elven mûködik, de figyeli a Referenced bitet is
+					
+					\begin{itemize}
+						\item Ha 1 (használták a lapot), akkor a lista végére teszi (újabb esély) és törli a bitet
+						\item Ha 0, akkor kiválasztja a lapot
+					\end{itemize}
+					
+				\item Így a gyakran használt lapok soha nem kerülnek ki
+			\end{itemize}
+			
+		\item \textbf{Legrégebben nem használt algoritmus} (LRU - Least Recently Used)
+			
+			\begin{itemize}
+				\item Azt választja ki, amelyet a bentlévõk közül  a legrégebben használtak
+				\item[$\ominus$] hardvertámogatás kell hozzá
+				\item[$\ominus$] bonyolult
+				\item[$\oplus$] ez közelíti legjobban az optimális algoritmust
+			\end{itemize}
+			
+		\item \textbf{Legritkábban használt algoritmus} (LFU - Least Frequently Used)
+			
+			\begin{itemize}
+				\item Alapelv: a nemrég használt lapokra várhatóan megint szükség lesz
+				\item Minden laphoz rendelünk egy számlálót
+				\item Idõnként végignézzük a lapokat és a számlálóhoz hozzáadjuk a Referenced bitet, és töröljük a bitet
+				\item Mindig a legkisebb számlálójú lapot választjuk
+				\item[$\ominus$] A gyakori használatot még sokáig megjegyzi, ezen segíthet az öregítés (idõközönként csökkentjük a számlálót, ha nem használtuk a lapot)
+				\item[$\ominus$] Az új lapok számlálójának értéke kicsi
+			\end{itemize}
+			
+			\framebreak
+			
+			\item \textbf{Utóbbi idõben nem használt algoritmus} (NRU - Not Recently Used)
+				
+				\begin{itemize}
+					\item Prioritási kategóriákat képez az R (Referenced) és az M (Modified) bit alapján
+					\item A legkisebb prioritású csoportból választ véletlenszerûen
+				\end{itemize}
+			
+	\end{itemize}
+
+
+\begin{table}
+	\centering
+		\begin{tabular}{|c|c|c|c|}
+		\hline
+		Prioritás & R & M &  \\ \hline
+		3 & 1 & 1 & hivatkozott, módosított \\ \hline
+		2 & 1 & 0 & hivatkozott \\ \hline
+		1 & 0 & 1 & módosított \\ \hline
+		0 & 0 & 0 & érintetlen \\ \hline
+		\end{tabular}
+\end{table}
+
+
+	
+\end{frame}
+
+\begin{frame}[allowframebreaks]{Virtuális tárkezelés,}
+	
+	\begin{itemize}
+		\item Mennyi lapot adjunk egy folyamatnak?
+			
+			\begin{itemize}
+				\item Minél többet
+					
+					\begin{itemize}
+						\item A folyamatok szempontjából jó, így kevesebb laphiba történik, gyorsabban futhatnak
+						\item A rendszer szempontjából nem jó, mert kevesebb folyamat futhat, így nagyobb az esélye, hogy minden folyamat várakozik (erõforrásokra, vagy egymásra) és tétlen a processzor
+					\end{itemize}
+					
+				\item Minél kevesebbet
+					
+					\begin{itemize}
+						\item A rendszer szempontjából jó, nagyobb a processzor kihasználtsága
+						\item A folyamatok szempontjából rossz, mert nõ a laphibák gyakorisága
+						\item Folyamatossá válhatnak a lapcserék
+						\item Ekkor a processzor tétlenné válik, ezért az ütemezõ egyre több folyamatot indít el, \dots, ,,ördögi kör''
+						\item Ezt nevezzük vergõdésnek (thrashing)
+					\end{itemize}
+				
+				\framebreak
+					
+				\item A CPU-kihasználtságnak van egy optimuma a multiprogramozás foka függvényében, ezt szeretnénk megközelíteni
+				\item Ehhez a laphiba gyakoriságát kell mérni és csökkenteni
+				\item A lokalitási elv miatt érdemes a memóriában tartani a hivatkozott lap környezetében lévõ lapokat is
+				\item \textbf{Elõrelapozás} (prepaging): 
+					
+					\begin{itemize}
+						\item Amikor lapcsere történik, akkor nem csak a hivatkozott lapot töltjük be, hanem a környezetében lévõket is
+						\item Ezáltal nagy valószínûséggel megelõzzük a laphibákat egy idõre
+					\end{itemize}
+					
+				\item Ha egy folyamat túl sok laphibát okoz, akkor adunk neki újabb lapokat
+				\item Ha pedig bõvében van a lapoknak, akkor elveszünk tõle, hogy más folyamatoknak tudjuk odaadni
+				
+			\end{itemize}
+			
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}{A rendszeregyensúly biztosítása}
+	
+	\begin{figure}[htbp]
+		\centering
+			\only<beamer>{\includegraphics[width=1.00\textwidth]{images/rendszeregyensuly.jpg}}
+			\only<article>{
+				\includegraphics[width=1.00\textwidth]{images/rendszeregyensuly.jpg}
+				\caption{A rendszeregyensúly biztosítása}
+				}
+		\label{fig:rendszeregyensuly}
+	\end{figure}
+		
+\end{frame}
+
+\section{Befejezés}
+\label{sec:Befejezes}
+
+\subsection{Emlékeztetõ kérdések}
+\label{sec:EmlekeztetoKerdesek}
+
+\begin{frame}[allowframebreaks]{Emlékeztetõ kérdések,}
+	
+	\begin{enumerate}
+		\item A multiprogramozás fogalma, mûködési elve
+		\item Hogyan kezeli az operációs rendszer a folyamatokat?
+		\item Mit jelent a logikai memória?
+		\item Mit jelent a logikai processzor?
+		\item Milyen tevékenységekbõl épülnek fel a folyamatok?
+		\item Milyen állapotokat vehet fel a folyamat a futása során?
+		\item Mit jelent és mire használható az állapot-átmenet diagram?
+		\item Hasonlítsa össze a preemptív és a nem preemptív ütemezõket!
+		\item Milyen elvárásokat támasztunk az ütemezõ algoritmusokkal szemben?
+		\item Milyen mérõszámokkal jellemezhetjük az ütemezõ algoritmusokat?
+		\item Mutassa be a különbözõ ütemezõ algoritmusokat! (egyszerû, prioritásos, többszintû és többprocesszoros ütemezések)
+		\item Mit értünk társzervezés alatt?
+		\item Milyen társzervezési módszereket ismerünk?
+		\item Milyen tárfoglalási stratégiákat használhatnak az operációs rendszerek?
+		\item Milyen tárkialakítási módszereket ismerünk?
+		\item Mit jelent a virtuális tárkezelés? Miért jó? Hogyan mûködik?
+		\item Mit jelent a laphiba? Hogyan kezelhetõ?
+		\item Milyen lapcsere algoritmusokat ismerünk?
+		\item Hogyan gazdálkodjunk a memórialapokkal? Mennyi lapot adjunk egy folyamatnak?
+		\item Hogyan biztosíthatjuk a rendszer egyensúlyát?
+	\end{enumerate}
+	
+\end{frame}
+
+\begin{frame}{Befejezés}
+
+\begin{block}{}
+	
+	\begin{center}
+	\vspace{1cm}
+	\LARGE{Köszönöm a figyelmet!}
+	\vspace{1cm}
+	\end{center}
+	
+\end{block}
+
+\end{frame}
+
+\end{document}
+

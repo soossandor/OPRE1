@@ -1,0 +1,731 @@
+% $Header: /cvsroot/latex-beamer/latex-beamer/solutions/conference-talks/conference-ornate-20min.en.tex,v 1.7 2007/01/28 20:48:23 tantau Exp $
+
+% Version for PROJECTOR (Vetíthetõ változat)
+% Uncomment the next line (A vetíthetõ változathoz vedd ki a % jelet a következõ sor elejérõl)
+%\documentclass{beamer}
+% End of version for PROJECTOR (A vetíthetõ változat vége)
+
+% PRINTABLE version (Nyomtatható változat):
+% Uncomment the next two lines (vedd ki a % jelet a következõ 2 sor elejérõl)
+%\documentclass{article}
+%\usepackage{beamerarticle}
+% End of PRINTABLE version (A nyomtatott változat beállításának vége)
+
+
+% This file is a solution template for:
+
+% - Talk at a conference/colloquium.
+% - Talk length is about 20min.
+% - Style is ornate.
+
+
+
+% Copyright 2004 by Till Tantau <tantau@users.sourceforge.net>.
+%
+% In principle, this file can be redistributed and/or modified under
+% the terms of the GNU Public License, version 2.
+%
+% However, this file is supposed to be a template to be modified
+% for your own needs. For this reason, if you use this file as a
+% template and not specifically distribute it as part of a another
+% package/program, I grant the extra permission to freely copy and
+% modify this file as you see fit and even to delete this copyright
+% notice. 
+
+
+\mode<presentation>
+{
+	\usetheme{Warsaw}
+	% or ...
+	
+	\setbeamercovered{transparent}
+	% or whatever (possibly just delete it)
+}
+
+% Magyar szöveg
+\usepackage[magyar]{babel}		% a Babel csomagot a magyar nyelvvel használjuk
+\usepackage[latin2]{inputenc}		% Latin-2-es kódolású ez a forrás
+\usepackage{t1enc}			% a belsõ ábrázolás és a kimeneti font-kódolás
+% a T1 kódolás
+\usepackage{indentfirst}		% az elsõ bekezdés is behúzott legyen, ne csak a 2-tól
+\frenchspacing				% a mondatköz ugyanakkora nagy, mint a szóköz
+\setlength{\parskip}{\smallskipamount}	% bekezdések közötti távolság beállítása
+% (gumi-méret: 3pt plus 1pt minus 1 pt)
+% Magyar szöveg vége
+
+
+% Angol szöveg
+%\usepackage[english]{babel}
+%\usepackage[latin1]{inputenc}
+%\usepackage{times}
+%\usepackage[T1]{fontenc}
+% Angol szöveg vége
+
+
+% Or whatever. Note that the encoding and the font should match. If T1
+% does not look nice, try deleting the line with the fontenc.
+
+\def\screenshotsize{0.70}
+\def\screenshotsizeB{0.50}
+\def\maintitle{Operációs rendszerek 1. -- 5. elõadás \\ Konkurens rendszerek}
+\def\shorttitle{OPRE1 -- 5 - Konkurens rendszerek}
+\def\longdate{}
+\def\shortdate{}
+
+
+\usepackage{graphicx}
+\usepackage{amsfonts}
+
+\only<beamer>{
+	%Insert frame number to footline
+	%Tested with the next themes: Warsaw, Berlin, Szeged, ...
+	\newcommand*\oldmacro{}%
+	\let\oldmacro\insertshorttitle%
+	\renewcommand*\insertshorttitle{%
+		\oldmacro\hfill%
+		\insertframenumber\,/\,\inserttotalframenumber}
+	%End of frame number to footline
+}
+
+\title[\shorttitle] % (optional, use only with long paper titles)
+{\maintitle}
+
+\author[Soós Sándor] % (optional, use only with lots of authors)
+{Soós Sándor}
+% - Give the names in the same order as the appear in the paper.
+% - Use the \inst{?} command only if the authors have different
+%   affiliation.
+
+\institute[NYME SKK INGA] % (optional, but mostly needed)
+{
+	%  \inst{1}%
+	Nyugat-magyarországi Egyetem\\
+	Simonyi Károly Mûszaki, Faanyagtudományi és Mûvészeti Kar\\
+	Informatikai és Gazdasági Intézet\\
+	\vspace{0.3cm}
+	E-mail: soossandor@inf.nyme.hu
+}
+% - Use the \inst command only if there are several affiliations.
+% - Keep it simple, no one is interested in your street address.
+
+\date[\shortdate] % (optional, should be abbreviation of conference name)
+{\longdate}
+% - Either use conference name or its abbreviation.
+% - Not really informative to the audience, more for people (including
+%   yourself) who are reading the slides online
+
+% Delete this, if you do not want the table of contents to pop up at
+% the beginning of each subsection:
+\AtBeginSubsection[]
+{
+	\begin{frame}<beamer>{Hol tartunk?}
+		\tableofcontents[currentsection,currentsubsection]
+	\end{frame}
+}
+
+
+% If you wish to uncover everything in a step-wise fashion, uncomment
+% the following command: 
+
+%\beamerdefaultoverlayspecification{<+->}
+
+\begin{document}
+	
+	
+	\only<article>{
+		\begin{titlepage}
+			
+			\begin{center}
+				
+				%\vspace*{1cm}
+				\Large
+				\textsc{\maintitle}\\
+				
+				\vspace{5cm}
+				
+				%\LARGE
+				\textsc{Soós Sándor}\\
+				
+				\vspace{3cm}
+				
+				Nyugat-magyarországi Egyetem\\
+				Simonyi Károly Mûszaki, Faanyagtudományi és Mûvészeti Kar\\
+				Informatikai és Gazdasági Intézet\\
+				\vspace{0.3cm}
+				E-mail: soossandor@inf.nyme.hu
+				%\textsc{\today}\\ %%Date - better you write it yourself.
+				\textsc{\longdate}\\
+				
+			\end{center}
+			
+		\end{titlepage}
+	}
+	
+	% If you have a file called "university-logo-filename.xxx", where xxx
+	% is a graphic format that can be processed by latex or pdflatex,
+	% resp., then you can add a logo as follows:
+	
+	\only<beamer>{
+		\pgfdeclareimage[height=1cm]{university-logo}{images/nyme_skk}
+		\logo{\pgfuseimage{university-logo}}
+	}
+	
+	%\only<beamer>{\subject{Practical Computer Science}}
+	% This is only inserted into the PDF information catalog. Can be left
+	% out. 
+	
+	
+	\only<beamer>{
+		\begin{frame}{}
+			\titlepage
+		\end{frame}
+	}
+	
+	\begin{frame}{Tartalomjegyzék}
+		\tableofcontents
+		% You might wish to add the option [pausesections]
+	\end{frame}
+	
+	
+
+
+\section{Ismétlés}
+\label{sec:Ismetles}
+
+\subsection{Emlékeztetõ az elõzõ órákról}
+\label{sec:EmlekeztetoAzElozoOrakrol}
+
+\begin{frame}[allowframebreaks]{A holtpont definíciója,}
+	
+	\begin{itemize}
+		\item Definíció:
+			
+			\begin{itemize}
+				\item Egy rendszer folyamatainak egy $H$ részhalmaza holtponton van, ha a $H$ 
+halmazba tartozó valamennyi folyamat olyan eseményre vár, amelyet csak egy másik, $H$ halmazbeli folyamat tudna elõidézni
+			\end{itemize}
+		
+		\framebreak
+		
+		\item Megjegyzések:
+					
+			\begin{enumerate}
+				\item  A definíció általános, az esemény nemcsak erõforrás felszabadulása lehet, hanem tetszõleges más valami is, amire egy folyamat várakozni tud
+				\item A rendszerben lehetnek futó, élõ folyamatok a holtponton lévõk mellett, tehát nem biztos, hogy a befagyás teljes
+				\item Nem biztos, hogy a holtpont a folyamatok minden együttfutásakor kialakul, sõt az esetek jelentõs részében igen kis valószínûséggel alakul ki. Ezért a jelenség nehezen reprodukálható, alattomos hibaforrás
+				\item A holtpont egyrészt azon funkciók kiesését okozza, amelyeket a befagyott folyamatok látnak el, másrészt csökkenti a rendszer teljesítõképességét, hiszen a befagyott folyamatok által lekötött erõforrásokhoz a többi folyamat sem tud hozzájutni
+			\end{enumerate}
+			
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}[plain]{A holtpont kialakulásának szükséges feltételei}
+	
+	(Mit jelent az, hogy szükséges feltétel?)
+	
+	\begin{enumerate}
+		\item Kölcsönös kizárás: legyenek olyan erõforrások a rendszerben, amelyeket a folyamatok csak kizárólagosan használhatnak
+		\item Foglalva várakozás: legyen olyan folyamat a rendszerben, amelyik lefoglalva tart erõforrásokat, miközben más erõforrásokra várakozik
+		\item Nincs erõszakos erõforrás-elvétel a rendszerben: minden folyamat addig birtokolja az erõforrásokat, amíg õ maga fel nem szabadítja azokat
+		\item Körkörös várakozás: a rendszerben lévõ folyamatok között létezik egy olyan ${P_0, P_1, \dots, P_n}$ sorozat, amelyben $P_0$ várakozik egy $P_1$ által lefoglalva tartott erõforrásra, $P_i$ egy $P_{i+1}$-re, $P_n$ pedig $P_0$-ra várakozik
+	\end{enumerate}
+	
+	Ha ezek közül bármelyik feltétel nem teljesül, akkor nem alakulhat ki holtpont
+	
+\end{frame}
+
+
+
+
+\begin{frame}[allowframebreaks]{Erõforrásfoglalási gráf,}
+
+	A rendszer pillanatnyi állapotának leírására szolgál az erõforrásfoglalási gráf:
+	
+	\begin{figure}[htbp]
+		\centering
+			\only<beamer>{\includegraphics[width=0.60\textwidth]{images/eroforras_foglalasi_graf.jpg}}
+			\only<article>{
+				\includegraphics[width=1.00\textwidth]{images/eroforras_foglalasi_graf.jpg}
+				\caption{Erõforrásfoglalási gráf}
+				}
+		\label{fig:eroforras_foglalasi_graf}
+	\end{figure}
+		
+	\framebreak
+		
+	
+	\begin{itemize}
+		\item Kétféle csomópont:
+			
+			\begin{enumerate}
+				\item Folyamatok: körök, $Pi$
+				\item Erõforrástípusok: téglalapok, $Ri$, a konkrét erõforrásokat pontokkal jelöljük a téglalapon belül
+			\end{enumerate}
+			
+		\item Kétféle él:
+			
+			\begin{enumerate}
+				\item Kérés él: irányított él egy folyamattól egy erõforrástípus felé. Azt jelenti, hogy a folyamat igényelt az erõforrásból, de még nem kapta meg
+				\item Foglalás él: irányított él egy konkrét erõforrástól egy folyamathoz. Azt jelzi, hogy a folyamat lefoglalta az erõforrást és még nem szabadította fel
+			\end{enumerate}
+			
+		\item A rendszer mûködése során a gráf folyamatosan változik, ahogyan kérések, foglalások és felszabadítások történnek
+		
+		\framebreak
+		
+		\item A gráf vizsgálatával következtethetünk a rendszerben elõforduló holtpontokra
+			
+			\begin{itemize}
+				\item Körkörös várakozás esetén (a holtpont 4. szükséges feltétele) a gráfon is irányított kör van
+				\item Ha körben lévõ minden erõforrás egypéldányos, a gráfon kimutatható kör egyben elégséges feltétel is a holtpont fennállására
+				\item Ha valamelyik erõforrás többpéldányos, akkor a kör nem jelent feltétlenül holtpontot
+				\item Vizsgáljuk meg a következõ két gráfot!
+			\end{itemize}
+			
+	\end{itemize}
+		
+	\framebreak
+	
+	\begin{figure}[htbp]
+		\centering
+			\only<beamer>{\includegraphics[width=1.00\textwidth]{images/graf_iranyitott_korrel.jpg}}
+			\only<article>{
+				\includegraphics[width=1.00\textwidth]{images/graf_iranyitott_korrel.jpg}
+				\caption{Irányított kört tartalmazó gráf holtponttal és holtpont nélkül}
+				}
+		\label{fig:graf_iranyitott_korrel}
+	\end{figure}
+		
+	A baloldali rendszerben van holtpont, a jobb oldaliban nincsen
+		
+\end{frame}
+
+\begin{frame}{A holtpontok kezelése}
+	
+	\begin{itemize}
+		\item Mit tehet a rendszer(gazda) a holtponthelyzetek elkerülésére, feloldására?
+		\item Három stratégiát használhatunk:
+			
+			\begin{enumerate}
+				\item Nem csinálunk semmit (strucc algoritmus)
+				\item Holtpont észlelése és megszüntetése (detektálás és feloldás)
+				\item Holtpont kizárása
+					
+					\begin{itemize}
+						\item \textit{megelõzés}: olyan rendszert tervezünk, ami kizárja a holtpont kialakulását, kizárjuk a szükséges feltételek valamelyikét
+						\item \textit{elkerülés}: a rendszer futása közben csak olyan erõforráskéréseket elégítünk ki, amelyek nem vezetnek holtpontveszélyes helyzethez
+					\end{itemize}
+					
+			\end{enumerate}
+			
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}{}  %Ismétlés vége
+	
+\begin{block}{}
+	
+	\begin{center}
+	\vspace{1cm}
+	\LARGE{Ismétlés vége}
+	\vspace{1cm}
+	\end{center}
+	
+\end{block}
+
+\end{frame}
+
+
+
+
+
+
+
+
+\section{Klasszikus konkurens problémák}
+\label{sec:KlasszikusKonkurensProblemak}
+
+\subsection{Miért foglalkozunk ezekkel?}
+\label{sec:MiertFoglalkozunkEzekkel}
+
+\begin{frame}{Miért foglalkozunk ezekkel?}
+	
+	\begin{itemize}
+		\item A gyakorlatban elõforduló feladatok nagy része visszavezethetõ ezekre az alapesetekre
+		\item Ezeket szoktuk felhasználni egy-egy új együttmûködési modell tesztelésére, vizsgálatára, különbözõ eszközök összehasonlítására
+		\item Mi most arra fogjuk használni, hogy megvizsgáljuk a különbözõ nyelvi eszközöket
+	\end{itemize}
+	
+\end{frame}
+
+
+\subsection{Termelõ-fogyasztó probléma}
+\label{sec:TermeloFogyasztoProblema}
+
+\begin{frame}[allowframebreaks]{Termelõ-fogyasztó probléma,}
+	
+	\begin{itemize}
+		\item A rendszerben egy termelõ és egy fogyasztó folyamat fut egymással párhuzamosan
+		\item Mindkét folyamat saját ütemében dolgozik
+		\item A két folyamatot egy köztes tároló (puffer) segítségével kapcsoljuk össze
+		\item A gyakorlatban a puffer véges kapacitású
+		\item A termelõ a saját ütemében elõállít egy-egy ,,terméket'' és elhelyezi a pufferben
+		\item A fogyasztó kiveszi a ,,terméket'' a pufferbõl és felhasználja
+		\item A puffer kiegyenlíti a két folyamat közötti kisebb sebességkülönbségeket
+	\end{itemize}
+	
+	\framebreak
+	
+	\begin{figure}[htbp]
+		\centering
+			\only<beamer>{\includegraphics[width=0.80\textwidth]{images/termelo_fogyaszto_problema.jpg}}
+			\only<article>{
+				\includegraphics[width=1.00\textwidth]{images/termelo_fogyaszto_problema.jpg}
+				\caption{Termelõ-fogyasztó probléma}
+				}
+		\label{fig:termelo_fogyaszto_problema}
+	\end{figure}
+
+\begin{center}
+		\begin{tabular}{ll}
+			\textbf{Termelõ:} & \textbf{Fogyasztó:} \\
+			\\
+			loop & loop \\
+				\ \ <elõállít egy elemet> & \ \ <kivesz egy elemet a Buffer-bõl> \\
+				\ \ <beteszi az elemet a Buffer-be> & \ \ <felhasználja az elemet> \\
+			endloop & endloop \\
+
+		\end{tabular}
+\end{center}
+	
+\framebreak
+
+\begin{itemize}
+	\item Elvárások a rendszerrel kapcsolatban:
+
+		\begin{itemize}
+			\item Ha a puffer üres, akkor a fogyasztó várakozik, amíg nem lesz feldolgoznivaló
+			\item Ha megtelt a puffer, akkor a termelõ várakozik, amíg nem lesz szabad hely a pufferben
+			\item Elvárjuk, hogy a fogyasztó ugyanolyan sorrendben dolgozza fel az elemeket, ahogyan a termelõ elõállította azokat
+		\end{itemize}
+
+	\item Feladat:
+		
+		\begin{itemize}
+			\item Hogyan tudnánk olyan programot írni valamilyen nyelven, valamilyen operációs rendszer alatt, ami megvalósítja ezt a rendszert?
+		\end{itemize}
+		
+\end{itemize}
+
+\end{frame}
+
+
+
+
+\subsection{Írók-olvasók problémája}
+\label{sec:IrokOlvasokProblemaja}
+
+\begin{frame}[allowframebreaks]{Írók-olvasók problémája,}
+	
+	\begin{itemize}
+		\item Valamilyen adatszerkezetet egyszerre többen akarnak írni és olvasni
+		\item A zavartalan mûködés érdekében a következõ rendszabályokat kívánjuk betartatni:
+			
+			\begin{itemize}
+				\item tetszõleges számú olvasó olvashatja az adatokat egyszerre, nem zavarják egymást
+				\item írás és olvasás nem folyhat egyidejûleg, mert az olvasó félkész adatokat olvasna
+				\item több írás nem folyhat egyidejûleg
+				\item tehát új írás csak akkor kezdõdhet, ha sem írás, sem olvasás nem zajlik
+				\item olvasás pedig akkor indulhat, ha nem folyik írás
+				\item célszerû lehet egy további szabály bevezetése, hogy elkerüljük az írások végtelen várakozását: ha van várakozó író, akkor újabb olvasó csak akkor kerülhessen sorra, ha a várakozó írók már végeztek. Ezt a változatot szokás írók-olvasók II. problémának nevezni
+			\end{itemize}
+			
+		\item Hogyan tudnánk olyan programot írni, ami megvalósítja ezt a rendszert?
+	\end{itemize}
+
+\end{frame}
+
+
+
+\subsection{Étkezõ filozófusok problémája}
+\label{sec:EtkezoFilozofusokProblemaja}
+
+\begin{frame}[allowframebreaks]{Étkezõ filozófusok problémája,}
+	
+	\begin{itemize}
+		\item Egy tibeti kolostorban öt filozófus él
+		\item Minden idejüket egy asztal körül töltik
+		\item Mindegyikük elõtt van egy tányér, amibõl sohasem fogy ki a rizs
+		\item A tányérok mellett jobb és baloldalon is egy-egy pálcika található
+		\item A helyzetet a következõ ábra szemlélteti:
+		
+		\framebreak
+		
+	\begin{figure}[htbp]
+		\centering
+			\only<beamer>{\includegraphics[height=0.70\textheight]{images/etkezo_filozofusok_problemaja.jpg}}
+			\only<article>{
+				\includegraphics[width=1.00\textwidth]{images/etkezo_filozofusok_problemaja.jpg}
+				\caption{Étkezõ filozófusok problémája}
+				}
+		\label{fig:etkezo_filozofusok_problemaja}
+	\end{figure}
+		
+	\framebreak
+	
+		\item A filozófusok életüket az asztal melletti gondolkodással töltik
+		\item Amikor megéheznek, étkeznek, majd újra gondolkodóba esnek a következõ megéhezésig
+		\item Az étkezéshez meg kell szerezniük a tányérjuk melletti mindkét pálcikát
+		\item Ezért amíg valamelyik szomszédjuk eszik, addig nem ehetnek
+		\item Aki befejezte az evést, az leteszi a pálcikákat, így azokat a két szomszédjuk használhatja
+		
+		\framebreak
+		
+		\item Hogyan kell viselkedniük a filozófusoknak, hogy\dots
+			
+			\begin{itemize}
+				\item ne vesszenek össze a pálcikákon
+				\item ne kerüljenek olyan megoldhatatlan probléma elé, amitõl nem tudnak többé sem enni, sem gondolkodni (például, ha mindenki felveszi a baloldali pálcikát és nem teszi le, az holtponthelyzet)
+				\item senki ne haljon éhen, azaz aki éhes, az egy idõ után biztosan tudjon enni (megkapja mindkét pálcikáját)
+			\end{itemize}
+			
+		\item Hogyan tudnánk olyan programot írni, ami leírja a filozófusok viselkedését?
+		
+	\end{itemize}
+	
+\end{frame}
+
+
+\subsection{Adatfolyamok illesztése}
+\label{sec:AdatfolyamokIllesztese}
+
+\begin{frame}[allowframebreaks]{Adatfolyamok illesztése,}
+	
+	\begin{itemize}
+		\item A probléma klasszikus megfogalmazása a következõ:
+			
+			\begin{itemize}
+				\item Adott egy kártyaolvasó és egy nyomtató
+				\item A kártyaolvasóba helyezett kártyákon a kinyomtatandó szöveg karakterei vannak, egy kártyán legfeljebb 80 karakter
+				\item A bekezdések végét egy speciális karakter (NL) jelzi
+				\item A szöveget lapokra tördelve, oldalszámozással ellátva, a bekezdéseket új sorban kezdve, soronként 132 karakter írva kell kinyomtatni
+			\end{itemize}
+			
+		\framebreak
+		
+	\begin{figure}[htbp]
+		\centering
+			\only<beamer>{\includegraphics[width=0.90\textwidth]{images/adatfolyamok_illesztese.jpg}}
+			\only<article>{
+				\includegraphics[width=1.00\textwidth]{images/adatfolyamok_illesztese.jpg}
+				\caption{Adatfolyamok illesztése}
+				}
+		\label{fig:adatfolyamok_illesztese}
+	\end{figure}
+		
+		\framebreak
+			
+		\item A problémát általánosíthatjuk napjaink rendszereire is:
+			
+			\begin{itemize}
+				\item különbözõ típusú és szerkezetû adatfolyamok illesztése
+				\item különbözõ kommunikációs protokollokkal mûködõ rendszerek  illesztése
+				\item \dots
+			\end{itemize}
+			
+		\item Hogyan tudnánk olyan programot írni, ami maximális sebességgel tudja mûködtetni a két oldalon lévõ készülékeket?
+			
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}{Konkurens rendszerek programozása}
+	
+	\begin{itemize}
+		\item Ha megpróbálunk programot írni az elõbbi rendszerek megvalósítására, hagyományos operációs rendszerek és programozási nyelvek esetén különbözõ problémákba ütközünk
+		\item Nem tudunk igazi párhuzamosan futó folyamatokat létrehozni
+		\item Enélkül nem tudjuk megvalósítani ezeket a rendszereket
+		\item Milyen eszközökkel kell kiegészítenünk a programozási nyelveket ahhoz, hogy ilyen rendszereket tudjunk programozni?
+	\end{itemize}
+	
+\end{frame}
+
+\section{Nyelvi eszközök  a folyamatok programozására}
+\label{sec:NyelviEszkozokAFolyamatokProgramozasara}
+
+\subsection{Folyamatokból álló rendszerek programozása}
+\label{sec:FolyamatokbolAlloRendszerekProgramozasa}
+
+\begin{frame}{Milyen eszközökre van szükség?}
+	
+	\begin{itemize}
+		\item Ahhoz, hogy ilyen rendszereket tudjunk programozni, különbözõ feladatokat kell tudnunk megoldani:
+			
+			\begin{enumerate}
+				\item Meg kell határoznunk, hogy mely programrészek lesznek önálló folyamatok
+				\item Meg kell oldanunk a folyamatok szinkronizálását
+				\item Lehetõvé kell tennünk a folyamatok közötti kommunikációt
+			\end{enumerate}
+			
+		\item Kétféleképpen oldhatjuk meg ezeket a feladatokat:
+			
+			\begin{enumerate}
+				\item Minden folyamatot külön programban valósítunk meg és a folyamatok kezelését az operációs rendszer rendszerhívásaival valósítjuk meg
+				\item A programozási nyelv nyújt megfelelõ eszközöket 
+			\end{enumerate}
+			
+	\end{itemize}
+	
+\end{frame}
+
+
+\subsection{A párhuzamosság leírása}
+\label{sec:AParhuzamossagLeirasa}
+
+\begin{frame}[allowframebreaks]{Precedenciagráf,}
+	
+	\begin{itemize}
+		\item Bontsuk fel a megoldandó feladatot elemi (tovább már nem bontható) mûveletekre! Ezeket tekintsük elemi utasításoknak, vagy folyamatoknak!
+		\item Ha nem mondunk mást, akkor ezek tetszõleges módon futhatnak egyik a másik után, vagy akár egymással párhuzamosan
+		\item Az utasítások között megkövetelt precedenciáikat egy gráfban ábrázolhatjuk (\textbf{precedenciagráf})
+		\item A gráf csomópontjai az utasítások
+		\item Él vezet az $A$ csúcsból $B$-be, ha $A$ lefutása meg kell, hogy elõzze $B$ futását
+		\item Ekkor az irányított utakon elhelyezkedõ elemi utasítások összefoghatók egyetlen folyamattá
+		\item Bármely két utasítás, amit nem köt össze irányított út, párhuzamosan is végrehajtható, azaz konkurens
+			
+		\framebreak
+		
+	\begin{figure}[htbp]
+		\centering
+			\only<beamer>{\includegraphics[height=0.80\textheight]{images/precedenciagraf.jpg}}
+			\only<article>{
+				\includegraphics[width=1.00\textwidth]{images/precedenciagraf.jpg}
+				\caption{Precedenciagráf}
+				}
+		\label{fig:precedenciagraf}
+	\end{figure}
+		
+		\framebreak
+			
+		\item A precedenciagráf jól kifejezi a folyamatok között fennálló párhuzamosságot
+		\item Ez alkalmas a folyamatok között fennálló kapcsolatok dokumentálására, de csak síkban tudjuk lerajzolni, a programkód viszont lineáris szerkezetû
+		\item Ezért megoldást kell találni arra, hogy a programkódban is le tudjuk írni ezeket
+		\item Elõször az operációs rendszereket író programozóknak volt szükségük erre
+		\item A megoldások kialakulása után a felhasználói alkalmazások programozói is elkezdték használni ezeket a technikákat
+			
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}[allowframebreaks]{Fork-join utasításpár,}
+	
+	\begin{itemize}
+		\item Az elsõ megoldás a precedenciagráf nyelvi megvalósítására
+		\item A \textbf{fork címke} utasítás egy új szálat indít
+		\item A szál kezdõpontja a címke utáni elsõ utasítás lesz
+		\item A jelenlegi szál pedig folytatódik a \textbf{fork} után
+		\item A \textbf{join n} utasítás $n$ darab szálat összevár
+%	\end{itemize}
+	
+	\framebreak
+	
+	\begin{figure}[htbp]
+		\centering
+			\only<beamer>{\includegraphics[width=0.90\textwidth]{images/fork_join.jpg}}
+			\only<article>{
+				\includegraphics[width=1.00\textwidth]{images/fork_join.jpg}
+				\caption{Fork-join utasításpár}
+				}
+		\label{fig:fork_join}
+	\end{figure}
+	
+	\framebreak
+	
+%	\begin{itemize}
+		\item A fork-join utasításpár elõnyei és hátrányai
+			
+			\begin{itemize}
+				\item[$\oplus$] Bármely precedenciagráf leírható vele
+				\item[$\ominus$] Nehezen tekinthetõ át
+				\item[$\ominus$] Nem strukturált megoldás (hasonlít a goto utasításra)
+				\item[$\ominus$] Miért nem szeretjük a goto utasítást?
+			\end{itemize}
+			
+	\end{itemize}
+		
+\end{frame}
+
+\begin{frame}[allowframebreaks]{Parbegin-parend utasításpár,}
+	
+	\begin{itemize}
+		\item Strukturált szerkezetekkel írja le a folyamatok kapcsolatait
+		\item Alternatív elnevezések: \textbf{parbegin-parend}, \textbf{cobegin-coend}
+		\item A blokkban szereplõ utasítások egymással párhuzamosan hajtódnak végre, csak ezután folytatódhat a végrehajtás a \textbf{parend} után
+		\item Értékelés:
+			\begin{itemize}
+				\item[$\oplus$] strukturáltan, jól áttekinthetõen és biztonságosan írja le a folyamatok közötti összefüggéseket
+				\item[$\ominus$] nem lehet minden precedenciagráfot leírni, szükség van plusz szinkronizációs mûveletekre
+			\end{itemize}
+	\end{itemize}
+
+	\framebreak
+	
+	\begin{figure}[htbp]
+		\centering
+			\only<beamer>{\includegraphics[width=0.90\textwidth]{images/cobegin_coend.jpg}}
+			\only<article>{
+				\includegraphics[width=1.00\textwidth]{images/cobegin_coend.jpg}
+				\caption{Cobegin-coend utasításpár}
+				}
+		\label{fig:cobegin_coend}
+	\end{figure}
+	
+\end{frame}
+
+\begin{frame}{Folyamatdeklaráció}
+	
+	\begin{itemize}
+		\item A ténylegesen megvalósított konkurens programozási nyelvekben (CPascal, MODULA, ADA) folyamatdeklaráció (process declaration) utasításokkal definiáljuk a folyamatokat
+		\item Ez olyan, mint az eljárásdeklaráció a hagyományos nyelvekben
+	\end{itemize}
+	
+\end{frame}
+
+\section{Befejezés}
+\label{sec:Befejezes}
+
+\subsection{Emlékeztetõ kérdések}
+\label{sec:EmlekeztetoKerdesek}
+
+\begin{frame}{Emlékeztetõ kérdések}
+	
+	\begin{enumerate}
+		\item Mutasd be a Termelõ-fogyasztó problémát!
+		\item Mutasd be az Írók-olvasók problémáját!
+		\item Mutasd be az Étkezõ filozófusok problémát!
+		\item Mutasd be az Adatfolyamok illesztésének problémáját!
+		\item Mutasd be a precedenciagráf fogalmát! Mire használjuk?
+		\item Hogyan lehet leírni a precedenciagráfot különbözõ nyelvi eszközökkel?
+		\item Hasonlítsd össze a fork-join és a parbegin-parend utasításpárokat!
+	\end{enumerate}
+	
+\end{frame}
+
+\begin{frame}{Befejezés}
+
+\begin{block}{}
+	
+	\begin{center}
+	\vspace{1cm}
+	\LARGE{Köszönöm a figyelmet!}
+	\vspace{1cm}
+	\end{center}
+	
+\end{block}
+
+\end{frame}
+
+\end{document}
+
